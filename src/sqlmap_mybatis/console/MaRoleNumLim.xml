@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Converted at: Sat Nov 10 23:25:45 CST 2012-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MaRoleNumLim">
+	
+	<!--
+		Sorry, I can`t migrate	com.ufgov.gk.common.console.model.MaRoleNumLim
+		See console output for further details 
+	-->
+	
+	<resultMap id="maRoleNumLimResult" type="maRoleNumLim">
+		<result property="roleId" column="role_id"/>
+		<result property="funcId" column="func_id"/>
+		<result property="compoId" column="compo_id"/>
+		<result property="ctrlField" column="ctrl_field"/>
+		<result property="code" column="code"/>
+	</resultMap>
+	
+	<select id="getMaRoleNumLim" parameterType="map" resultMap="maRoleNumLimResult">
+		select * from ma_role_num_lim where role_id=#{role_id}
+		<if test="compo_id != null">AND
+			compo_id=#{compo_id}
+		</if>
+		<if test="func_id != null">AND
+			func_id=#{func_id}
+		</if>
+		<if test="ctrl_field != null">AND
+			ctrl_field=#{ctrl_field}
+		</if>
+		order by role_id, compo_id, func_id, ctrl_field, code
+	</select>
+
+	<delete id="deleteMaRoleNumLim" parameterType="map">
+		delete from ma_role_num_lim where role_id=#{role_id}
+		<if test="compo_id != null">AND
+			compo_id=#{compo_id}
+		</if>
+		<if test="func_id != null">AND
+			func_id=#{func_id}
+		</if>
+		<if test="ctrl_field != null">AND
+			ctrl_field=#{ctrl_field}
+		</if>
+	</delete>
+
+	<insert id="insertMaRoleNumLim" parameterType="maRoleNumLim">
+		insert into ma_role_num_lim (
+			role_id,func_id,compo_id,ctrl_field,code)
+		values (
+			#{roleId,jdbcType=VARCHAR}, #{funcId,jdbcType=VARCHAR}, #{compoId,jdbcType=VARCHAR}, #{ctrlField,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}
+		)
+	</insert>
+	
+</mapper>

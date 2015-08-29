@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Converted at: Sat Nov 10 23:20:40 CST 2012-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AsCompoFunc">
+	<resultMap id="asCompoFuncResult" type="com.ufgov.gk.common.system.model.AsCompoFunc">
+		<result property="compoId" column="COMPO_ID" jdbcType="VARCHAR"/>
+		<result property="compoName" column="COMPO_NAME" jdbcType="VARCHAR"/>
+		<result property="funcId" column="FUNC_ID" jdbcType="VARCHAR"/>
+		<result property="funcName" column="FUNC_NAME" jdbcType="VARCHAR"/>
+		<result property="isWrLog" column="IS_WR_LOG" jdbcType="VARCHAR"/>
+		<result property="isNeverUse" column="IS_NEVER_USE" jdbcType="VARCHAR"/>
+	</resultMap>
+
+	<select id="getAsCompoFunc" parameterType="map" resultMap="asCompoFuncResult">
+		SELECT A.*, (SELECT RES_NA FROM AS_LANG_TRANS B WHERE A.COMPO_ID = B.RES_ID) COMPO_NAME,
+   		(SELECT FUNC_DESC FROM AS_FUNC C WHERE A.FUNC_ID = C.FUNC_ID) FUNC_NAME
+		FROM AS_COMPO_FUNC A where 
+  		A.COMPO_ID = #{compoId,jdbcType=VARCHAR}
+  		ORDER BY A.COMPO_ID ASC
+	</select>
+
+	<update id="updateAsCompoFunc" parameterType="com.ufgov.gk.common.system.model.AsCompoFunc">
+		UPDATE AS_COMPO_FUNC
+	    SET  IS_WR_LOG = #{isWrLog,jdbcType=VARCHAR},
+	         IS_NEVER_USE = #{isNeverUse,jdbcType=VARCHAR}
+		WHERE COMPO_ID = #{compoId,jdbcType=VARCHAR}
+				AND FUNC_ID =#{funcId,jdbcType=VARCHAR}
+	</update>
+</mapper>

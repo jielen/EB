@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Converted at: Sat Nov 10 23:25:05 CST 2012-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AsEmp">
+
+	<!--
+		Sorry, I can`t migrate	asEmp
+		See console output for further details 
+	-->
+	<!--
+		Sorry, I can`t migrate	elementCondition
+		See console output for further details 
+	-->
+
+	<resultMap id="asEmpResult" type="asEmp">
+		<result property="empCode" column="EMP_CODE"/>
+		<result property="empName" column="EMP_NAME"/>
+		<result property="userId" column="USER_ID"/>
+	</resultMap>
+	<resultMap id="asEmpFullResult" type="asEmp" extends="asEmpResult">
+		<result property="sex" column="SEX"/>
+		<result property="titleTech" column="TITLE_TECH"/>
+		<result property="phone" column="PHONE"/>
+		<result property="email" column="EMAIL"/>
+		<result property="identityCard" column="IDENTITY_CARD"/>
+		<result property="rtXuin" column="RTXUIN"/>
+		<result property="empIndex" column="EMP_INDEX"/>
+		<result property="isLogin" column="IS_LOGIN"/>
+		<result property="caSerial" column="CA_SERIAL"/>
+		<result property="coName" column="CO_NAME"/>
+		<result property="transDate" column="TRANS_DATE"/>
+		<result property="userBirthDate" column="USER_BIRTH"/>
+	</resultMap>
+  <resultMap id="asEmpResultAddColum" type="asEmp" extends="asEmpResult">
+		<result property="isLogin" column="IS_LOGIN"/>
+	</resultMap>
+
+	<select id="getOrgAsEmp" parameterType="elementCondition" resultMap="asEmpResult">
+		select * from (
+		select distinct (t.emp_code) emp_code, e.emp_name emp_name, e.user_id
+		  from as_emp_position t
+		 inner join as_emp e on t.emp_code = e.emp_code
+		 where t.co_code = #{coCode}
+		   and t.org_code = #{orgCode}
+		   and t.nd = #{nd}
+		   and e.user_id != #{executor}
+		) t order by t.emp_code
+	</select>
+	
+	<select id="getProviderInfoByCA" parameterType="elementCondition" resultMap="asEmpResult">
+	     select t.emp_code, t.emp_name, t.user_id from as_emp t
+	     <!--
+		Sorry, I can`t migrate	where
+		See console output for further details 
+	-->
+	</select>
+  <select id="getProviderInfoByUserId" parameterType="elementCondition" resultMap="asEmpResultAddColum">
+	     select t.emp_code, t.emp_name, t.user_id,t.IS_LOGIN from as_emp t
+	     <!--
+		Sorry, I can`t migrate	where
+		See console output for further details 
+	-->
+	</select>
+  <select id="getAsEmp" parameterType="asEmp" resultMap="asEmpFullResult">
+	     select t.* from as_emp t
+	     <!--
+		Sorry, I can`t migrate	where
+		See console output for further details 
+	-->
+	</select>
+	<insert id="insertAsEmp" parameterType="com.ufgov.gk.common.console.model.AsEmp">
+    insert into AS_EMP (EMP_CODE, EMP_NAME,  IS_LOGIN, USER_ID)
+    values (#{empCode,jdbcType=VARCHAR}, #{empName,jdbcType=VARCHAR},#isLogin:CHAR#, #{userId,jdbcType=VARCHAR})
+  </insert>
+</mapper>

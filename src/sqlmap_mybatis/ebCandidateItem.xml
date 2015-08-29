@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Converted at: Sat Nov 10 23:21:19 CST 2012-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ebCandidateItem">
+
+	<!--
+		Sorry, I can`t migrate	ebCandidateItem
+		See console output for further details 
+	-->
+	
+	<resultMap id="ebCandidateItemResult" type="com.ufgov.gk.common.eb.model.EbCandidateItem">
+		<result property="candidateId" column="CANDIDATE_ID" jdbcType="VARCHAR"/>
+		<result property="categoryId" column="CATEGORY_ID" jdbcType="VARCHAR"/>
+		<result property="name" column="NAME" jdbcType="VARCHAR"/>
+		<result property="weight" column="WEIGHT" jdbcType="VARCHAR"/>
+		<result property="itemSize" column="ITEM_SIZE" jdbcType="VARCHAR"/>
+		<result property="tbUrl" column="TB_URL" jdbcType="VARCHAR"/>
+		<result property="tbRemark" column="TB_PRICE" jdbcType="VARCHAR"/>
+		<result property="" column="TB_REMARK" jdbcType="VARCHAR"/>
+		<result property="" column="EB_URL" jdbcType="VARCHAR"/>
+		<result property="" column="EB_PRICE" jdbcType="VARCHAR"/>
+		<result property="" column="EB_SOLD_QUALITY" jdbcType="VARCHAR"/>
+		<result property="" column="EB_REMARK" jdbcType="VARCHAR"/>
+		<result property="" column="TB_SHIPPING_FEE" jdbcType="VARCHAR"/>
+		<result property="" column="REMARK" jdbcType="VARCHAR"/>
+		<result property="" column="ITEM_ID" jdbcType="VARCHAR"/>
+		<result property="" column="STATUS" jdbcType="VARCHAR"/>
+		<result property="" column="CURRENCY_ID" jdbcType="VARCHAR"/>
+		<result property="" column="TB_FULL_NAME" jdbcType="VARCHAR"/>
+		<result property="" column="EB_FULL_NAME" jdbcType="VARCHAR"/>
+		<result property="" column="EB_SHIPPING_FEE" jdbcType="VARCHAR"/>
+		<result property="" column="ALI_URL" jdbcType="VARCHAR"/>
+		<result property="" column="ALI_PRICE" jdbcType="VARCHAR"/>
+		<result property="" column="ALI_REMARK" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	<select id="getEbAppServer" resultMap="ebayAccountResult">
+		select * from EB_APP_SERVER 
+	</select>
+	<select id="getEbAppServerById" resultMap="string">
+		select * from EB_APP_SERVER 
+		where SITE_ID= #{siteId,jdbcType=VARCHAR}
+	</select>
+</mapper>

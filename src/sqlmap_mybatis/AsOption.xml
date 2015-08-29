@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Converted at: Sat Nov 10 23:20:55 CST 2012-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AsOption">
+    <!--
+		Sorry, I can`t migrate	AsOption
+		See console output for further details 
+	-->
+	<select id="getAsOption" parameterType="string" resultType="AsOption">
+		SELECT OPT_ID as optId,CO_CODE as coCode,COMPO_ID as compoId,TRANS_TYPE as transType,
+		OPT_VAL as optVal,IS_SYST_OPT as isSystOpt
+  	    FROM AS_OPTION Where OPT_ID=#{optId,jdbcType=VARCHAR} and co_code='*' and compo_id='*' and trans_type='*'
+	</select>
+	
+	<select id="getAsOptionByCoCode" parameterType="map" resultType="AsOption">
+		SELECT OPT_ID as optId,CO_CODE as coCode,COMPO_ID as compoId,TRANS_TYPE as transType,
+		OPT_VAL as optVal,IS_SYST_OPT as isSystOpt
+  	    FROM AS_OPTION Where OPT_ID=#{optId,jdbcType=VARCHAR} and co_code=#{coCode,jdbcType=VARCHAR} and compo_id='*' and trans_type='*'
+	</select>
+    <select id="getAsOptionById" parameterType="string" resultType="AsOption">
+		SELECT OPT_ID as optId,CO_CODE as coCode,COMPO_ID as compoId,TRANS_TYPE as transType,
+		OPT_VAL as optVal,IS_SYST_OPT as isSystOpt
+  	    FROM AS_OPTION Where OPT_ID=#{optId,jdbcType=VARCHAR}
+	</select>
+
+	<update id="updateOptionVal" parameterType="com.ufgov.gk.common.system.model.AsOption">
+		update as_option set OPT_VAL=#{optVal,jdbcType=VARCHAR} where OPT_ID=#{optId,jdbcType=VARCHAR} and co_code='*' and compo_id='*' and trans_type='*'
+	</update>
+	
+	<select id="getFieldLevelOptions" parameterType="map" resultType="hashmap">
+		SELECT MIN((SELECT opt_val FROM as_option WHERE as_option.opt_id='OPT_CP_FUND_LEVEL'        	AND as_option.co_code='*' AND compo_id='*' AND trans_type='*')) FUND_CODE,
+		       MIN((SELECT opt_val FROM as_option WHERE as_option.opt_id='OPT_CP_PAYTYPE_LEVEL'     	AND as_option.co_code='*' AND compo_id='*' AND trans_type='*')) PAYTYPE_CODE,
+		       MIN((SELECT opt_val FROM as_option WHERE as_option.opt_id='OPT_CP_ORIGIN_LEVEL'      	AND as_option.co_code='*' AND compo_id='*' AND trans_type='*')) ORIGIN_CODE,
+		       MIN((SELECT opt_val FROM as_option WHERE as_option.opt_id='OPT_CP_PAYOUT_LEVEL'      	AND as_option.co_code='*' AND compo_id='*' AND trans_type='*')) PAYOUT_CODE,
+		       MIN((SELECT opt_val FROM as_option WHERE as_option.opt_id='OPT_CP_MANAGE_LEVEL'      	AND as_option.co_code='*' AND compo_id='*' AND trans_type='*')) MANAGE_CODE,
+		       MIN((SELECT opt_val FROM as_option WHERE as_option.opt_id='OPT_CP_BALMODE_LEVEL'     	AND as_option.co_code='*' AND compo_id='*' AND trans_type='*')) BAL_MODE_CODE,
+		       MIN((SELECT opt_val FROM as_option WHERE as_option.opt_id='OPT_CP_SENDDOCTYPE_LEVEL' 	AND as_option.co_code='*' AND compo_id='*' AND trans_type='*')) SENDDOC_TYPE_CODE,
+		       MIN((SELECT opt_val FROM as_option WHERE as_option.opt_id='OPT_CP_SENDDOC_LEVEL'     	AND as_option.co_code='*' AND compo_id='*' AND trans_type='*')) SENDDOC_CODE,
+		       MIN((SELECT opt_val FROM as_option WHERE as_option.opt_id='OPT_CP_INCEPTDOC_LEVEL'   	AND as_option.co_code='*' AND compo_id='*' AND trans_type='*')) INCEPTDOC_CODE,
+		       MIN((SELECT opt_val FROM as_option WHERE as_option.opt_id='OPT_CP_OUTLAYTYPE_LEVEL'  	AND as_option.co_code='*' AND compo_id='*' AND trans_type='*')) OUTLAY_CODE,
+		       MIN((SELECT opt_val FROM as_option WHERE as_option.opt_id='OPT_BACC_LEVEL'           	AND as_option.co_code='*' AND compo_id='*' AND trans_type='*')) B_ACC_CODE,
+		       MIN((SELECT opt_val FROM as_option WHERE as_option.opt_id='OPT_CP_EXTEND01_LEVEL'    	AND as_option.co_code='*' AND compo_id='*' AND trans_type='*')) D_ATTR1,
+		       MIN((SELECT opt_val FROM as_option WHERE as_option.opt_id='OPT_CP_EXTEND02_LEVEL'    	AND as_option.co_code='*' AND compo_id='*' AND trans_type='*')) D_ATTR2,
+		       MIN((SELECT opt_val FROM as_option WHERE as_option.opt_id='OPT_CP_EXTEND03_LEVEL'    	AND as_option.co_code='*' AND compo_id='*' AND trans_type='*')) D_ATTR3,
+		       MIN((SELECT opt_val FROM as_option WHERE as_option.opt_id='OPT_CP_EXTEND04_LEVEL'    	AND as_option.co_code='*' AND compo_id='*' AND trans_type='*')) D_ATTR4,
+		       MIN((SELECT opt_val FROM as_option WHERE as_option.opt_id='OPT_CP_EXTEND05_LEVEL'    	AND as_option.co_code='*' AND compo_id='*' AND trans_type='*')) D_ATTR5,
+		       MIN((SELECT opt_val FROM as_option WHERE as_option.opt_id='OPT_ORG_LEVEL'            	AND as_option.co_code='*' AND compo_id='*' AND trans_type='*')) ORG_CODE,
+		       MIN((SELECT opt_val FROM as_option WHERE as_option.opt_id='OPT_CO_CODE'              	AND as_option.co_code='*' AND compo_id='*' AND trans_type='*')) CO_CODE,
+		       MIN((SELECT opt_val FROM as_option WHERE as_option.opt_id='OPT_PD_PROJECT_LEVEL'     	AND as_option.co_code='*' AND compo_id='*' AND trans_type='*')) PROJECT_CODE,
+		       MIN((SELECT opt_val FROM as_option WHERE as_option.opt_id='OPT_CP_OPERATION_TYPE_LEVEL'	AND as_option.co_code='*' AND compo_id='*' AND trans_type='*')) OPERATION_TYPE_CODE 
+		 FROM as_option	
+	</select>
+	
+	<select id="getAllAsOptionById" parameterType="string" resultType="list">
+		SELECT * FROM as_option	Where OPT_ID=#{optId,jdbcType=VARCHAR}
+	</select>
+	
+</mapper>

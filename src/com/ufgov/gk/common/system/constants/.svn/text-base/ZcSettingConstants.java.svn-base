@@ -1,0 +1,571 @@
+package com.ufgov.gk.common.system.constants;
+
+public class ZcSettingConstants {
+
+  public final static String TAB_ID_ZC_EB_ENTRUST = "ZcEbEntrust_entrustTab";
+
+  public final static String CONDITION_ID_ZC_EB_ENTRUST = "ZcEbEntrust_entrust";
+
+  public final static String TAB_ID_ZC_EB_EVAL_RECORD = "ZcEbEval_recordTab";
+
+  public final static String CONDITION_ID_ZC_EB_EVAL_RECORD = "ZcEbEvalRecord_record";
+
+  public final static String TAB_ID_ZC_EB_EVAL_REPORT = "ZcEbEval_reportTab";
+
+  public final static String CONDITION_ID_ZC_EB_EVAL_REPORT = "ZcEbEvalReport_report";
+
+  public final static String TAB_ID_ZC_EB_COMPL_EVAL_PACK = "ZcEbComplEval_packTab";
+
+  public final static String CONDITION_ID_ZC_EB_COMPL_EVAL_PACK = "ZcEbComplEvalPack_pack";
+
+  public final static String TAB_ID_ZC_EB_EVAL_PACK = "ZcEbEval_packTab";
+
+  public final static String CONDITION_ID_ZC_EB_EVAL_PACK = "ZcEbEvalPack_pack";
+
+  public final static String TAB_ID_ZC_EB_EVAL_RESULT = "ZcEbEvalResult_packTab";
+
+  public final static String CONDITION_ID_ZC_EB_EVAL_RESULT = "ZcEbEvalResult_pack";
+
+  public final static String TAB_ID_ZC_EB_GUARANTEE = "ZcEbGuarantee_guaranteeTab";
+
+  public final static String CONDITION_ID_ZC_EB_GUARANTEE = "ZcEbGuarantee_guarantee";
+
+  public final static String CONDITION_ID_ZC_EB_SIGNUP = "ZcEbSignup_signup";
+
+  public final static String TAB_ID_ZC_EB_SIGNUP = "ZcEbSignup_signupTab";
+
+  public final static String TAB_ID_ZC_EB_PROTOCOL = "ZcEbProtocol_ProtocolTab";
+
+  public final static String TAB_ID_ZC_EB_REQUIREMENT = "ZcEbRequirement_RequirementTab";
+
+  public final static String CONDITION_ID_ZC_EB_PROTOCOL = "ZcEbProtocol_Protocol";
+
+  public final static String CONDITION_ID_ZC_EB_OPTIONS = "ZcEbProtocol_Options";
+
+  public final static String TAB_ID_ZC_EB_OPTIONS = "ZcEbProtocol_OptionsTab";
+
+  public final static String CONDITION_ID_ZC_EB_REQUIREMENT = "ZcEbRequirement_Requirement";
+
+  public final static String TAB_ID_ZC_P_PRO_MAKE = "ZcPProMake_entrustTab";
+
+  public final static String TAB_ID_ZC_P_PRO_MAKE_JJ = "ZcPProMakeJJ_entrustTab";
+
+  public final static String CONDITION_ID_ZC_P_PRO_MAKE = "ZcPProMake_entrust";
+
+  public final static String TAB_ID_ZC_EB_XIEYI = "ZcEbXieYi_xieYiTab";
+
+  public final static String CONDITION_ID_ZC_EB_XIEYI = "ZcEbXieYi_xieYi";
+
+  public static final String TAB_ID_ZC_XMCG_HT = "ZcXmcgHt_entrustTab";
+
+  public static final String CONDITION_ID_ZC_XMCG_HT = "ZcXmcgHt_entrust";
+
+  public final static String TAB_ID_ZC_EB_SUPPLIER = "ZcEbSupplier_supplierTab";
+
+  public final static String CONDITION_ID_ZC_EB_SUPPLIER = "ZcEbSupplier_supplier";
+
+  public final static String TAB_ID_ZC_EB_OPENBID = "ZcEbOpenBid_openBidTab";
+
+  public final static String TAB_ID_ZC_EB_CHIEFHALL = "ZcEbChiefHall_tab";
+
+  public final static String TAB_ID_ZC_EB_ECBJ = "ZcEbEcbj_ecbjTab";
+
+  public final static String CONDITION_ID_ZC_EB_OPENBID = "ZcEbOpenBid_openBid";
+
+  public final static String CONDITION_ID_ZC_EB_CHIEF_HALL = "ZcEbChiefHall_chiefHall";
+
+  public final static String CONDITION_ID_ZC_EB_ECBJ = "ZcEbEcbj_ecbj";
+
+  public final static String CONDITION_ID_ZC_EB_BID = "ZcEbBid_bid";
+
+  public final static String TAB_ID_ZC_EB_BID = "ZcEbBid_bidTab";
+
+  public final static String CONDITION_ID_ZC_EB_OPENBIDTEAM = "ZcEbOpenBidTeam_openBidTeam";
+
+  public final static String TAB_ID_ZC_EB_OPENBIDTEAM = "ZcEbOpenBidTeam_openBidTeamTab";
+
+  public final static String CONDITION_ID_ZC_EB_EVALBIDTEAM = "ZcEbEvalBidTeam_evalBidTeam";
+
+  public final static String TAB_ID_ZC_EB_EVALBIDTEAM = "ZcEbEvalBidTeam_evalBidTeamTab";
+
+  public final static String CONDITION_ID_ZC_EB_ZB = "ZcEbZb_zb";
+
+  public final static String TAB_ID_ZC_EB_ZB = "ZcEbZb_zbTab";
+
+  public final static String CONDITION_ID_ZC_EB_PROMAKE_OUTER = "ZcEb_promakeouter";
+
+  public final static String TAB_ID_ZC_EB_PROMAKE_OUTER = "ZcEb_promakeouterTab";
+
+  public final static String TAB_ID_ZC_EB_BULLETIN = "ZcEbBulletin_bulletinTab";
+
+  public final static String TAB_ID_ZC_EB_BULLETIN_DIR = "ZcEbBulletinDir_bulletinTab";
+
+  public final static String CONDITION_ID_ZC_EB_BULLETIN = "ZcEbBulletin_bulletinCon";
+
+  public final static String TAB_ID_ZC_EB_BULLETIN_WORD_MOLD = "ZcEbBulletinWordMold_moldTab";
+
+  public final static String CONDITION_ID_ZC_EB_BULLETIN_WORD_MOLD = "ZcEbBulletinWordMold_moldCon";
+
+  public final static String TAB_ID_ZC_EB_NOTICE = "ZcEbNotice_moldTab";
+
+  public final static String CONDITION_ID_ZC_EB_NOTICE = "ZcEbNotice_moldCon";
+
+  public final static String CONDITION_ID_ZC_EB_PLAN = "ZcEbPlan_plan";
+
+  public final static String TAB_ID_ZC_EB_PLAN = "ZcEbPlan_planTab";
+
+  //--编辑页面状态--
+  public final static String PAGE_STATUS_NEW = "NEW_PAGE";//新增页面
+
+  public final static String PAGE_STATUS_EDIT = "EDIT_PAGE";//编辑页面
+
+  public final static String PAGE_STATUS_BROWSE = "BROWSE_PAGE";//浏览页面
+
+  public final static String PAGE_STATUS_ALL = "ALL_PAGE_STATUS";//所有的页面状态
+
+  public final static String BILL_STATUS_ALL = "ALL_BILL_STATUS";//所有的单据状态
+
+  //--外部部件弹出新建对话框类型
+  public final static int FOREIGNENTITY_BASE = 0;//通用类型，没有新建模式
+
+  public final static int FOREIGNENTITY_NEW_SUPPLIER = 1;//供应商
+
+  public final static int FOREIGNENTITY_NEW_PROMAKE = 2;//新增采购计划单，用于区县抽取专家时填充项目
+
+  //--公告模版参数类型
+  public final static String MOLD_PARAM_TYPE_FIELD = "FIELD";//显示字段内容
+
+  public final static String MOLD_PARAM_TYPE_TABLE_FIELD = "TABLE_FIELD";//显示字段内容
+
+  public final static String MOLD_PARAM_TYPE_TABLE = "TABLE_STRING";//显示表格内容
+
+  public final static String MOLD_PARAM_TYPE_LONG_STRING = "LONG_STRING";//字段内容联合成个长串显示
+
+  public final static String TAB_ID_ZC_EB_EVAL_EXPERT_COMMENT = "ZcEbEvalExpertComment_commentTab";
+
+  public final static String CONDITION_ID_ZC_EB_EVAL_EXPERT_COMMENT = "ZcEbEvalComment_comment";
+
+  //项目监管
+  public final static String TAB_ID_ZC_EB_PROJECT_SUPERVISION = "ZcEbProjectSupervisionTab";
+
+  public final static String CONDITION_ID_ZC_EB_PROJECT_SUPERVISION = "ZcEbProjectSupervisionCondition";
+
+  //追加资金模块
+  public final static String CONDITION_ID_ZC_P_SUPPLEMENT_PRO_MAKE = "ZcSuppleMentPProMake_entrust";
+
+  public final static String TAB_ID_ZC_P_MAKE_SUPPLEMENT = "ZcSupplementPProMake_SupplemenTab";
+
+  //验收结算
+  public final static String TAB_ID_ZC_P_PRO_BAL = "ZcPProBal_balTab";
+
+  //
+  public final static String TAB_ID_ZC_S_SUP_BAL = "ZcPSupBal_balTab";
+
+  //招标进度
+  public final static String CONDITION_ID_ZC_P_PRO_BAL = "ZcPProBal_bal";
+
+  //抽取专家
+  public final static String TAB_ID_ZC_EM_EXPERT_SELECTION = "ZcEmExpertSelectionTab";
+
+  public final static String CONDITION_ID_ZC_EM_EXPERT_SELECTION = "ZcEmExpertSelectionCondition";
+
+  //专家类别
+  public final static String TAB_ID_ZC_EM_EXPERT_TYPE = "ZcEmExpertTypeTab";
+
+  public final static String CONDITION_ID_ZC_EM_EXPERT_TYPE = "ZcEmExpertTypeCondition";
+
+  //专家评价
+  public final static String TAB_ID_ZC_EM_EXPERT_EVALUATE = "ZcEmExpertEvaluateTab";
+
+  public final static String CONDITION_ID_ZC_EM_EXPERT_EVALUATE = "ZcEmExpertEvaluateCondition";
+
+  //询价管理
+  public final static String TAB_ID_ZC_EB_RFQ = "ZcEbRfq_Tab";
+
+  public final static String CONDITION_ID_ZC_EB_RFQ = "ZcEbRfqCondition";
+
+  //抽取单状态
+  public final static String BILL_STATUS_NEW = "0";
+
+  public final static String BILL_STATUS_SELECTING = "SELECTING";
+
+  public final static String BILL_STATUS_SELECT_PAUSE = "SELECT_PAUSE";
+
+  public final static String BILL_STATUS_SELECT_FINISH = "SELECT_FINISH";
+
+  public final static String BILL_STATUS_SELECT_FAIL = "SELECT_FAIL";
+
+  public final static String BILL_STATUS_AUDIT_FINISH = "exec";
+
+  //批办单
+  public final static String TAB_ID_ZC_EB_AUDIT_SHEET = "ZcEbAuditSheetTab";
+
+  //商品折扣信息管理
+  public final static String TAB_ID_ZC_MER_DISCOUNT_INFO = "ZcMerDiscountInfoTab";
+
+  public final static String CONDITION_ID_ZC_EB_AUDIT_SHEET = "ZcEbAuditSheetCondition";
+
+  /*
+   * 公开招标
+   */
+  public final static String PITEM_OPIWAY_GKZB = "1";
+
+  /*
+   * 竞争性谈判
+   */
+  public final static String PITEM_OPIWAY_JZXTP = "3";
+
+  /*
+   * 邀请招标
+   */
+  public final static String PITEM_OPIWAY_YQZB = "2";
+
+  /*
+   * 询价
+   */
+  public final static String PITEM_OPIWAY_XJ = "5";
+
+  /*
+   * 单一来源
+   */
+  public final static String PITEM_OPIWAY_DYLY = "4";
+
+  /*
+   * 其他
+   */
+  public final static String PITEM_OPIWAY_QT = "6";
+
+  /**
+   * 协议供货二次竞价
+   */
+  public final static String PITEM_OPIWAY_XYGH = "7";
+
+  /*
+   * 通用sequence
+   */
+  public static final String SEQUENCE_ZC_BASE = "ZcEbUtil.getNextSeqVal";
+
+  /*
+   * 分包id的sequence
+   */
+  public static final String SEQUENCE_PACK = "ZcEbUtil.getPackNextSeqVal";
+
+  /*
+   * 分包需求id的sequence
+   */
+  public static final String SEQUENCE_PACK_REQ = "ZcEbUtil.getPackReqNextSeqVal";
+
+  /*
+   * 询价idsequence
+   */
+  public static final String SEQUENCE_XUN_JIA_REQ = "ZcEbUtil.getXunJiaNextSeqVal";
+
+  /*
+   * 招标中资质条件表id的sequence
+   */
+  public static final String SEQUENCE_BID_CON_REQ = "ZcEbUtil.getBidConNextSeqVal";
+
+  /*
+   * 采购申请明细idsequence
+   */
+  public static final String SEQUENCE_PRO_MITEM = "ZcEbUtil.getMitemNextSeqVal";
+
+  /*
+   * 给项目分包添加专家时获得专家As_emp表中的EMP_CODE;
+   */
+  public static final String SEQUENCE_AS_EMP = "ZcEbUtil.getAsEmpNextSeqVal";
+
+  /*
+  * 分包等待开标
+  */
+  public static final String PACK_STATUS_DRAFT = "0";
+
+  /*
+   * 分包已开标
+   */
+  public static final String PACK_STATUS_OPEN_BID = "1";
+
+  /*
+   * 分包符合性评标
+   */
+  public static final String PACK_STATUS_FU_HE_EVAL = "2";
+
+  /*
+   * 分包技术性评标
+   */
+  public static final String PACK_STATUS_TECH_EVAL = "3";
+
+  /*
+   * 分包评标结束
+   */
+  public static final String PACK_STATUS_EVAL_COMPLETE = "4";
+
+  /*
+   * 分包废标
+   */
+  public static final String PACK_STATUS_CANCEL = "5";
+
+  /*
+   * 分包暂停
+   */
+  public static final String PACK_STATUS_SUSPENDED = "6";
+
+  /*
+   * 分包延期
+   */
+  public static final String PACK_STATUS_DELAY = "7";
+
+  /*
+   * 项目草稿
+   */
+  public static final String PROJECT_STATUS_DRAFT = "0";
+
+  /*
+   * 项目生效
+   */
+  public static final String PROJECT_STATUS_EXEC = "exec";
+
+  /*
+   * 项目取消
+   */
+  public static final String PROJECT_STATUS_CANCEL = "cancel";
+
+  /*
+   * 项目完成
+   */
+  public static final String PROJECT_STATUS_FINISH = "finish";
+
+  /*
+   * 项目暂停
+   */
+  public static final String PROJECT_STATUS_SUSPENDED = "suspended";
+
+  //经费管理
+  public final static String TAB_ID_ZC_EM_FUND_REPORT = "ZcEmFundReport_Tab";
+
+  public final static String CONDITION_ID_ZC_EM_FUND_REOPOT = "ZcEmFundReportCondition";
+
+  public final static String TAB_ID_ZC_EM_FUND_BILL = "ZcEmFundBill_Tab";
+
+  public final static String CONDITION_ID_ZC_EM_FUND_BILL = "ZcEmFundBillCondition";
+
+  public final static String TAB_ID_ZC_EB_XUNJIA_BAOJIA = "ZcEbXunJiaBaoJia_baoJiaTab";
+
+  public final static String CONDITION_ID_ZC_EB_XUNJIA_BAOJIA = "ZcEbXunJiaBaoJia_baoJia";
+
+  /*
+   * 询价报价  草稿
+   */
+  public final static String XUNJIA_BAOJIA_STATUS_DRAFT = "0";
+
+  /*
+   * ZC_VS_RFQ_OPEN_BID_STATUS
+   * 询价等待开标
+   */
+  public final static String XUNJIA_STATUS_OPEN_BID_WAIT = "0";
+
+  /*
+   * 询价开标成功
+   */
+  public final static String XUNJIA_STATUS_OPEN_BID_SUCCESS = "1";
+
+  /*
+   * 询价延期开标
+   */
+  public final static String XUNJIA_STATUS_OPEN_BID_DELAY = "2";
+
+  /*
+   * 询价报价 已报价
+   */
+  public final static String XUNJIA_BAOJIA_STATUS_YI_BAOJIA = "1";
+
+  /*
+   * 询价报价 中标
+   */
+  public final static String XUNJIA_BAOJIA_STATUS_ZHONGBIAO = "2";
+
+  /*
+   * 询价报价  未中标
+   */
+  public final static String XUNJIA_BAOJIA_STATUS_WEIZHONGBIAO = "3";
+
+  /*
+   * 询价报价 废标
+   */
+  public final static String XUNJIA_BAOJIA_STATUS_CRAP = "4";
+
+  /*
+   * 询价报价 延期
+   */
+  public final static String XUNJIA_BAOJIA_STATUS_DELAY = "6";
+
+  public static final String SEQUENCE_XUNJIA_BAOJIA = "ZcEbUtil.getXunJiaBaoJiaNextSeqVal";
+
+  public static final String SEQUENCE_XUNJIA_BAOJIA_DETAIL = "ZcEbUtil.getXunJiaBaoJiaDetailNextSeqVal";
+
+  public static final String SEQUENCE_JINGIA_BAOJIA_DETAIL = "ZcEbUtil.getJingJiaBaoJiaDetailNextSeqVal";
+
+  /**
+   * 验收
+   */
+  public final static String TAB_ID_ZC_EB_YANSHOU = "ZcEbYanShou_Tab";
+
+  public final static String CONDITION_ID_TAB_ID_ZC_EB_YANSHOU = "ZcZcEbYanShouCondition";
+
+  public final static String TAB_ID_ZC_EB_FORMULA = "ZcEbFormula_Tab";
+
+  public final static String CONDITION_ID_TAB_ID_ZC_EB_FORMULA = "ZcZcEbFormulaCondition";
+
+  /**
+   * 供应商资格初审
+   */
+  public final static String TAB_ID_ZC_EB_PRE_AUDIT = "ZcEbPreAudit_Tab";
+
+  public final static String CONDITION_ID_TAB_ID_PRE_AUDIT = "ZcZcEbPreAuditCondition";
+
+  //供货合同
+  public final static String TAB_ID_ZC_EB_GONGHUO_HT = "ZcEbGongHuo_Tab";
+
+  public final static String CONDITION_ID_TAB_ID_ZC_EB_GONGHUO_HT = "ZcEbGongHuoCondition";
+
+  /**
+   * 供应商状态
+   */
+  public final static String SUPPLIER_INIT_STATUS = "0";
+
+  public static final String SUPPLIER_START_TO_USE_STATUS = "2";
+
+  public static final String SUPPLIER_FREEZE_STATUS = "3";
+
+  public static final String MODLE_CODE = "ZC";
+
+  /**
+   * 供应商默认密码
+   */
+  public static final String SUPPLIER_INIT_PASSWORD = "zfcg!@#$%^&";
+
+  /**
+   * 专家状态
+   */
+  public final static String EM_EXP_STATUS = "0";
+
+  /**
+   * 符合性评审结果
+   */
+  public final static String COMPLIANCE_EVAL_PASS = "1";
+
+  public static final String COMPLIANCE_EVAL_NOPASS = "2";
+
+  //非强制下询价进行开标的最少供应商数量
+  public final static int XUNJIA_SUPPLIER_LEAST_NUM = 3;
+
+  //强制下询价进行开标的最少供应商数量
+  public final static int XUNJIA_SUPPLIER_LEAST_NUM_FORCE = 1;
+
+  //项目采购的代码
+  public static final String PROJECT_BUY_CODE = "Z01";
+
+  public static final String DATA_TYPE_ID_TB_EXP = "ZC_EB_TB_EXP";
+
+  public static final String DATA_TYPE_NAME_TB_EXP = "投标文件导出";
+
+  public static final String DATA_TYPE_ID_SIGNUP_EXP_IMP = "ZC_EB_SIGNUP";
+
+  public static final String DATA_TYPE_NAME_SIGNUP_EXP_IMP = "供应商项目报名";
+
+  public static final String SIMPLE_DATE_FORMAT_FULL = "yyyy-MM-dd HH:mm:ss";
+
+  public static final String SIMPLE_DATE_FORMAT_DATE_ONLY = "yyyy-MM-dd";
+
+  //竞争性谈判报价单的状态
+  public static final String FIELD_TRANS_ZC_BJ_NO_OPEN = "0";
+
+  public static final String FIELD_TRANS_ZC_BJ_OPEN = "1";
+
+  public final static String FIELD_TRANS_ZC_BJ_FAIL = "2";
+
+  public final static String TAB_ID_ZC_EB_ECBJ_OPENBID = "ZcEbEcbjOpenBid_Tab";
+
+  public final static String CONDITION_ID_ZC_EB_ECBJ_OPENBID = "ZcEbEcbjOpenCondition";
+
+  public static final String ZC_EB_PUT_TYPE_XUNJIA = "5";
+
+  //继续下一岗审核
+  public static final int IS_GOON_AUDIT_YES = 1;
+
+  public static final int IS_GOON_AUDIT_NO = 0;
+
+  public static final int SEND_TO_XIE_BAN = 2;//送协办人流向控制
+
+  public static final int SEND_TO_FINAL = 3;//办结流向控制
+
+  //招标文件审核
+  public final static String TAB_ID_ZC_EB_ZB_FILE = "ZcEbZbFile_Tab";
+
+  public final static String CONDITION_ID_TAB_ID_ZC_EB_ZB_FILE = "ZcEbZbFileCondition";
+
+  //采购协议
+  public static final String TAB_ID_ZC_P_PRO_MAKE_XY = "ZcPProMakeXY_entrustTab";
+
+  public static final String MEG_FILE_SUFFIX = ".meg";
+
+  //标书解密失败
+  public static final String FILE_DECODED_FAILTURE = "-1";
+
+  //标书尚未解密
+  public static final String FILE_DECODED_NOYET = "0";
+
+  //标书解密成功
+  public static final String FILE_DECODED_SUCCESS = "1";
+
+  //归档
+  public final static String TAB_ID_ZC_EB_GUIDANG = "ZcEbGuiDang_Tab";
+
+  public final static String CONDITION_ID_ZC_EB_GUIDANG = "ZcZcEbGuiDangCondition";
+
+  public final static String FIELD_TRANS_ZC_MAKE_XY_JJ_TITEL = "ZC_FIELD_ZC_MAKE_XY_JJ_TITEL";
+
+  //诚信管理
+  public final static String TAB_SUPPLIER_INTEGRITY_MANAGE = "SupplierIntegrityManage_Tab";
+
+  public final static String CONTITION_SUPPLIER_INTEGRITY_MANAGE = "SupplierIntegrityManageCondition";
+
+  //采购单位评审
+  public final static String TAB_ID_ZC_EB_PUR_DEPART_REVIEW = "ZcEbPurchaseDepartReview_Tab";
+
+  public final static String TITLE_ID_ZC_EB_PUR_DEPART_REVIEW = "ZCEbPurchaseDepartReview_title";
+
+  public final static String CONDITION_ID_ZC_EB_PUR_DEPART_REVIEW = "ZcEbPurchaseDepartReview_condition";
+
+  public final static String Bill_TYPE_ZC_EB_PUR_DEPART_REVIEW = "ZcEbPuDepartReview_bill_type";
+
+  // 质疑
+  public final static String TAB_ID_ZC_EB_QUESTION = "ZC_EB_QUESTIONDTS_Tab";
+
+  // 投诉
+  public final static String TAB_ID_ZC_EB_COMPLAIN = "ZC_EB_COMPLAIN_Tab";
+
+  //大会致辞
+  public final static String TAB_ID_ZC_EB_PRESENT_TAB = "ZC_EB_PRESENT_TAB";
+
+  public final static String CONDTION_ID_ZC_EB_PRESENT = "ZC_EB_PRESENT_CONTITION";
+
+  public final static String CONDITION_ID_ZC_EB_QUESTION = "ZcZcEbQuestionCondition";
+
+  public final static String CONDITION_ID_ZC_EB_COMPLAIN = "ZcZcEbComplainCondition";
+
+  public final static String AUDIT_SHEET_XIBAN_TABLE_EDIT_CTR = "zc_Xb_User_Name";
+
+  public final static String AUDIT_DISAGREE_DEFULT_MESSAGE = "不同意";
+
+  /**
+   * 
+   * 评标方法的类型
+   */
+
+  public static final String FORMULA_FACTOR_ZONGHE_TYPE = "1";//综合评分法
+
+  public static final String FORMULA_FACTOR_LOWERPRICE_TYPE = "2";//最低报价价法
+
+  public static final String FORMULA_FACTOR_XINGJIABI_TYPE = "3";//性价比法
+}

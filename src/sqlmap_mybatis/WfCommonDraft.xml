@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Converted at: Sat Nov 10 23:21:14 CST 2012-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="WfCommonDraft">
+
+	<!--
+		Sorry, I can`t migrate	asWfDraft
+		See console output for further details 
+	-->
+  <resultMap id="aswfDraftResult" type="asWfDraft">
+    <result property="wfDraftId" column="WF_DRAFT_ID" jdbcType="DECIMAL"/>
+    <result property="wfDraftName" column="WF_DRAFT_NAME" jdbcType="VARCHAR"/>
+    <result property="compoId" column="COMPO_ID" jdbcType="VARCHAR"/>
+    <result property="masterTabId" column="MASTER_TAB_ID" jdbcType="VARCHAR"/>
+    <result property="userId" column="USER_ID" jdbcType="VARCHAR"/>
+    <result property="userName" column="USER_NAME" jdbcType="VARCHAR"/>
+    <result property="saveTime" column="SAVE_TIME" jdbcType="VARCHAR"/>
+    <result property="status" column="STATUS" jdbcType="VARCHAR"/>
+  </resultMap>
+
+	<select id="getSeqInstance" parameterType="String" resultType="String">
+		select ${seqName}.nextval from dual
+	</select>
+
+	<insert id="insertAsWfDraft" parameterType="asWfDraft">
+		INSERT INTO AS_WF_DRAFT(WF_DRAFT_ID, WF_DRAFT_NAME, COMPO_ID,
+		MASTER_TAB_ID, USER_ID) VALUES
+		(#wfDraftId:VARCHA#,#{wfDraftName,jdbcType=VARCHAR},#compoId:VARCHA#,#masterTabId:VARCHA#,#userId:VARCHA#)
+	</insert>
+
+	<select id="getTitleField" parameterType="String" resultType="String">
+		SELECT TITLE_FIELD FROM AS_COMPO WHERE COMPO_ID =#{compoId}
+	</select>
+	
+	<delete id="deleteAsWfDraft" parameterType="map">
+		delete from AS_WF_DRAFT where WF_DRAFT_ID=#{wfDraftId,jdbcType=NUMERIC} and
+		COMPO_ID=#{compoId,jdbcType=VARCHAR}
+	</delete>
+	
+	<select id="getWfInstanceIdStatus" parameterType="long" resultType="String">
+		SELECT A.STATUS FROM WF_INSTANCE A WHERE A.INSTANCE_ID=#wfInstanceId:DECIMAL#
+	</select>
+	
+	<select id="getOrgPosiId" parameterType="map" resultType="String">
+			SELECT org_posi_id FROM as_org_position where co_code=#{CO_CODE} 
+			and org_code=#{ORG_CODE} and posi_code=#{POSI_CODE} and nd=#{ND}
+	</select>
+	
+	<select id="getWfTemplateNode" parameterType="String" resultType="int">
+			SELECT count(*) count FROM wf_node WHERE type=2 AND template_id=
+			(SELECT default_wf_template FROM as_compo WHERE compo_id=#{compoId})
+	</select>
+	
+	<update id="updateCurrentTaskSendStatus" parameterType="map">
+			update wf_current_task set gk_send_status =#{status,jdbcType=VARCHAR}
+			WHERE instance_id=#{instanceId} 
+	</update>
+	
+</mapper>

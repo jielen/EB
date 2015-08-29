@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Converted at: Sat Nov 10 23:20:51 CST 2012-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AsLog">
+	<!--
+		Sorry, I can`t migrate	asLog
+		See console output for further details 
+	-->
+
+	<insert id="saveLog" parameterType="asLog">
+		insert into as_log(GUID, OPER_TIME, USER_ID, FUNC_ID, COMPO_ID,
+		OPER_DESC, COMPO_NAME, IF_SUC, USER_NAME, USER_IP, PK_DESC)
+		values(#{guid,jdbcType=VARCHAR}, #{operTime,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{funcId,jdbcType=VARCHAR}, #{compoId,jdbcType=VARCHAR},
+		#{operDesc,jdbcType=VARCHAR}, #{compoName,jdbcType=VARCHAR}, #{ifSuc,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{userIP,jdbcType=VARCHAR},
+		#{pkDesc,jdbcType=VARCHAR})
+	</insert>
+
+</mapper>

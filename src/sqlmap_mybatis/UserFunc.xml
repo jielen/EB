@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Converted at: Sat Nov 10 23:21:11 CST 2012-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="UserFunc">
+	<!--
+		Sorry, I can`t migrate	userFuncDto
+		See console output for further details 
+	-->
+
+	<resultMap id="userFuncResult" type="com.ufgov.gk.common.system.model.UserFunc">
+		<result property="userId" column="user_id"/>
+		<result property="compoId" column="compo_id"/>
+		<result property="funcId" column="func_id"/>
+	</resultMap>
+
+	<select id="getUserGrantFunc" parameterType="userFuncDto" resultMap="userFuncResult">
+		SELECT * FROM ( select user_id,compo_id,func_id from
+		v_as_emp_func where USER_ID=#{userId,jdbcType=VARCHAR} and
+		COMPO_ID=#{compoId,jdbcType=VARCHAR}
+		<if test="coCode != null">AND
+			co_code = #{coCode,jdbcType=VARCHAR}
+		</if>
+		<if test="orgCode != null">AND
+			org_code = #{orgCode,jdbcType=VARCHAR}
+		</if>
+		<if test="posiCode != null">AND
+			posi_code = #{posiCode,jdbcType=VARCHAR}
+		</if>
+		union all select user_id,compo_id,func_id from v_as_usr_func
+		where USER_ID=#{userId,jdbcType=VARCHAR} and COMPO_ID=#{compoId,jdbcType=VARCHAR}
+		union all select '${userId}' user_id ,'${compoId}'
+		compo_id,func_id from as_func t where t.is_grant_to_all='Y' or
+		t.is_grant_to_all='y' ) grantFunc WHERE NOT EXISTS (select *
+		from AS_COMPO_FUNC TT WHERE TT.COMPO_ID=grantFunc.compo_id AND
+		TT.FUNC_ID =grantFunc.FUNC_ID AND (TT.IS_NEVER_USE='Y' or
+		TT.IS_NEVER_USE='y'))
+	</select>
+
+	<select id="getUsedCompoFunc" parameterType="string" resultType="string">
+		select func_id from AS_COMPO_FUNC TT WHERE
+		TT.COMPO_ID=#{compoId,jdbcType=VARCHAR} AND (TT.IS_NEVER_USE ='N' or
+		TT.IS_NEVER_USE='n' or TT.IS_NEVER_USE is null)
+	</select>
+
+
+</mapper>

@@ -1,0 +1,777 @@
+package com.ufgov.gk.common.system.constants;
+
+public interface ZcElementConstants {
+
+  // ----------------------------系统选项ID----------------------------------//
+  // 采购中心单位代码
+  public final static String OPT_ZC_CGZX_CODE = "ZC_CGZX_CODE";
+
+  // 采购中心单位名称
+  public final static String OPT_ZC_CGZX_NAME = "ZC_CGZX_NAME";
+
+  // 采购中心科员职位代码
+  public final static String OPT_ZC_CGZX_KY_POSI_CODE = "ZC_CGZX_KY_POSI_CODE";
+
+  // 采购中心科长职位代码
+  public final static String OPT_ZC_CGZX_KZ_POSI_CODE = "ZC_CGZX_KZ_POSI_CODE";
+
+  // 采购中心副主任职位代码
+  public final static String OPT_ZC_CGZX_FZR_POSI_CODE = "ZC_CGZX_FZR_POSI_CODE";
+
+  // 采购中心副主任内部机构代码
+  public final static String OPT_ZC_CGZX_FRZ_ORG_CODE = "ZC_CGZX_FRZ_ORG_CODE";
+
+  //采购中心主任职位代码
+  public final static String OPT_AUDIT_CGZX_ZR = "AUDIT_CGZX_ZR";
+
+  // ----------------------------翻译字段----------------------------------//
+  public final static String FIELD_TRANS_ZC_SHEET_ID = "ZC_FIELD_ZC_SHEET_ID";
+
+  public final static String FIELD_TRANS_ZC_MAKE_CODE = "ZC_FIELD_ZC_MAKE_CODE";
+
+  public final static String FIELD_TRANS_ZC_MAKE_NAME = "ZC_FIELD_ZC_MAKE_NAME";
+
+  public final static String FIELD_TRANS_ZC_CO_NAME = "ZC_FIELD_ZC_CO_NAME";
+
+  public final static String FIELD_TRANS_ZC_WEITO_DATE = "ZC_FIELD_ZC_WEITO_DATE";
+
+  public final static String FIELD_TRANS_ZC_IS_NOTARY = "ZC_FIELD_ZC_IS_NOTARY";
+
+  public final static String FIELD_TRANS_ZC_IS_IMP = "ZC_FIELD_ZC_IS_IMP";
+
+  public final static String FIELD_TRANS_ZC_IMP_FILE = "ZC_FIELD_ZC_IMP_FILE";
+
+  public final static String FIELD_TRANS_ZC_IMP_FILE_BLOBID = "ZC_FIELD_ZC_IMP_FILE_BLOBID";
+
+  public final static String FIELD_TRANS_UNTREAD_REASON = "ZC_FIELD_UNTREAD_REASON";
+
+  public final static String FIELD_TRANS_ENTRUST_DATE = "ZC_FIELD_ENTRUST_DATE";
+
+  public final static String FIELD_TRANS_LEADER_ID = "ZC_FIELD_LEADER_ID";
+
+  public final static String FIELD_TRANS_LEADER_TEL = "ZC_FIELD_LEADER_TEL";
+
+  public final static String FIELD_TRANS_SND = "ZC_FIELD_SND";
+
+  public final static String FIELD_TRANS_SN = "ZC_FIELD_SN";
+
+  public final static String FIELD_TRANS_ZC_YEAR = "ZC_FIELD_ZC_YEAR";
+
+  public final static String FIELD_TRANS_ZC_CATALOGUE_CODE = "ZC_FIELD_ZC_CATALOGUE_CODE";
+
+  public final static String FIELD_TRANS_ZC_CATALOGUE_NAME = "ZC_FIELD_ZC_CATALOGUE_NAME";
+
+  public final static String FIELD_TRANS_ZC_PITEM_NAME = "ZC_FIELD_ZC_PITEM_NAME";
+
+  public final static String FIELD_TRANS_ZC_PITEM_ARR_DATE = "ZC_FIELD_ZC_PITEM_ARR_DATE";
+
+  public final static String FIELD_TRANS_ZC_BASE_GGYQ = "ZC_FIELD_ZC_BASE_GGYQ";
+
+  public final static String FIELD_TRANS_ZC_PITEM_ATTACH = "ZC_FIELD_ZC_PITEM_ATTACH";
+
+  public final static String FIELD_TRANS_ZC_PITEM_ATTACH_BLOBID = "ZC_FIELD_ZC_PITEM_ATTACH_BLOBID";
+
+  public final static String FIELD_TRANS_ZC_CAIG_NUM = "ZC_FIELD_ZC_CAIG_NUM";
+
+  public final static String FIELD_TRANS_ZC_ITEM_SUM = "ZC_FIELD_ZC_ITEM_SUM";
+
+  public final static String FIELD_TRANS_ZC_MER_PRICE = "ZC_MER_PRICE";
+
+  public final static String FIELD_TRANS_BUDGET_BI_MONEY = "BUDGET_BI_MONEY";
+
+  public final static String FIELD_TRANS_BUDGET_OTHER_MONEY = "BUDGET_OTHER_MONEY";
+
+  public final static String FIELD_TRANS_BULLETIN_STATUS = "ZC_FIELD_BULLETIN_STATUS";
+
+  public final static String FIELD_TRANS_INPUT_DATE = "ZC_FIELD_INPUT_DATE";
+
+  public final static String FIELD_TRANS_BULLETIN_ID = "ZC_FIELD_BULLETIN_ID";
+
+  public final static String FIELD_TRANS_NOTICE_STATUS = "ZC_FIELD_NOTICE_STATUS";
+
+  public final static String FIELD_TRANS_NOTICE_ID = "ZC_FIELD_NOTICE_ID";
+
+  public final static String FIELD_TRANS_NOTICE_NAME = "ZC_FIELD_NOTICE_NAME";
+
+  // ----------------------------供应商报名----------------------------------//
+  public final static String FIELD_TRANS_ZC_PROJ_NAME = "ZC_PROJ_NAME";
+
+  public final static String FIELD_TRANS_ZC_PROJ_CODE = "ZC_PROJ_CODE";
+
+  public final static String FIELD_TRANS_ZC_PROVIDER_NAME = "ZC_PROVIDER_NAME";
+
+  public final static String FIELD_TRANS_ZC_SINGNUP_DATE = "ZC_SINGNUP_DATE";
+
+  public final static String FIELD_TRANS_ZC_SIGNUP_MANNER = "ZC_SIGNUP_MANNER";
+
+  public final static String FIELD_TRANS_ZC_STATUS = "ZC_STATUS";
+
+  public final static String FIELD_TRANS_ZC_CO_CODE = "ZC_FIELD_ZC_CO_CODE";
+
+  public final static String FIELD_TRANS_ZC_CO_CODE_ND = "ZC_FIELD_ZC_CO_CODE_ND";
+
+  public final static String FIELD_TRANS_ZC_MAKE_LINKMAN = "ZC_FIELD_ZC_MAKE_LINKMAN";
+
+  public final static String FIELD_TRANS_ZC_ATTR2 = "ZC_FIELD_ZC_ATTR2";// 采购单位负责人
+
+  public final static String FIELD_TRANS_ZC_MAKE_TITEL = "ZC_FIELD_ZC_MAKE_TITEL";
+
+  public final static String FIELD_TRANS_ZC_MAKE_XM_TITEL = "ZC_FIELD_ZC_MAKE_XM_TITEL";
+
+  public final static String FIELD_TRANS_ZC_MAKE_XY_TITEL = "ZC_FIELD_ZC_MAKE_XY_TITEL";
+
+  public final static String FIELD_TRANS_ZC_MAKE_XY_JJ_TITEL = "ZC_FIELD_ZC_MAKE_XY_JJ_TITEL";
+
+  public final static String FIELD_TRANS_ZC_MAKE_TEL = "ZC_FIELD_ZC_MAKE_TEL";
+
+  public final static String FIELD_TRANS_STATUS = "ZC_FIELD_STATUS";
+
+  public final static String FIELD_TRANS_ZC_INPUT_CODE = "ZC_FIELD_ZC_INPUT_CODE";
+
+  public final static String FIELD_TRANS_ZC_INPUT_DATE = "ZC_FIELD_ZC_INPUT_DATE";
+
+  public final static String FIELD_TRANS_ZC_INPUT_NAME = "ZC_FIELD_ZC_INPUT_NAME";
+
+  public final static String FIELD_TRANS_ZC_MONEY_BI_SUM = "ZC_FIELD_ZC_MONEY_BI_SUM";
+
+  public final static String FIELD_TRANS_REMARK = "ZC_FIELD_REMARK";
+
+  public final static String FIELD_TRANS_PROCESS_INST_ID = "ZC_FIELD_PROCESS_INST_ID";
+
+  public final static String FIELD_TRANS_ZC_AGEY_CODE = "ZC_FIELD_ZC_AGEY_CODE";
+
+  public final static String FIELD_TRANS_ZC_PIFU_CGFS = "ZC_FIELD_ZC_PIFU_CGFS";
+
+  public final static String FIELD_TRANS_ZC_CGFS = "ZC_FIELD_ZC_CGFS";
+
+  public final static String FIELD_TRANS_ZC_AGEY_NAME = "ZC_FIELD_ZC_AGEY_NAME";
+
+  public final static String FIELD_TRANS_ZC_DIYU_DAIMA = "ZC_FIELD_ZC_DIYU_DAIMA";
+
+  public final static String FIELD_TRANS_ZC_EB_PACK_CODE = "ZC_EB_FIELD_PACK_CODE";
+
+  public final static String FIELD_TRANS_ZC_EB_RECORD_CODE = "ZC_EB_FIELD_RECORD_CODE";
+
+  public final static String FIELD_TRANS_ZC_EB_EVAL_TIMES = "ZC_EB_FIELD_EVAL_TIMES";
+
+  public final static String FIELD_TRANS_ZC_EB_EVAL_START_TIME = "ZC_EB_FIELD_EVAL_START_TIME";
+
+  public final static String FIELD_TRANS_ZC_EB_EVAL_END_TIME = "ZC_EB_FIELD_EVAL_END_TIME";
+
+  public final static String FIELD_TRANS_ZC_EB_STATUS = "ZC_EB_FIELD_STATUS";
+
+  public final static String FIELD_TRANS_ZC_EB_CREATE_DATE = "ZC_EB_FIELD_CREATE_DATE";
+
+  public final static String FIELD_TRANS_ZC_EB_PROJ_CODE = "ZC_EB_FIELD_PROJ_CODE";
+
+  public final static String FIELD_TRANS_ZC_EB_PROJ_NAME = "ZC_EB_FIELD_PROJ_NAME";
+
+  public final static String FIELD_TRANS_PROJ_CODE = "ZC_EB_PROJ_CODE";
+
+  public final static String FIELD_TRANS_PROJ_NAME = "ZC_EB_PROJ_NAME";
+
+  public final static String FIELD_TRANS_PACK_CODE = "ZC_EB_PACK_CODE";
+
+  public final static String FIELD_TRANS_PACK_NAME = "ZC_EB_PACK_NAME";
+
+  public final static String FIELD_TRANS_PROVIDER_CODE = "ZC_EB_PROVIDER_CODE";
+
+  public final static String FIELD_TRANS_PROVIDER_NAME = "ZC_EB_PROVIDER_NAME";
+
+  public final static String FIELD_TRANS_LINKMAN = "ZC_EB_LINKMAN";
+
+  public final static String FIELD_TRANS_PHONE = "ZC_EB_PHONE";
+
+  public final static String FIELD_TRANS_DEPOSITE = "ZC_EB_DEPOSITE";
+
+  public final static String FIELD_TRANS_GUARANTEE_DES = "ZC_EB_GUARANTEE_DESC";
+
+  public final static String FIELD_TRANS_IS_PAY_GUARANTEE = "ZC_EB_IS_PAY_GUARANTEE";
+
+  public final static String TITLE_TRANS_ZC_EB_PROTOCOL = "ZC_TITLE_EB_PROTOCOL";
+
+  public static final String FIELD_TRANS_PROT_CODE = "ZC_FIELD_PROT_CODE";
+
+  public static final String FIELD_TRANS_TRANS_SN = "ZC_FIELD_SN";
+
+  public static final String FIELD_TRANS_TRANS_SHEET_STATUS = "ZC_FIELD_SHEET_STATUS";
+
+  public static final String FIELD_TRANS_TRANS_SUPERINTENDENT_ORG = "ZC_FIELD_SUPERINTENDENT_ORG";
+
+  public static final String FIELD_TRANS_TRANS_IS_ZRSH = "ZC_FIELD_IS_ZRSH";
+
+  public static final String FIELD_TRANS_TRANS_SUPERINTENDENT_ID = "ZC_FIELD_SUPERINTENDENT_ID";
+
+  public static final String FIELD_TRANS_TRANS_FZR_USER_ID = "ZC_FIELD_FZR_USER_ID";
+
+  public static final String FIELD_TRANS_TRANS_SUPERINTENDENT_NAME = "ZC_FIELD_SUPERINTENDENT_NAME";
+
+  public static final String FIELD_TRANS_TRANS_FZR_NAME = "ZC_FIELD_FZR_NAME";
+
+  public static final String FIELD_TRANS_TRANS_ZR_NAME = "ZC_FIELD_ZR_NAME";
+
+  public static final String FIELD_TRANS_NAME = "ZC_FIELD_NAME";
+
+  public static final String FIELD_TRANS_SIGN_DATE = "ZC_FIELD_SIGN_DATE";
+
+  public static final String FIELD_PROCESS_INST_ID = "ZC_FIELD_PROCESS_INST_ID";
+
+  // ----------------------------评审指标集------------------------------------//
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_CODE = "ZC_EB_FIELD_FORMULA_CODE";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_COMPLIANCERATE = "ZC_EB_FIELD_FORMULA_COMPLIANCERATE";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_COMPLIANCEDESC = "ZC_EB_FIELD_FORMULA_COMPLIANCEDESC";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_FACTORFULLSCORE = "ZC_EB_FIELD_FORMULA_FACTORFULLSCORE";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_CREATOR = "ZC_EB_FIELD_FORMULA_CREATOR";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_CREATEDATE = "ZC_EB_FIELD_FORMULA_CREATEDATE";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_PROJECTNAME = "ZC_EB_FIELD_FORMULA_PROJECTNAME";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_MARKMODE = "ZC_EB_FIELD_FORMULA_MARKMODE";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_EVALUETYPE = "ZC_EB_FIELD_FORMULA_EVALUETYPE";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_FACTORTYPE = "ZC_EB_FIELD_FORMULA_FACTORTYPE";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_ISCONFORM = "ZC_EB_FIELD_FORMULA_ISCONFORM";
+
+  // --------------------------------评审指标集项------------------------------//
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_ITEM_CODE = "ZC_EB_FIELD_FORMULA_ITEM_CODE";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_ITEM_INDX = "ZC_EB_FIELD_FORMULA_ITEM_INDX";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_ITEM_NAME = "ZC_EB_FIELD_FORMULA_ITEM_NAME";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_ITEM_STANDARD_SCORE = "ZC_EB_FIELD_FORMULA_ITEM__STANDARD_SCORE";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_ITEM_BASE_SCORE = "ZC_EB_FIELD_FORMULA_ITEM_BASE_SCORE";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_ITEM_COMPLIANCE_VALUE = "ZC_EB_FIELD_FORMULA_ITEM_COMPLIANCE_VALUE";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_ITEM_LEAST_SCORE = "ZC_EB_FIELD_FORMULA_ITEM_LEAST_SCORE";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_ITEM_WEIGHT = "ZC_EB_FIELD_FORMULA_ITEM_WEIGHT";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_ITEM_IS_PRICE_TARGET = "ZC_EB_FIELD_FORMULA_ITEM_IS_PRICE_TARGET";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_ITEM_IS_REQUIRED_FIELD = "ZC_EB_FIELD_FORMULA_ITEM_IS_REQUIRED_FIELD";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_ITEM_IS_ADD_SCORE = "ZC_EB_FIELD_FORMULA_ITEM_IS_ADD_SCORE";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_ITEM_MAXADD_SCORE = "ZC_EB_FIELD_FORMULA_ITEM_MAXADD_SCORE";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_ITEM_MAXMINUS_SCORE = "ZC_EB_FIELD_FORMULA_ITEM_MAXMINUS_SCORE";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_ITEM_CREATOR = "ZC_EB_FIELD_FORMULA_ITEM_CREATOR";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_ITEM_CREATE_TIME = "ZC_EB_FIELD_FORMULA_ITEM_CREATE_TIME";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_ITEM_ITEM_TYPE = "ZC_EB_FIELD_FORMULA_ITEM_ITEM_TYPE";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_ITEM_PARENTITEM_CODE = "ZC_EB_FIELD_FORMULA_ITEM_PARENTITEM_CODE";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_ITEM_PARENTITEM_NAME = "ZC_EB_FIELD_FORMULA_ITEM_PARENTITEM_NAME";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_ITEM_FORMULA_CODE = "ZC_EB_FIELD_FORMULA_ITEM_FORMULA_CODE";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_ITEM_DESCRIPTION = "ZC_EB_FIELD_FORMULA_ITEM_DESCRIPTION";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_ITEM_FORMULA = "ZC_EB_FIELD_FORMULA_ITEM_FORMULA";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_ITEM_REMARK = "ZC_EB_FIELD_FORMULA_ITEM_REMARK";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_ITEM_SCORE_SUM_WAY = "ZC_EB_FIELD_FORMULA_ITEM_SCORE_SUM_WAY";
+
+  // --------------------------------评审指标通用参数-----------------------------//
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_PARAM_CODE = "ZC_EB_FIELD_FORMULA_PARAM_CODE";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_PARAM_NAME = "ZC_EB_FIELD_FORMULA_PARAM_NAME";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_PARAM_VALUE = "ZC_EB_FIELD_FORMULA_PARAM_VALUE";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_PARAM_DEFAULTVALUE = "ZC_EB_FIELD_FORMULA_PARAM_DEFAULTVALUE";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_PARAM_ISMANSET = "ZC_EB_FIELD_FORMULA_PARAM_ISMANSET";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_PARAM_DESCRIPTION = "ZC_EB_FIELD_FORMULA_PARAM_DESCRIPTION";
+
+  public final static String FIELD_TRANS_ZC_EB_FORMULA_PARAM_FORMULACODE = "ZC_EB_FIELD_FORMULA_PARAM_FORMULACODE";
+
+  public static final String FIELD_TRANS_ZC_HT_CODE = "ZC_HT_CODE";
+
+  public static final String FIELD_TRANS_ZC_HT_NAME = "ZC_HT_NAME";
+
+  public static final String FIELD_TRANS_ZC_HT_NUM = "ZC_HT_NUM";
+
+  public static final String FIELD_TRANS_ZC_BIDCONTRACT_NAME = "ZC_BIDCONTRACT_NAME";
+
+  public static final String FIELD_TRANS_ZC_SU_NAME = "ZC_SU_NAME";
+
+  public static final String FIELD_TRANS_ZC_HT_STATUS = "ZC_HT_STATUS";
+
+  public static final String FIELD_TRANS_ZC_BID_CODE = "ZC_BID_CODE";
+
+  public static final String FIELD_TRANS_REQ_DATE = "ZC_FIELD_REQ_DATE";
+
+  public final static String TITLE_TRANS_ZC_EB_REQUIREMENT = "ZC_TITLE_EB_REQUIREMENT";
+
+  public final static String FIELD_TRANS_EB_ZC_MAKE_CODE = "ZC_MAKE_CODE";
+
+  // public final static String FIELD_TRANS_ZC_MAKE_NAME = "ZC_MAKE_NAME";
+  // public final static String FIELD_TRANS_ZC_CO_CODE = "ZC_CO_CODE";
+  // public final static String FIELD_TRANS_ZC_CO_CODE_ND = "ZC_CO_CODE_ND";
+  // public final static String FIELD_TRANS_ZC_MAKE_LINKMAN =
+  // "ZC_MAKE_LINKMAN";
+  // public final static String FIELD_TRANS_ZC_MAKE_TEL = "ZC_MAKE_TEL";
+  public final static String FIELD_TRANS_ZC_MAKE_STATUS = "ZC_MAKE_STATUS";
+
+  // public final static String FIELD_TRANS_ZC_INPUT_CODE = "ZC_INPUT_CODE";
+  // public final static String FIELD_TRANS_ZC_INPUT_DATE = "ZC_INPUT_DATE";
+  public final static String FIELD_TRANS_ZC_PRO_REMARK = "ZC_PRO_REMARK";
+
+  // public final static String FIELD_TRANS_ZC_MONEY_BI_SUM =
+  // "ZC_MONEY_BI_SUM";
+  public final static String FIELD_TRANS_ZC_MONEY_ZC_SUM = "ZC_MONEY_ZC_SUM";
+
+  public final static String FIELD_TRANS_ZC_MAKE_APPR_SNO = "ZC_MAKE_APPR_SNO";
+
+  public final static String FIELD_TRANS_ZC_MAKE_APPR = "ZC_MAKE_APPR";
+
+  public final static String FIELD_TRANS_ZC_MAKE_APPR_BLOBID = "ZC_MAKE_APPR_BLOBID";
+
+  public final static String FIELD_TRANS_ZC_REMARK = "ZC_REMARK";
+
+  // public final static String FIELD_TRANS_PROCESS_INST_ID =
+  // "PROCESS_INST_ID";
+  public final static String FIELD_TRANS_ZC_MAKE_FROM = "ZC_MAKE_FROM";
+
+  // public final static String FIELD_TRANS_ZC_AGEY_CODE = "ZC_AGEY_CODE";
+  public final static String FIELD_TRANS_ZC_IS_AGENCY = "ZC_IS_AGENCY";
+
+  public final static String FIELD_TRANS_ZC_MAKE_ZHAOBIAO = "ZC_MAKE_ZHAOBIAO";
+
+  public final static String FIELD_TRANS_ZC_MAKE_ZHAOBIAO_ = "ZC_MAKE_ZHAOBIAO_";
+
+  public final static String FIELD_TRANS_ZC_MAKE_ZHAOGG = "ZC_MAKE_ZHAOGG";
+
+  public final static String FIELD_TRANS_ZC_MAKE_ZHAOGG_BLOBID = "ZC_MAKE_ZHAOGG_BLOBID";
+
+  public final static String FIELD_TRANS_ZC_MAKE_ZHONGBIAO = "ZC_MAKE_ZHONGBIAO";
+
+  public final static String FIELD_TRANS_ZC_MAKE_ZHONGBIAO_BLOBID = "ZC_MAKE_ZHONGBIAO_BLOBID";
+
+  public final static String FIELD_TRANS_ZC_MAKE_ZHONGGG = "ZC_MAKE_ZHONGGG";
+
+  public final static String FIELD_TRANS_ZC_MAKE_ZHONGGG_BLOBID = "ZC_MAKE_ZHONGGG_BLOBID";
+
+  public final static String FIELD_TRANS_ZC_IS_TO_CGZX = "ZC_IS_TO_CGZX";
+
+  public final static String FIELD_TRANS_ZC_MAKE_FLAG = "ZC_MAKE_FLAG";
+
+  public final static String FIELD_TRANS_ZC_ZG_CS_CODE = "ZC_ZG_CS_CODE";
+
+  public final static String FIELD_TRANS_ZC_LY_CS_CODE = "ZC_LY_CS_CODE";
+
+  public final static String FIELD_TRANS_ZC_PITEM_OPIWAY = "ZC_PITEM_OPIWAY";
+
+  // public final static String FIELD_TRANS_ZC_PIFU_CGFS = "ZC_PIFU_CGFS";
+  public final static String FIELD_TRANS_ZC_PITEM_MODE = "ZC_PITEM_MODE";
+
+  public final static String FIELD_TRANS_ZC_CD_AWDAREA = "ZC_CD_AWDAREA";
+
+  public final static String FIELD_TRANS_ZC_IS_ZXQY_ZB = "ZC_IS_ZXQY_ZB";
+
+  public final static String FIELD_TRANS_ZC_HANGYE_CTG = "ZC_HANGYE_CTG";
+
+  public final static String FIELD_TRANS_ZC_ZG_CS_NAME = "ZC_ZG_CS_NAME";
+
+  public final static String FIELD_TRANS_ZC_MONEY_BI_YZX = "ZC_MONEY_BI_YZX";
+
+  public final static String FIELD_TRANS_ZC_MONEY_KY_BGS = "ZC_MONEY_KY_BGS";
+
+  public final static String FIELD_TRANS_ZC_MONEY_BG_ZXS = "ZC_MONEY_BG_ZXS";
+
+  public final static String FIELD_TRANS_ZC_FGKZBFS_SMWJ_BLOBID = "ZC_FGKZBFS_SMWJ_BLOBID";
+
+  public final static String FIELD_TRANS_ZC_FGKZBFS_SMWJ = "ZC_FGKZBFS_SMWJ";
+
+  // public final static String FIELD_TRANS_ZC_AGEY_NAME = "ZC_AGEY_NAME";
+  // public final static String FIELD_TRANS_ZC_DIYU_DAIMA = "ZC_DIYU_DAIMA";
+  public final static String FIELD_TRANS_ZC_MONEY_HT_YBA = "ZC_MONEY_HT_YBA";
+
+  public final static String FIELD_TRANS_ZC_FUKUAN_TYPE = "ZC_FUKUAN_TYPE";
+
+  // public final static String FIELD_TRANS_ZC_WEITO_DATE = "ZC_WEITO_DATE";
+  public final static String FIELD_TRANS_ZC_YEP_FLAG = "ZC_YEP_FLAG";
+
+  public final static String FIELD_TRANS_ZC_YEP_SUM = "ZC_YEP_SUM";
+
+  public final static String FIELD_TRANS_ZC_BI_NZJZ_SUM = "ZC_BI_NZJZ_SUM";
+
+  public final static String FIELD_TRANS_ZC_PROJ_ORIGN = "ZC_PROJ_ORIGN";
+
+  public final static String FIELD_TRANS_ZC_DIYU_DAIMA_ZJ = "ZC_DIYU_DAIMA_ZJ";
+
+  // public final static String FIELD_TRANS_ZC_IS_NOTARY = "ZC_IS_NOTARY";
+  // public final static String FIELD_TRANS_ZC_IS_IMP = "ZC_IS_IMP";
+  public final static String FIELD_TRANS_ZC_IS_REMARK = "ZC_IS_REMARK";
+
+  public final static String FIELD_TRANS_ZC_XYECJJ_JJPP = "ZC_FIELD_JJPP"; //协议供货二次竞价--竞价品牌
+
+  // public final static String FIELD_TRANS_ZC_IMP_FILE = "ZC_IMP_FILE";
+  // public final static String FIELD_TRANS_ZC_IMP_FILE_BLOBID =
+  // "ZC_IMP_FILE_BLOBID";
+  public final static String FIELD_TRANS_ZC_PRINT_STATUS = "ZC_PRINT_STATUS";
+
+  public final static String FIELD_TRANS_ZC_MAKE_SEQUENCE = "ZC_MAKE_SEQUENCE";
+
+  public final static String FIELD_TRANS_INPUTOR_NAME = "ZC_FIELD_INPUTOR_NAME";
+
+  public final static String FIELD_TRANS_EFFECTIVE_DATE = "ZC_FIELD_EFFECTIVE_DATE";
+
+  public static final String FIELD_TRANS_ZC_REQUIREMENT_DETAIL_CODE = "ZC_REQUIREMENT_DETAIL_CODE";
+
+  public static final String FIELD_TRANS_ZC_REQUIREMENT_REQ_CODE = "ZC_REQUIREMENT_REQ_CODE";
+
+  public static final String FIELD_TRANS_ZC_INDX = "ZC_INDX";
+
+  public static final String FIELD_TRANS_ZC_SND = "ZC_SND";
+
+  public static final String FIELD_TRANS_ZC_SN = "ZC_SN";
+
+  public static final String FIELD_TRANS_REQUIREMENT_NAME = "ZC_REQUIREMENT_NAME";
+
+  public static final String FIELD_TRANS_ARR_DATE = "ZC_ARR_DATE";
+
+  public static final String FIELD_TRANS_BASE_REQ = "ZC_BASE_REQ";
+
+  public static final String FIELD_TRANS_ITEM_ATTACH = "ZC_ITEM_ATTACH";
+
+  public static final String FIELD_TRANS_ITEM_ATTACH_BLOBID = "ZC_ITEM_ATTACH_BLOBID";
+
+  public static final String FIELD_TRANS_NUM = "ZC_NUM";
+
+  public static final String FIELD_TRANS_PAY_COND = "ZC_PAY_COND";
+
+  public static final String FIELD_TRANS_SERVICE_PROMISES = "ZC_SERVICE_PROMISES";
+
+  public static final String FIELD_TRANS_REQUIREMENT_TYPE = "ZC_REQUIREMENT_TYPE";
+
+  public static final String FIELD_TRANS_DESCRIPTION = "ZC_DESCRIPTION";
+
+  public static final String FIELD_TRANS_ITEM_SUM = "ZC_ITEM_SUM";
+
+  public static final String FIELD_TRANS_MER_PRICE = "ZC_MER_PRICE";
+
+  public static final String FIELD_TRANS_ZC_TRUST_AGEY_CODE = "ZC_TRUST_AGEY_CODE";
+
+  public static final String FIELD_TRANS_ZC_TRUST_AGEY_NAME = "ZC_TRUST_AGEY_NAME";
+
+  public static final String FIELD_TRANS_ZC_PITEM_CODE = "ZC_PITEM_CODE";
+
+  public static final String FIELD_TRANS_ZC_PINMU_CTLG = "ZC_PINMU_CTLG";
+
+  public static final String FIELD_TRANS_ZC_MAKE_NEW_CODE = "ZC_MAKE_NEW_CODE";
+
+  // public static final String FIELD_TRANS_ZC_MAKE_CODE = "ZC_MAKE_CODE" ;
+  public static final String FIELD_TRANS_ZC_BI_NO = "ZC_BI_NO";
+
+  public static final String FIELD_TRANS_ZC_BI_SUM = "ZC_BI_SUM";
+
+  public static final String FIELD_TRANS_ZC_BI_JHUA_SUM = "ZC_BI_JHUA_SUM";
+
+  public static final String FIELD_TRANS_ZC_BI_USED_SUM = "ZC_BI_USED_SUM";
+
+  public static final String FIELD_TRANS_ZC_BI_DO_SUM = "ZC_BI_DO_SUM";
+
+  public static final String FIELD_TRANS_ZC_BI_YJBA_SUM = "ZC_BI_YJBA_SUM";
+
+  public static final String FIELD_TRANS_ND = "ZC_ND";
+
+  public static final String FIELD_TRANS_ORG_CODE = "ZC_ORG_CODE";
+
+  public static final String FIELD_TRANS_ORG_NAME = "ZC_ORG_NAME";
+
+  public static final String FIELD_TRANS_ORIGIN_CODE = "ZC_ORIGIN_CODE";
+
+  public static final String FIELD_TRANS_ORIGIN_NAME = "ZC_ORIGIN_NAME";
+
+  public static final String FIELD_TRANS_OUTLAY_CODE = "ZC_OUTLAY_CODE";
+
+  public static final String FIELD_TRANS_OUTLAY_NAME = "ZC_OUTLAY_NAME";
+
+  public static final String FIELD_TRANS_PAYOUT_CODE = "ZC_PAYOUT_CODE";
+
+  public static final String FIELD_TRANS_PAYOUT_NAME = "ZC_PAYOUT_NAME";
+
+  public static final String FIELD_TRANS_PAYTYPE_CODE = "ZC_PAYTYPE_CODE";
+
+  public static final String FIELD_TRANS_PAYTYPE_NAME = "ZC_PAYTYPE_NAME";
+
+  public static final String FIELD_TRANS_PROJECT_CODE = "ZC_PROJECT_CODE";
+
+  public static final String FIELD_TRANS_PROJECT_NAME = "ZC_PROJECT_NAME";
+
+  public static final String FIELD_TRANS_PROJECT_TYPE_CODE = "ZC_PROJECT_TYPE_CODE";
+
+  public static final String FIELD_TRANS_PROJECT_TYPE_NAME = "ZC_PROJECT_TYPE_NAME";
+
+  public static final String FIELD_TRANS_SENDDOC_CODE = "ZC_SENDDOC_CODE";
+
+  public static final String FIELD_TRANS_SENDDOC_NAME = "ZC_SENDDOC_NAME";
+
+  public static final String FIELD_TRANS_SENDDOC_TYPE_CODE = "ZC_SENDDOC_TYPE_CODE";
+
+  public static final String FIELD_TRANS_SENDDOC_TYPE_NAME = "ZC_SENDDOC_TYPE_NAME";
+
+  public static final String FIELD_TRANS_BI_TARGET_CODE = "ZC_BI_TARGET_CODE";
+
+  public static final String FIELD_TRANS_B_ACC_CODE = "ZC_B_ACC_CODE";
+
+  public static final String FIELD_TRANS_B_ACC_NAME = "ZC_B_ACC_NAME";
+
+  public static final String FIELD_TRANS_CO_CODE = "ZC_CO_CODE";
+
+  public static final String FIELD_TRANS_CO_NAME = "ZC_CO_NAME";
+
+  public static final String FIELD_TRANS_DEC_MONEY = "ZC_DEC_MONEY";
+
+  public static final String FIELD_TRANS_FUND_CODE = "ZC_FUND_CODE";
+
+  public static final String FIELD_TRANS_FUND_NAME = "ZC_FUND_NAME";
+
+  public static final String FIELD_TRANS_INCEPTDOC_CODE = "ZC_INCEPTDOC_CODE";
+
+  public static final String FIELD_TRANS_INCEPTDOC_NAME = "ZC_INCEPTDOC_NAME";
+
+  public static final String FIELD_TRANS_MANAGE_CODE = "ZC_MANAGE_CODE";
+
+  public static final String FIELD_TRANS_MANAGE_NAME = "ZC_MANAGE_NAME";
+
+  public static final String FIELD_TRANS_ZC_BI_HTBA_SUM = "ZC_BI_HTBA_SUM";
+
+  public static final String FIELD_TRANS_ZC_CG_TYPE = "ZC_CG_TYPE";
+
+  public static final String FIELD_TRANS_ZC_PLAN_TYPE = "ZC_PLAN_TYPE";
+
+  public static final String FIELD_TRANS_ZC_SAVE_NUM = "ZC_SAVE_NUM";
+
+  // public static final String FIELD_TRANS_ZC_CATALOGUE_CODE =
+  // "ZC_CATALOGUE_CODE" ;
+  // public static final String FIELD_TRANS_ZC_CATALOGUE_NAME =
+  // "ZC_CATALOGUE_NAME" ;
+  // public static final String FIELD_TRANS_ZC_YEAR = "ZC_YEAR" ;
+  // public static final String FIELD_TRANS_ZC_YEP_SUM = "ZC_YEP_SUM" ;
+  public static final String FIELD_TRANS_ZC_BI_APD_FLAG = "ZC_BI_APD_FLAG";
+
+  public static final String TITLE_TRANS_ZC_P_PRO_MAKE = "ZC_P_PRO_MAKE";
+
+  public static final String TITLE_TRANS_EM_EXPERT_PRO_BILL = "EM_EXPERT_PRO_BILL";
+
+  // --------------------------------公告模板------------------------------//
+
+  public static final String FIELD_TRANS_BULLETIN_MOLD_CODE = "ZC_FIELD_BULLETIN_MOLD_CODE";
+
+  public static final String FIELD_TRANS_BULLETIN_MOLD_NAME = "ZC_FIELD_BULLETIN_MOLD_NAME";
+
+  public static final String FIELD_TRANS_BULLETIN_MOLD_TYPE = "ZC_FIELD_BULLETIN_MOLD_TYPE";
+
+  public static final String FIELD_TRANS_FILE_NAME = "ZC_FIELD_FILE_NAME";
+
+  public static final String FIELD_TRANS_FILE_PATH = "ZC_FIELD_FILE_PATH";
+
+  public static final String FIELD_TRANS_ZC_SP_NAME = "ZC_SP_NAME";
+
+  public static final String FIELD_TRANS_ZC_CTGRY_ID = "ZC_CTGRY_ID";
+
+  public static final String FIELD_TRANS_ZC_BRA_NAME = "ZC_BRA_NAME";
+
+  public static final String FIELD_TRANS_ZC_MER_SPEC = "ZC_MER_SPEC";
+
+  public static final String FIELD_TRANS_ZC_CAIG_SHL = "ZC_CAIG_SHL";
+
+  public static final String FIELD_TRANS_ZC_MER_M_PRICE = "ZC_MER_M_PRICE";
+
+  public static final String FIELD_TRANS_ZC_ITEM_VAL = "ZC_ITEM_VAL";
+
+  public static final String FIELD_TRANS_ZC_IS_JNJS = "ZC_IS_JNJS";
+
+  public static final String FIELD_TRANS_ZC_MER_IS_ZZCX = "ZC_MER_IS_ZZCX";
+
+  public static final String FIELD_TRANS_ZC_MER_IS_LSHB = "ZC_MER_IS_LSHB";
+
+  public static final String FIELD_TRANS_ZC_BI_BCSY_SUM = "ZC_BI_BCSY_SUM";
+
+  public static final String FIELD_TRANS_ZC_SY_SUM = "ZC_BI_SY_SUM"; //合同剩余金额
+
+  public static final String FIELD_TRANS_ZC_BI_YJJS_SUM = "ZC_BI_YJJS_SUM";
+
+  public static final String FIELD_TRANS_ZC_HT_BI_MONEY = "ZC_HT_BI_MONEY";
+
+  public static final String FIELD_TRANS_ZC_HT_OTHER_MONEY = "ZC_HT_OTHER_MONEY";
+
+  public static final String FIELD_TRANS_ZC_HT_GK_MONEY = "ZC_HT_GK_MONEY";
+
+  public static final String FIELD_TRANS_ZC_BID_MONEY = "ZC_BID_MONEY";
+
+  public static final String FIELD_TRANS_ZC_SU_CODE = "ZC_SU_CODE";
+
+  public static final String FIELD_TRANS_ZC_SGN_DATE = "ZC_SGN_DATE";
+
+  public static final String FIELD_TRANS_ZC_CON_TEXT = "ZC_CON_TEXT";
+
+  public static final String FIELD_TRANS_ZC_SU_BANK_NAME = "ZC_SU_BANK_NAME";
+
+  public static final String FIELD_TRANS_ZC_SU_BANK_CODE = "ZC_SU_BANK_CODE";
+
+  public static final String FIELD_TRANS_ZC_SU_ACC_CODE = "ZC_SU_ACC_CODE";
+
+  public static final String FIELD_TRANS_FIELD_ID = "FILE_ID";
+
+  public static final String FIELD_TRANS_DATA_VIEW = "ZC_FIELD_DATA_VIEW";
+
+  public static final String FIELD_TRANS_BULLETIN_PARAM_ID = "ZC_FIELD_BULLETIN_PARAM_ID";
+
+  public static final String FIELD_TRANS_PARAM_NAME = "ZC_FIELD_PARAM_NAME";
+
+  public static final String FIELD_TRANS_FIELD_NAME = "ZC_FIELD_FIELD_NAME";
+
+  public static final String FIELD_TRANS_PARAM_DESC = "ZC_FIELD_PARAM_DESC";
+
+  // --------------------------------评审报告模块------------------------------//
+  // 采购人
+  public static final String FIELD_TRANS_PROJECT_COMPANY = "ZC_PROJ_COMPANY";
+
+  // 开标时间
+  public static final String FIELD_TRANS_BID_DATE = "ZC_BID_DATE";
+
+  // 开标地点
+  public static final String FIELD_TRANS_BID_LOCATION = "ZC_BID_LOCATION";
+
+  public static final String FIELD_TRANS_PAKE_NAME = "ZC_EB_FIELD_PACK_NAME";
+
+  // --------------------------------评审结果模块------------------------------//
+
+  public static final String FIELD_TRANS_PACK_RESULT_CODE = "ZC_EB_FIELD_PACK_RESULT_CODE";
+
+  public static final String FIELD_TRANS_PACK_RESULT_PROJ_CODE = "ZC_EB_FIELD_PACK_RESULT_PROJ_CODE";
+
+  public static final String FIELD_TRANS_PACK_RESULT_PACK_CODE = "ZC_EB_FIELD_PACK_RESULT_PACK_CODE";
+
+  public static final String FIELD_TRANS_PACK_RESULT_PROVIDER_CODE = "ZC_EB_FIELD_PACK_RESULT_PROVIDER_CODE";
+
+  public static final String FIELD_TRANS_PACK_RESULT_PROVIDER_NAME = "ZC_EB_FIELD_PACK_RESULT_PROVIDER_NAME";
+
+  public static final String FIELD_TRANS_PACK_RESULT_PROVIDER_TOTAL_PRICE = "ZC_EB_FIELD_PACK_PROVIDER_TOTAL_PRICE";
+
+  public static final String FIELD_TRANS_PACK_RESULT_EVAL_SCORE = "ZC_EB_FIELD_PACK_RESULT_EVAL_SCORE";
+
+  public static final String FIELD_TRANS_PACK_RESULT_EVAL_RESULT = "ZC_EB_FIELD_PACK_RESULT_EVAL_RESULT";
+
+  public static final String FIELD_TRANS_PACK_RESULT_REMARK = "ZC_EB_FIELD_PACK_RESULT_REMARK";
+
+  public static final String FIELD_TRANS_PACK_RESULT_ORD_INDX = "ZC_EB_FIELD_PACK_RESULT_ORD_INDX";
+
+  public static final String FIELD_TRANS_PARAM_TYPE = "ZC_FIELD_PARAM_TYPE";
+
+  // --------------------------------评标专家质疑模块------------------------------//
+
+  public static final String FIELD_TRANS_ZC_EVAL_COMMENT_CODE = "ZC_EB_FIELD_EVAL_COMMENT_CODE";
+
+  public static final String FIELD_TRANS_ZC_EVAL_COMMENT_PROJ_CODE = "ZC_EB_FIELD_EVAL_COMMENT_PROJ_CODE";
+
+  public static final String FIELD_TRANS_ZC_EVAL_COMMENT_PROJ_NAME = "ZC_EB_FIELD_EVAL_COMMENT_PROJ_NAME";
+
+  public static final String FIELD_TRANS_ZC_EVAL_COMMENT_PACK_CODE = "ZC_EB_FIELD_COMMENT_PACK_CODE";
+
+  public static final String FIELD_TRANS_ZC_EVAL_COMMENT_PACK_NAME = "ZC_EB_FIELD_EVAL_COMMENT_PACK_NAME";
+
+  public static final String FIELD_TRANS_ZC_EVAL_COMMENT_EXPERT_CODE = "ZC_EB_FIELD_COMMENT_EXPERT_CODE";
+
+  public static final String FIELD_TRANS_ZC_EVAL_COMMENT_EXPERT_NAME = "ZC_EB_FIELD_COMMENT_EXPERT_NAME";
+
+  public static final String FIELD_TRANS_ZC_EVAL_COMMENT_COMMENT_DESC = "ZC_EB_FIELD_COMMENT_COMMENT_DESC";
+
+  public static final String FIELD_TRANS_ZC_EVAL_COMMENT_REMARK = "ZC_EB_FIELD_COMMENT_REMARK";
+
+  public static final String FIELD_TRANS_ZC_EVAL_COMMENT_CREATE_DATE = "ZC_EB_FIELD_COMMENT_CREATE_DATE";
+
+  // public static final String FIELD_TRANS_INPUTOR = "ZC_FIELD_INPUTOR";
+  // 追加资金模块
+  public static final String FIELD_TRANS_SUPPLE_MENT_BUDGE_CODE = "ZC_SUPPLEMENT_CODE";
+
+  public final static String FIELD_TRANS_SUPPLE_MENT_BUDGE = "ZC_FIELD_SUPPLE_MENT_BUDGE";
+
+  public final static String FIELD_TRANS_SUPPLE_MENT_BUDGE_STATUS = "ZC_SUPPLEMENT_STATUS";
+
+  public final static String FIELD_TRANS_ZC_FIELD_ADD_MONEY = "ZC_FIELD_ADD_MONEY";
+
+  // 验收结算模块ZC_BAL_STATUS
+  public static final String FIELD_TRANS_ZC_P_PRO_BAL_ID = "ZC_BAL_ID";
+
+  public static final String FIELD_TRANS_ZC_P_PRO_BAL_SUM = "ZC_BAL_SUM";
+
+  public static final String FIELD_TRANS_ZC_P_PRO_BAL_STATUS = "ZC_BAL_STATUS";
+
+  public static final String FIELD_TRANS_ZC_P_PRO_BAL_BI_BCJS_SUM = "ZC_BI_BCJS_SUM";
+
+  public static final String FIELD_TRANS_ZC_BI_BCLJ_BILI = "ZC_BI_BCLJ_BILI";
+
+  public static final String FIELD_TRANS_ZC_PAY_TYPE = "ZC_PAY_TYPE";
+
+  //投标状态
+
+  public static final String FIELD_TRANS_ZC_SUP_NAME = "ZC_SUP_NAME";
+
+  public static final String FIELD_TRANS_ZC_SUP_STATUS = "ZC_SUP_STATUS";
+
+  // 评标模块
+  public static final String FIELD_TRANS_ZC_FIELD_EXPERT_NAME = "ZC_FIELD_EXPERT_NAME";
+
+  public static final String FIELD_TRANS_ZC_FIELD_EVAL_TIME = "ZC_FIELD_EVAL_TIME";
+
+  public static final String FIELD_TRANS_ZC_FIELD_EVAL_PARAM_SETTOR = "ZC_FIELD_EVAL_PARAM_SETTOR";
+
+  public static final String FIELD_TRANS_ZC_FIELD_EVAL_PARAM_SETTIME = "ZC_FIELD_EVAL_PARAM_SETTIME";
+
+  public static final String FIELD_TRANS_ZC_FIELD_FORMULA_ITEM_PARAM_VALUE = "ZC_FIELD_FORMULA_ITEM_PARAM_VALUE";
+
+  public static final String FIELD_TRANS_ZC_FIELD_FORMULA_ITEM_PARAM_DESC = "ZC_FIELD_FORMULA_ITEM_PARAM_DESC";
+
+  // 协议竞价截止时间
+  public static final String FIELD_TRANS_ZC_EB_XY_END_DATE = "ZC_EB_XY_END_DATE";
+
+  public final static String FIELD_TRANS_ZC_FIELD_CA_SERIAL = "ZC_FIELD_CA_SERIAL";
+
+  public static final String FIELD_TRANS_ZC_CAIG_JLDW = "ZC_CAIG_JLDW";
+
+  public static final String FIELD_TRANS_ZC_CAIG_PRICE = "ZC_CAIG_PRICE";
+
+  public static final String FIELD_TRANS_ZC_CAIG_MONEY = "ZC_CAIG_MONEY";
+
+  public static final String FIELD_TRANS_ZC_B_AGENCY = "ZC_B_AGENCY";
+
+  //------------------------------------------------------值集字段:建议将所有的值集放到此处，便于维护----------------------------------------------------------
+  public static final String FIELD_AS_VAL_GUIDANG = "VS_GUIDANG_ITEM";
+
+  //文号类型定义
+  public static final String WEN_HAO_TYPE_NOTICE = "NTC";//中标通知书
+
+  public static final String WEN_HAO_TYPE_OPTIONS = "OPT";//中标通知书
+
+  //验收单状态值集列
+
+  public static final String VS_ZC_EB_YANSHOU = "VS_ZC_EB_YANSHOU_BILL_STATUS";
+
+  //询价开标单据审核状态
+  public static final String VS_ZC_EB_RFQ_OPEN_BID_STATUS = "ZC_VS_RFQ_OPEN_BID_STATUS";
+
+  //询价开标标段状态
+  public static final String VS_ZC_EB_RFQ_STATUS = "ZC_VS_RFQ_STATUS";
+
+}

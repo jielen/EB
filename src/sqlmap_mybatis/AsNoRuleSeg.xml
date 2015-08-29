@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Converted at: Sat Nov 10 23:20:53 CST 2012-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AsNoRuleSeg">
+	
+  <resultMap id="AsNoRuleSegResult" type="com.ufgov.gk.common.system.model.AsNoRuleSeg">
+    <result property="compoId" column="COMPO_ID" jdbcType="VARCHAR"/>
+    <result property="ordIndex" column="ORD_INDEX" jdbcType="DECIMAL"/>
+    <result property="ruleCode" column="RULE_CODE" jdbcType="VARCHAR"/>
+    <result property="segField" column="SEG_FIELD" jdbcType="VARCHAR"/>
+    <result property="segSv" column="SEG_SV" jdbcType="VARCHAR"/>
+    <result property="segConst" column="SEG_CONST" jdbcType="VARCHAR"/>
+    <result property="segLen" column="SEG_LEN" jdbcType="DECIMAL"/>
+    <result property="segFillPosi" column="SEG_FILL_POSI" jdbcType="CHAR"/>
+    <result property="segFill" column="SEG_FILL" jdbcType="CHAR"/>
+    <result property="segDeli" column="SEG_DELI" jdbcType="VARCHAR"/>
+    <result property="dateFmt" column="DATE_FMT" jdbcType="VARCHAR"/>
+    <result property="isBeforeNo" column="IS_BEFORE_NO" jdbcType="CHAR"/>
+  </resultMap>
+	
+	<select id="getAsNoRuleSeg" parameterType="map" resultMap="AsNoRuleSegResult">
+		select COMPO_ID, ORD_INDEX, RULE_CODE, SEG_FIELD, SEG_SV, SEG_CONST, SEG_LEN,
+			SEG_FILL_POSI, SEG_FILL, SEG_DELI, DATE_FMT, IS_BEFORE_NO 
+		from AS_NO_RULE_SEG
+		where COMPO_ID = #{compoId,jdbcType=VARCHAR} and RULE_CODE = #{ruleCode,jdbcType=VARCHAR}
+		order by ORD_INDEX 
+	</select>
+
+</mapper>

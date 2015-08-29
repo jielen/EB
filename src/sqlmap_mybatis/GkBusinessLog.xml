@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Converted at: Sat Nov 10 23:21:03 CST 2012-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="GkBusinessLog">
+	<!--
+		Sorry, I can`t migrate	gkBusinessLog
+		See console output for further details 
+	-->
+
+	<resultMap id="gkBusinessLogResult" type="gkBusinessLog">
+		<result property="nd" column="nd"/>
+		<result property="userId" column="user_Id"/>
+		<result property="userName" column="user_name"/>
+		<result property="coCode" column="co_code"/>
+		<result property="coName" column="co_name"/>
+		<result property="orgCode" column="org_code"/>
+		<result property="orgName" column="org_name"/>
+		<result property="posiCode" column="posi_code"/>
+		<result property="posiName" column="posi_name"/>
+		<result property="compoId" column="compo_id"/>
+		<result property="funcId" column="func_id"/>
+		<result property="billId" column="bill_id"/>
+		<result property="tableName" column="table_name"/>
+		<result property="operTime" column="oper_time"/>
+		<result property="money" column="money"/>
+		<result property="remark" column="remark"/>
+	</resultMap>
+
+	<insert id="saveLog" parameterType="gkBusinessLog">
+		insert into gk_business_log(oid,USER_ID, co_code, org_code,
+		posi_code, oper_time, remark, money, nd,
+		bill_id,table_name,compo_id,func_id) values(#{oid,jdbcType=VARCHAR},
+		#{userId,jdbcType=VARCHAR}, #{coCode,jdbcType=VARCHAR}, #{orgCode,jdbcType=VARCHAR},
+		#{posiCode,jdbcType=VARCHAR}, #{operTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR},
+		#money:DECIMAL#, #{nd,jdbcType=VARCHAR}, #{billId,jdbcType=VARCHAR},
+		#{tableName,jdbcType=VARCHAR},#{compoId,jdbcType=VARCHAR},#{funcId,jdbcType=VARCHAR})
+	</insert>
+
+	<select id="getGkBusinessLog" parameterType="map" resultMap="gkBusinessLogResult">
+		select t.*, (select user_name from as_user au where
+		t.user_id=au.user_id) user_name, (select co_name from as_company
+		ac where t.co_code = ac.CO_CODE and t.nd = ac.ND) co_name,
+		(select org_name from as_org ao where t.org_code = ao.org_code
+		and t.nd = ao.nd and t.co_code = ao.co_code) org_name, (select
+		ap.posi_name from as_position ap where t.posi_code =
+		ap.posi_code) posi_name from gk_business_log t where
+		t.bill_id=#{billId,jdbcType=VARCHAR} and table_name=#{tableName,jdbcType=VARCHAR}
+		and t.nd=#nd:INTEGER# order by t.oper_time
+	</select>
+
+</mapper>

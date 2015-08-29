@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="ebAppServer" >
+
+	<typeAlias alias="ebAppServer" type="com.ufgov.gk.common.eb.model.EbAppServer" />
+	
+	<resultMap id="ebAppServerResult" class="com.ufgov.gk.common.eb.model.EbAppServer" >
+		<result column="SERVER_URL" property="serverUrl" jdbcType="VARCHAR"/>
+		<result column="EPS_SERVER_URL" property="epsServerUrl" jdbcType="VARCHAR"/>
+		<result column="SIGN_IN_URL" property="signInUrl" jdbcType="VARCHAR"/>
+		<result column="SITE_ID" property="siteId" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	<select id="getEbAppServer" resultMap="ebayAccountResult">
+		select * from EB_APP_SERVER 
+	</select>
+	<select id="getEbAppServerById" resultMap="string">
+		select * from EB_APP_SERVER 
+		where SITE_ID= #siteId:VARCHAR#
+	</select>
+</sqlMap>

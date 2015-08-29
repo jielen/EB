@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Converted at: Sat Nov 10 23:21:12 CST 2012-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="UserSearchStore">
+	<!--
+		Sorry, I can`t migrate	UserSearchStore
+		See console output for further details 
+	-->
+	<resultMap id="UserSearchStoreResult" type="com.ufgov.gk.common.system.model.UserSearchStore">
+		<result property="storeId" column="STORE_ID"/>
+		<result property="conditionId" column="CONDITION_ID"/>
+		<result property="userId" column="USER_ID"/>
+		<result property="nd" column="USER_ID"/>
+		<result property="desc" column="STORE_DESC"/>
+		<result property="searchInfo" column="SEARCH_INFO"/>
+		<result property="groupInf" column="GROUP_INFO"/>
+	</resultMap>
+
+	<select id="getUserSearchStore" parameterType="java.util.Map" resultMap="UserSearchStoreResult">
+		select *
+		  from ma_search_condition_store t
+		<!--
+		Sorry, I can`t migrate	WHERE
+		See console output for further details 
+	-->
+	</select>
+
+	<update id="updateUserSearchStore" parameterType="UserSearchStore">
+		update ma_search_condition_store t
+		   set t.group_info = #{groupInf},
+		   	   t.search_info = #{searchInfo}
+		 where t.store_id = #{storeId}
+	</update>
+
+	<insert id="insertuserSearchStore" parameterType="UserSearchStore">
+		insert into ma_search_condition_store
+		  (CONDITION_ID,
+		   USER_ID,
+		   ND,
+		   STORE_DESC,
+		   STORE_ID,
+		   SEARCH_INFO,
+		   GROUP_INFO)
+		values
+		  (#{conditionId}, #{userId}, #{nd}, #{desc}, #{storeId}, #{searchInfo}, #{groupInf})
+	</insert>
+
+	<delete id="deleteSearchStore" parameterType="UserSearchStore">
+		delete from
+			ma_search_condition_store t
+		<!--
+		Sorry, I can`t migrate	WHERE
+		See console output for further details 
+	-->
+	</delete>
+</mapper>

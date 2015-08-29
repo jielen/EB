@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="ebayAccount" >
+
+	<typeAlias alias="ebayAccount" type="com.ufgov.gk.common.eb.model.EbAccount" />
+	
+	<resultMap id="ebayAccountResult" class="com.ufgov.gk.common.eb.model.EbAccount" >
+		<result column="EBAY_ACCOUNT" property="ebayAccount" jdbcType="VARCHAR"/>
+		<result column="EBAY_PASSWORD" property="ebayPassword" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	
+	<select id="getEbayAccount" resultMap="asCompoResult">
+		select * from EB_ACCOUNT 
+	</select>
+	
+	<select id="getEbayAccountById" resultMap="asCompoResult" parameterClass="string" >
+		select * from EB_ACCOUNT 	where EBAY_ACCOUNT = #ebayAccount:VARCHAR#
+	</select>
+	
+	<insert id="insertEbayAccount" parameterClass="ebayAccount">
+		insert into EB_ACCOUNT(EBAY_ACCOUNT, EBAY_PASSWORD)
+		values(#ebayAccount:VARCHAR#, #ebayPassword:VARCHAR#)
+	</insert>	
+	
+	<update id="updateEbayAccount" parameterClass="ebayAccount">
+		UPDATE EB_ACCOUNT
+		  SET EBAY_ACCOUNT=#ebayAccount:VARCHAR#
+		  	  EBAY_PASSWORD=#ebayPassword:VARCHAR#
+		WHERE EBAY_ACCOUNT=#ebayAccount:VARCHAR# 	
+	</update>	
+	
+ 	<delete id="deleteEbayAccount" parameterClass="string">
+		delete From EB_ACCOUNT   Where EBAY_ACCOUNT=#ebayAccount:VARCHAR#
+	</delete>
+	
+</sqlMap>

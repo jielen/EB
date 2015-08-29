@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Converted at: Sat Nov 10 23:25:37 CST 2012-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AsUserNumLim">
+	
+	<!--
+		Sorry, I can`t migrate	com.ufgov.gk.common.console.model.AsUserNumLim
+		See console output for further details 
+	-->
+	
+	<resultMap id="asUserNumLimResult" type="asUserNumLim">
+		<result property="userId" column="user_id"/>
+		<result property="funcId" column="func_id"/>
+		<result property="compoId" column="compo_id"/>
+		<result property="ctrlField" column="ctrl_field"/>
+		<result property="granRange" column="gran_range"/>
+		<result property="revoRange" column="revo_range"/>
+		<result property="isGran" column="is_gran"/>
+		<result property="isRelation" column="is_relation"/>
+	</resultMap>
+	
+	<select id="getAsUserNumLim" parameterType="map" resultMap="asUserNumLimResult">
+		select * from as_user_num_lim where user_id=#{user_id}
+		<if test="compo_id != null">AND
+			compo_id=#{compo_id}
+		</if>
+		<if test="func_id != null">AND
+			func_id=#{func_id}
+		</if>
+		<if test="ctrl_field != null">AND
+			ctrl_field=#{ctrl_field}
+		</if>
+		order by user_id, compo_id
+	</select>
+
+	<delete id="deleteAsUserNumLim" parameterType="map">
+		delete from as_user_num_lim where user_id=#{user_id}
+		<if test="compo_id != null">AND
+			compo_id=#{compo_id}
+		</if>
+		<if test="func_id != null">AND
+			func_id=#{func_id}
+		</if>
+		<if test="ctrl_field != null">AND
+			ctrl_field=#{ctrl_field}
+		</if>
+	</delete>
+
+	<insert id="insertAsUserNumLim" parameterType="asUserNumLim">
+		insert into as_user_num_lim (
+			user_id,func_id,compo_id,ctrl_field,gran_range,revo_range,is_gran,is_relation)
+		values (
+			#{userId,jdbcType=VARCHAR}, #{funcId,jdbcType=VARCHAR}, #{compoId,jdbcType=VARCHAR}, #{ctrlField,jdbcType=VARCHAR},
+			#{granRange,jdbcType=VARCHAR}, #{revoRange,jdbcType=VARCHAR}, #isGran:CHAR#, #isRelation:CHAR#
+		)
+	</insert>
+	
+</mapper>

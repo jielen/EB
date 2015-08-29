@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Converted at: Sat Nov 10 23:25:09 CST 2012-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AsRoleNumLim">
+
+	<!--
+		Sorry, I can`t migrate	com.ufgov.gk.common.console.model.AsRoleNumLim
+		See console output for further details 
+	-->
+
+	<resultMap id="asRoleNumLimResult" type="asRoleNumLim">
+		<result property="roleId" column="role_id"/>
+		<result property="funcId" column="func_id"/>
+		<result property="compoId" column="compo_id"/>
+		<result property="ctrlField" column="ctrl_field"/>
+		<result property="granRange" column="gran_range"/>
+		<result property="revoRange" column="revo_range"/>
+		<result property="isGran" column="is_gran"/>
+		<result property="isRelation" column="is_relation"/>
+	</resultMap>
+	<resultMap id="asGrantRoleNumLimResult" type="asRoleNumLim" extends="asRoleNumLimResult">
+		<result property="grantedUserID" column="GRANTED_USER_ID" jdbcType="VARCHAR"/>
+		<result property="grantUserCoCode" column="GRANT_USER_CO_CODE" jdbcType="VARCHAR"/>
+		<result property="grantUserOrgCode" column="GRANT_USER_ORG_CODE" jdbcType="VARCHAR"/>
+		<result property="grantUserPosiCode" column="GRANT_USER_POSI_CODE" jdbcType="VARCHAR"/>
+		<result property="grantUserPosiId" column="GRANT_USER_POSI_ID" jdbcType="VARCHAR"/>
+		<result property="grantUserId" column="GRANT_USER_ID" jdbcType="VARCHAR"/>
+	</resultMap>
+	<select id="getAsRoleNumLim" parameterType="map" resultMap="asRoleNumLimResult">
+		select * from as_role_num_lim where role_id=#{role_id,jdbcType=VARCHAR}
+		<if test="compo_id != null">AND
+			compo_id=#{compo_id,jdbcType=VARCHAR}
+		</if>
+		<if test="func_id != null">AND
+			func_id=#{func_id,jdbcType=VARCHAR}
+		</if>
+		<if test="ctrl_field != null">AND
+			ctrl_field=#{ctrl_field,jdbcType=VARCHAR}
+		</if>
+		order by role_id, compo_id
+	</select>
+
+	<delete id="deleteAsRoleNumLim" parameterType="map">
+		delete from as_role_num_lim where role_id=#{role_id,jdbcType=VARCHAR}
+		<if test="compo_id != null">AND
+			compo_id=#{compo_id,jdbcType=VARCHAR}
+		</if>
+		<if test="func_id != null">AND
+			func_id=#{func_id,jdbcType=VARCHAR}
+		</if>
+		<if test="ctrl_field != null">AND
+			ctrl_field=#{ctrl_field,jdbcType=VARCHAR}
+		</if>
+	</delete>
+
+	<insert id="insertAsRoleNumLim" parameterType="asRoleNumLim">
+		insert into as_role_num_lim (
+			role_id,func_id,compo_id,ctrl_field,gran_range,revo_range,is_gran,is_relation)
+		values (
+			#{roleId,jdbcType=VARCHAR}, #{funcId,jdbcType=VARCHAR}, #{compoId,jdbcType=VARCHAR}, #{ctrlField,jdbcType=VARCHAR},
+			#{granRange,jdbcType=VARCHAR}, #{revoRange,jdbcType=VARCHAR}, #isGran:CHAR#, #isRelation:CHAR#
+		)
+	</insert>
+
+	<!--角色权限查询的sql语句 -->
+  <select id="getAsRoleNumLimByUserId" parameterType="map" resultMap="asRoleNumLimResult">
+  	select rn.*
+  		from as_role_num_lim rn, as_emp_role er, as_emp ae
+  	    where ae.USER_ID = #{user_id,jdbcType=VARCHAR} and rn.FUNC_ID = #{func_id,jdbcType=VARCHAR}
+  	    	and rn.COMPO_ID = #{compo_id,jdbcType=VARCHAR} and rn.role_id = er.role_id and ae.emp_code = er.emp_code
+  		<!--
+		Sorry, I can`t migrate	
+		See console output for further details 
+	-->
+    UNION ALL
+      select rn.*
+             from as_role_num_lim rn, as_emp er, AS_EMP_POSITION d, AS_POSI_ROLE e
+      where rn.role_id = e.role_id and e.posi_code = d.posi_code and er.emp_code = d.emp_code
+             and er.USER_ID = #{user_id,jdbcType=VARCHAR} and rn.FUNC_ID = #{func_id,jdbcType=VARCHAR}  and rn.COMPO_ID = #{compo_id,jdbcType=VARCHAR}
+  		 <!--
+		Sorry, I can`t migrate	
+		See console output for further details 
+	-->
+  </select>
+  <select id="getAsGrantRoleNumLimByUserId" parameterType="map" resultMap="asGrantRoleNumLimResult">
+         select rn.*,e.GRANTED_USER_ID,e.GRANT_USER_CO_CODE,e.GRANT_USER_ORG_CODE,e.GRANT_USER_POSI_CODE,e.GRANT_USER_POSI_ID,e.GRANT_USER_ID
+             from as_role_num_lim rn, as_emp er, AS_EMP_POSITION d, AS_POSI_ROLE_GRANTED e
+                   where rn.role_id = e.role_id and er.emp_code = d.emp_code and er.user_id=e.granted_user_id
+             and er.USER_ID = #{user_id,jdbcType=VARCHAR} and rn.FUNC_ID = #{func_id,jdbcType=VARCHAR}  and rn.COMPO_ID = #{compo_id,jdbcType=VARCHAR}
+       and (to_char(e.grant_begin_date, 'YYYY-MM-DD') &lt;= to_char(sysdate, 'YYYY-MM-DD') or e.grant_begin_date is null)
+       and (to_char(e.grant_end_date, 'YYYY-MM-DD') &gt;= to_char(sysdate, 'YYYY-MM-DD') or e.grant_end_date is null)
+    <!--
+		Sorry, I can`t migrate	
+		See console output for further details 
+	-->
+   </select>
+   <select id="getRoleNumLimByRoleId" parameterType="map" resultMap="asRoleNumLimResult">
+   		select * from as_role_num_lim t where t.compo_id=#{compoId} and t.func_id=#{funcId} and t.role_id in (${roles})
+   </select>
+</mapper>

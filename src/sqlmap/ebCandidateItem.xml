@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="ebCandidateItem" >
+
+	<typeAlias alias="ebCandidateItem" type="com.ufgov.gk.common.eb.model.EbCandidateItem" />
+	
+	<resultMap id="ebCandidateItemResult" class="com.ufgov.gk.common.eb.model.EbCandidateItem" >
+		<result column="CANDIDATE_ID" property="candidateId" jdbcType="VARCHAR"/>
+		<result column="CATEGORY_ID" property="categoryId" jdbcType="VARCHAR"/>
+		<result column="NAME" property="name" jdbcType="VARCHAR"/>
+		<result column="WEIGHT" property="weight" jdbcType="VARCHAR"/>
+		<result column="ITEM_SIZE" property="itemSize" jdbcType="VARCHAR"/>
+		<result column="TB_URL" property="tbUrl" jdbcType="VARCHAR"/>
+		<result column="TB_PRICE" property="tbRemark" jdbcType="VARCHAR"/>
+		<result column="TB_REMARK" property="" jdbcType="VARCHAR"/>
+		<result column="EB_URL" property="" jdbcType="VARCHAR"/>
+		<result column="EB_PRICE" property="" jdbcType="VARCHAR"/>
+		<result column="EB_SOLD_QUALITY" property="" jdbcType="VARCHAR"/>
+		<result column="EB_REMARK" property="" jdbcType="VARCHAR"/>
+		<result column="TB_SHIPPING_FEE" property="" jdbcType="VARCHAR"/>
+		<result column="REMARK" property="" jdbcType="VARCHAR"/>
+		<result column="ITEM_ID" property="" jdbcType="VARCHAR"/>
+		<result column="STATUS" property="" jdbcType="VARCHAR"/>
+		<result column="CURRENCY_ID" property="" jdbcType="VARCHAR"/>
+		<result column="TB_FULL_NAME" property="" jdbcType="VARCHAR"/>
+		<result column="EB_FULL_NAME" property="" jdbcType="VARCHAR"/>
+		<result column="EB_SHIPPING_FEE" property="" jdbcType="VARCHAR"/>
+		<result column="ALI_URL" property="" jdbcType="VARCHAR"/>
+		<result column="ALI_PRICE" property="" jdbcType="VARCHAR"/>
+		<result column="ALI_REMARK" property="" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	<select id="getEbAppServer" resultMap="ebayAccountResult">
+		select * from EB_APP_SERVER 
+	</select>
+	<select id="getEbAppServerById" resultMap="string">
+		select * from EB_APP_SERVER 
+		where SITE_ID= #siteId:VARCHAR#
+	</select>
+</sqlMap>

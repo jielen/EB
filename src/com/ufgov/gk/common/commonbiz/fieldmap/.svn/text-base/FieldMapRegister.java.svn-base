@@ -1,0 +1,175 @@
+package com.ufgov.gk.common.commonbiz.fieldmap;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import com.ufgov.gk.common.am.model.AmApply;
+import com.ufgov.gk.common.am.model.AmVoucher;
+import com.ufgov.gk.common.bi.model.BiAdjustTrack;
+import com.ufgov.gk.common.bi.model.BiCdTrack;
+import com.ufgov.gk.common.bi.model.BiTrack;
+import com.ufgov.gk.common.commonbiz.dto.BiCdMoneyCheck;
+import com.ufgov.gk.common.commonbiz.model.BankAccount;
+import com.ufgov.gk.common.commonbiz.model.BaseBill;
+import com.ufgov.gk.common.commonbiz.model.Project;
+import com.ufgov.gk.common.cp.model.CpApply;
+import com.ufgov.gk.common.cp.model.CpPayBalBill;
+import com.ufgov.gk.common.cp.model.CpPayBalList;
+import com.ufgov.gk.common.cp.model.CpPayClearBill;
+import com.ufgov.gk.common.cp.model.CpPayClearList;
+import com.ufgov.gk.common.cp.model.CpPayDayBill;
+import com.ufgov.gk.common.cp.model.CpPayDayList;
+import com.ufgov.gk.common.cp.model.CpPayTransferList;
+import com.ufgov.gk.common.cp.model.CpPayTransferVou;
+import com.ufgov.gk.common.cp.model.CpPlanAgentBill;
+import com.ufgov.gk.common.cp.model.CpPlanAgentDbill;
+import com.ufgov.gk.common.cp.model.CpPlanAgentList;
+import com.ufgov.gk.common.cp.model.CpPlanClearBill;
+import com.ufgov.gk.common.cp.model.CpPlanClearList;
+import com.ufgov.gk.common.cp.model.CpVoucher;
+import com.ufgov.gk.common.dp.dto.DpApplyTableAsMonth;
+import com.ufgov.gk.common.dp.dto.DpTempBiReport;
+import com.ufgov.gk.common.dp.model.DpDetail;
+import com.ufgov.gk.common.jj.model.JjPlan;
+import com.ufgov.gk.common.jj.model.JjPlanDetail;
+import com.ufgov.gk.common.zc.model.EmExpertEvaluation;
+import com.ufgov.gk.common.zc.model.EmExpertSelectionBill;
+import com.ufgov.gk.common.zc.model.EmFundPayBill;
+import com.ufgov.gk.common.zc.model.EmFundPayReport;
+import com.ufgov.gk.common.zc.model.ZCQuestion;
+import com.ufgov.gk.common.zc.model.ZcBaseBill;
+import com.ufgov.gk.common.zc.model.ZcBwTContract;
+import com.ufgov.gk.common.zc.model.ZcEbAuditSheet;
+import com.ufgov.gk.common.zc.model.ZcEbBulletin;
+import com.ufgov.gk.common.zc.model.ZcEbComplain;
+import com.ufgov.gk.common.zc.model.ZcEbEntrust;
+import com.ufgov.gk.common.zc.model.ZcEbEntrustDetail;
+import com.ufgov.gk.common.zc.model.ZcEbEvalReport;
+import com.ufgov.gk.common.zc.model.ZcEbFormula;
+import com.ufgov.gk.common.zc.model.ZcEbGuiDangBill;
+import com.ufgov.gk.common.zc.model.ZcEbNotice;
+import com.ufgov.gk.common.zc.model.ZcEbPackEvalResult;
+import com.ufgov.gk.common.zc.model.ZcEbPackPreAudit;
+import com.ufgov.gk.common.zc.model.ZcEbPlan;
+import com.ufgov.gk.common.zc.model.ZcEbProArgue;
+import com.ufgov.gk.common.zc.model.ZcEbProCompletion;
+import com.ufgov.gk.common.zc.model.ZcEbProMakeOuter;
+import com.ufgov.gk.common.zc.model.ZcEbProj;
+import com.ufgov.gk.common.zc.model.ZcEbProjChange;
+import com.ufgov.gk.common.zc.model.ZcEbProjZbFile;
+import com.ufgov.gk.common.zc.model.ZcEbProtocol;
+import com.ufgov.gk.common.zc.model.ZcEbQues;
+import com.ufgov.gk.common.zc.model.ZcEbRequirement;
+import com.ufgov.gk.common.zc.model.ZcEbRequirementDetail;
+import com.ufgov.gk.common.zc.model.ZcEbRfqPack;
+import com.ufgov.gk.common.zc.model.ZcEbSignup;
+import com.ufgov.gk.common.zc.model.ZcEbSupplier;
+import com.ufgov.gk.common.zc.model.ZcEbXunJiaBaoJia;
+import com.ufgov.gk.common.zc.model.ZcEbYanShouBill;
+import com.ufgov.gk.common.zc.model.ZcPProBal;
+import com.ufgov.gk.common.zc.model.ZcPProMake;
+import com.ufgov.gk.common.zc.model.ZcPProMitem;
+import com.ufgov.gk.common.zc.model.ZcSupplementPProMake;
+import com.ufgov.gk.common.zc.model.ZcWorkPlan;
+import com.ufgov.gk.common.zc.model.ZcWorkPlanDynamic;
+import com.ufgov.gk.common.zc.model.ZcXmcgHt;
+import com.ufgov.gk.common.zc.model.ZcebZb;
+
+public class FieldMapRegister {
+  private static Map register = new HashMap();
+  static {
+    register.put(BaseBill.class.getName(), BaseBillFM.fieldMap);
+    register.put(DpDetail.class.getName(), DpDetailFM.fieldMap);
+    register.put(CpVoucher.class.getName(), CpVoucherFM.fieldMap);
+    register.put(CpApply.class.getName(), CpApplyFM.fieldMap);
+    register.put(CpPlanAgentBill.class.getName(), CpPlanAgentBillFM.fieldMap);
+    register.put(CpPlanAgentList.class.getName(), CpPlanAgentListFM.fieldMap);
+    register.put(CpPlanClearBill.class.getName(), CpPlanClearBillFM.fieldMap);
+    register.put(CpPlanClearList.class.getName(), CpPlanClearListFM.fieldMap);
+    register.put(CpPlanAgentDbill.class.getName(), CpPlanAgentDBillFM.fieldMap);
+    register.put(CpPayClearBill.class.getName(), CpPayClearBillFM.fieldMap);
+    register.put(CpPayClearList.class.getName(), CpPayClearListFM.fieldMap);
+    register.put(AmVoucher.class.getName(), AmVoucherFM.fieldMap);
+    register.put(AmApply.class.getName(), AmApplyFM.fieldMap);
+    register.put(CpPayBalBill.class.getName(), CpPayBalBillFM.fieldMap);
+    register.put(CpPayBalList.class.getName(), CpPayBalListFM.fieldMap);
+    register.put(BiCdTrack.class.getName(), BiCdTrackFM.fieldMap);
+    register.put(BiCdMoneyCheck.class.getName(), BiCdMoneyCheckFM.fieldMap);
+    register.put(DpTempBiReport.class.getName(), DpTempBiReportFM.fieldMap);
+    register.put(CpPayDayBill.class.getName(), CpPayDayBillFM.fieldMap);
+    register.put(CpPayDayList.class.getName(), CpPayDayListFM.fieldMap);
+    register.put(CpPayTransferVou.class.getName(), CpPayTransferVouFM.fieldMap);
+    register.put(CpPayTransferList.class.getName(), CpPayTransferListFM.fieldMap);
+    register.put(DpApplyTableAsMonth.class.getName(), DpApplyTableAsMonthFM.fieldMap);
+    register.put(BiAdjustTrack.class.getName(), BiAdjustTrackFM.fieldMap);
+    register.put(BankAccount.class.getName(), BankAccountFM.fieldMap);
+    register.put(JjPlan.class.getName(), JjPlanFM.fieldMap);
+    register.put(JjPlanDetail.class.getName(), JjPlanDetailFM.fieldMap);
+    register.put(Project.class.getName(), ProjectFM.fieldMap);
+    register.put(BiTrack.class.getName(), BiTrackFM.fieldMap);
+
+    ///////////////////////////////////////////////////////////////////////
+    register.put(ZcBaseBill.class.getName(), ZcBaseBillFM.fieldMap);
+    register.put(ZcEbEntrust.class.getName(), ZcEbEntrustFM.fieldMap);
+    register.put(ZcEbEntrustDetail.class.getName(), ZcEbEntrustDetailFM.fieldMap);
+    register.put(ZcEbFormula.class.getName(), ZcEbFormulaFM.fieldMap);
+    register.put(ZcEbEvalReport.class.getName(), ZcEbEvalReportFM.fieldMap);
+    register.put(ZcEbPackEvalResult.class.getName(), ZcEbPackEvalResultFM.fieldMap);
+    register.put(ZcEbSignup.class.getName(), ZcEbSignupFM.fieldMap);
+    register.put(ZcEbRequirement.class.getName(), ZcEbRequirementFM.fieldMap);
+    register.put(ZcEbRequirementDetail.class.getName(), ZcEbRequirementDetailFM.fieldMap);
+    register.put(ZcEbSupplier.class.getName(), ZcEbSupplierFM.fieldMap);
+    register.put(ZcPProMake.class.getName(), ZcPProMakeFM.fieldMap);
+    register.put(ZcPProMitem.class.getName(), ZcPProMitemFM.fieldMap);
+    register.put(ZcEbOpenBidTeamFM.class.getName(), ZcEbOpenBidTeamFM.fieldMap);
+    register.put(ZcEbOpenBidTeamMemberFM.class.getName(), ZcEbOpenBidTeamMemberFM.fieldMap);
+    register.put(ZcEbOpenBidTeamPackFM.class.getName(), ZcEbOpenBidTeamPackFM.fieldMap);
+    register.put(ZcEbEvalBidTeamFM.class.getName(), ZcEbEvalBidTeamFM.fieldMap);
+    register.put(ZcEbEvalBidTeamMemberFM.class.getName(), ZcEbEvalBidTeamMemberFM.fieldMap);
+    register.put(ZcEbEvalBidTeamPackFM.class.getName(), ZcEbEvalBidTeamPackFM.fieldMap);
+    register.put(ZcEbProj.class.getName(), ZcEbProjFM.fieldMap);
+    register.put(ZcEbPlan.class.getName(), ZcEbPlanFM.fieldMap);
+    register.put(ZcEbProtocol.class.getName(), ZcEbProtocolFM.fieldMap);
+    register.put(ZcEbBulletin.class.getName(), ZcEbBulletinFM.fieldMap);
+    register.put(ZcSupplementPProMake.class.getName(), ZcSuppleMentPProMakeFM.fieldMap);
+    register.put(ZcPProBal.class.getName(), ZcPProBalFM.fieldMap);
+    register.put(ZcebZb.class.getName(), ZcEbZbFM.fieldMap);
+    register.put(EmExpertSelectionBill.class.getName(), EmExpertSelectionBillFM.fieldMap);
+    register.put(ZcEbProjChange.class.getName(), ZcEbProjChangeFM.fieldMap);
+    register.put(ZcXmcgHt.class.getName(), ZcXmcgHtFM.fieldMap);
+    register.put(ZcEbProMakeOuter.class.getName(), ZcEbProMakeOuterFM.fieldMap);
+    register.put(ZcEbXunJiaBaoJia.class.getName(), ZcEbXunJiaBaoJiaFM.fieldMap);
+    register.put(ZcEbProjZbFile.class.getName(), ZcEbProjZbFileFM.fieldMap);
+    register.put(ZcEbPackPreAudit.class.getName(), ZcEbPackPreAuditFM.fieldMap);
+
+    //部委采购使用
+    register.put(ZcBwTContract.class.getName(), ZcBwTContractFM.fieldMap);
+    register.put(ZcEbRfqPack.class.getName(), ZcEbRfqPackFM.fieldMap);
+    register.put(ZcWorkPlan.class.getName(), ZcWorkPlanDynamicFM.fieldMap);
+    register.put(ZcWorkPlanDynamic.class.getName(), ZcWorkPlanFM.fieldMap);
+    register.put(ZcEbAuditSheet.class.getName(), ZcEbAuditSheetFM.fieldMap);
+    register.put(EmFundPayReport.class.getName(), EmFundPayReportFM.fieldMap);
+    register.put(EmFundPayBill.class.getName(), EmFundPayBillFM.fieldMap);
+    register.put(ZcEbGuiDangBill.class.getName(), ZcEbGuiDangBillFM.fieldMap);
+    register.put(ZcEbYanShouBill.class.getName(), ZcEbYanShouBillFM.fieldMap);
+    register.put(EmExpertEvaluation.class.getName(), ZcEmExpertEvaluationFM.fieldMap);
+    register.put(ZcEbProCompletion.class.getName(), ZcEbProCompletionFM.fieldMap);
+    register.put(ZcEbNotice.class.getName(), ZcEbNoticeFM.fieldMap);
+    register.put(ZcEbProArgue.class.getName(), ZcEbProArgueFM.fieldMap);
+    register.put(ZCQuestion.class.getName(), ZCQuestionFM.fieldMap);
+    register.put(ZcEbComplain.class.getName(), ZcEbComplainFM.fieldMap);
+  }
+
+  public static Map get(Class clazz) {
+    Map fieldMap = (Map) register.get(clazz.getName());
+    /*    if (fieldMap == null && BaseBill.class.isAssignableFrom(clazz)) {
+          fieldMap = (Map) register.get(BaseBill.class.getName());
+        }else if(fieldMap == null && ZcBaseBill.class.isAssignableFrom(clazz)){
+          fieldMap = (Map) register.get(BaseBill.class.getName());
+        }*/
+    if (fieldMap == null) {
+      throw new RuntimeException("没有找到" + clazz.getName() + "对应的FieldMap,在FieldMapRegister没有注册.");
+    }
+    return fieldMap;
+  }
+}

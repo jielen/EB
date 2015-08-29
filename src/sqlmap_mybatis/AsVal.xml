@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Converted at: Sat Nov 10 23:20:56 CST 2012-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AsVal">
+	<resultMap id="asVal" type="com.ufgov.gk.common.system.model.AsVal">
+		<result property="valSetId" column="VALSET_ID"/>
+		<result property="valId" column="VAL_ID"/>
+		<result property="val" column="VAL"/>
+	</resultMap>
+
+	<select id="getAsVal" parameterType="string" resultMap="asVal">
+		Select VALSET_ID,VAL_ID,VAL From as_val t Where t.valset_id
+		=#{valSetId,jdbcType=VARCHAR} ORDER BY ORD_INDEX ,VAL_ID
+	</select>
+	
+	<resultMap id="asValMap" type="com.ufgov.gk.common.system.model.AsVal">
+	 	<result property="valId" column="VAL_ID"/>
+	    <result property="val" column="VAL"/>
+	</resultMap>
+	
+	<select id="getAsValMap" parameterType="string" resultMap="asValMap">
+		Select VAL_ID,VAL From as_val t Where t.valset_id=#{valSetId,jdbcType=VARCHAR} ORDER BY ORD_INDEX ,VAL_ID
+	</select>
+
+	<sql id="companyLevel">
+		select VAL_ID, VAL from as_val where valset_id='MA_CP_TZD_CO_LEVEL'
+	</sql>
+	<select id="getCompanyLevel" parameterType="Map" resultType="com.ufgov.gk.common.system.model.AsVal">
+		<if test="sqlId == &quot;companyLevel&quot;">
+			<include refid="companyLevel"/>
+		</if>
+	</select>
+
+</mapper>

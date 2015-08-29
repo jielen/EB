@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Converted at: Sat Nov 10 23:21:01 CST 2012-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ElementCondition">
+	<sql id="OrderColumns">
+		<if test="orderColumns != null">
+			order by ${orderColumns}
+		</if>
+	</sql>
+	<sql id="CoCodeFilter">
+		<if test="coCodeFilter != null">AND
+			${coCodeFilter}
+		</if>
+	</sql>
+	<sql id="StartDate">
+		<if test="startDate != null">AND
+			
+			PROC_DATE &gt;= #{startDate}
+			
+		</if>
+	</sql>
+	<sql id="EndDate">
+		<if test="endDate != null">AND
+			
+			PROC_DATE &lt;= #{endDate}
+			
+		</if>
+	</sql>
+	<sql id="CO_CODE">
+		<if test="coCode != null">AND
+			MASTER.CO_CODE = #{coCode}
+		</if>
+	</sql>
+	<sql id="B_ACC_CODE">
+		<if test="baccCode != null">AND
+			MASTER.B_ACC_CODE =
+			#{baccCode}
+		</if>
+	</sql>
+	<sql id="B_ACC_CODE_LIKE">
+		<if test="baccCode != null">AND
+			MASTER.B_ACC_CODE LIKE
+			#{baccCode}||'%'
+		</if>
+	</sql>
+	<sql id="BAL_MODE_CODE_LIKE">
+		<if test="balModeCode != null">AND
+			MASTER.BAL_MODE_CODE LIKE
+			#{balModeCode}||'%'
+		</if>
+	</sql>
+	<sql id="OUTLAY_CODE">
+		<if test="outlayCode != null">AND
+			MASTER.OUTLAY_CODE = #{outlayCode}
+		</if>
+	</sql>
+	<sql id="OUTLAY_CODE_LIKE">
+		<if test="outlayCode != null">AND
+			MASTER.OUTLAY_CODE like #{outlayCode}||'%'
+		</if>
+	</sql>
+	<sql id="PAYTYPE_CODE">
+		<if test="paytypeCode != null">AND
+			MASTER.PAYTYPE_CODE  = #{paytypeCode}
+		</if>
+	</sql>
+	<sql id="PAYTYPE_CODE_LIKE">
+		<if test="paytypeCode != null">AND
+			MASTER.PAYTYPE_CODE  like #{paytypeCode}||'%'
+		</if>
+	</sql>
+	<sql id="MANAGE_CODE">
+		<if test="manageCode != null">AND
+			MASTER.MANAGE_CODE = #{manageCode}
+		</if>
+	</sql>
+	<sql id="MANAGE_CODE_LIKE">
+		<if test="manageCode != null">AND
+			MASTER.MANAGE_CODE like #{manageCode}||'%'
+		</if>
+	</sql>
+	<sql id="SENDDOC_CODE">
+		<if test="sendDocCode != null">AND
+			MASTER.SENDDOC_CODE = #{sendDocCode}
+		</if>
+	</sql>
+	<sql id="INCEPTDOC_CODE">
+		<if test="inceptDocCode != null">AND
+			INCEPTDOC_CODE = #{inceptDocCode}
+		</if>
+	</sql>
+	<sql id="ORIGIN_CODE">
+		<if test="originCode != null">AND
+			MASTER.ORIGIN_CODE = #{originCode}
+		</if>
+	</sql>
+
+	<sql id="RECE_ACCCODE">
+		<if test="bankAccCode != null">AND
+			MASTER.RECE_BANKACCCODE = #{bankAccCode}
+		</if>
+	</sql>
+	<sql id="ORIGIN_CODE_LIKE">
+		<if test="originCode != null">AND
+			MASTER.ORIGIN_CODE like #{originCode}||'%'
+		</if>
+	</sql>
+	<sql id="ORG_CODE">
+		<if test="orgCode != null">AND
+			MASTER.ORG_CODE = #{orgCode}
+		</if>
+	</sql>
+	<sql id="PAYOUT_CODE">
+		<if test="payoutCode != null">AND
+			MASTER.PAYOUT_CODE = #{payoutCode}
+		</if>
+	</sql>
+	<sql id="PAYOUT_CODE_LIKE">
+		<if test="payoutCode != null">AND
+			MASTER.PAYOUT_CODE like #{payoutCode}||'%'
+		</if>
+	</sql>
+	<sql id="FUND_CODE">
+		<if test="fundCode != null">AND
+			MASTER.FUND_CODE like #{fundCode} || '%'
+		</if>
+	</sql>
+
+	<sql id="D_ATTR1">
+		<if test="dattr1 != null">AND
+			MASTER.D_ATTR1 = #{dattr1}
+		</if>
+	</sql>
+
+	<sql id="D_ATTR2">
+		<if test="dattr2 != null">AND
+			MASTER.D_ATTR2 = #{dattr2}
+		</if>
+	</sql>
+
+	<sql id="D_ATTR3">
+		<if test="dattr3 != null">AND
+			MASTER.D_ATTR3 = #{dattr3}
+		</if>
+	</sql>
+
+	<sql id="D_ATTR4">
+		<if test="dattr4 != null">AND
+			MASTER.D_ATTR4 = #{dattr4}
+		</if>
+	</sql>
+
+	<sql id="D_ATTR5">
+		<if test="dattr5 != null">AND
+			MASTER.D_ATTR5 = #{dattr5}
+		</if>
+	</sql>
+
+	<sql id="D_ATTR1_LIKE">
+		<if test="dattr1 != null">AND
+			MASTER.D_ATTR1 like #{dattr1}||'%'
+		</if>
+	</sql>
+
+	<sql id="D_ATTR2_LIKE">
+		<if test="dattr2 != null">AND
+			MASTER.D_ATTR2 like #{dattr2}||'%'
+		</if>
+	</sql>
+
+	<sql id="D_ATTR3_LIKE">
+		<if test="dattr3 != null">AND
+			MASTER.D_ATTR3 like #{dattr3}||'%'
+		</if>
+	</sql>
+
+	<sql id="D_ATTR4_LIKE">
+		<if test="dattr4 != null">AND
+			MASTER.D_ATTR4 like #{dattr4}||'%'
+		</if>
+	</sql>
+
+	<sql id="D_ATTR5_LIKE">
+		<if test="dattr5 != null">AND
+			MASTER.D_ATTR5 like #{dattr5}||'%'
+		</if>
+	</sql>
+
+	<sql id="FUND_CODE_LIKE">
+		<if test="fundCode != null">AND
+			MASTER.FUND_CODE like #{fundCode}||'%'
+		</if>
+	</sql>
+	<sql id="MONTH">
+		
+			MASTER.MONTH = #{month}
+		
+	</sql>
+
+	<sql id="START_MONTH">
+		
+			
+			MASTER.MONTH &gt;= #{startMonth}
+			
+		
+	</sql>
+
+	<sql id="END_MONTH">
+		
+			
+			 MASTER.MONTH &lt;= #{endMonth}
+			
+		
+	</sql>
+
+	<sql id="PROJECT_CODE">
+		<if test="projectCode != null">AND
+			MASTER.PROJECT_CODE = #{projectCode}
+		</if>
+	</sql>
+
+	<sql id="PROJECT_CODE_LIKE">
+		<if test="projectCode != null">AND
+			MASTER.PROJECT_CODE LIKE
+			#{projectCode}||'%'
+		</if>
+	</sql>
+
+	<sql id="PM_ADJUST_CODE">
+		<if test="pmAdjustCode != null">AND
+			MASTER.PM_ADJUST_CODE = #{pmAdjustCode}
+		</if>
+	</sql>
+
+	<sql id="CP_ADJUST_CODE">
+		<if test="cpAdjustCode != null">AND
+			MASTER.CP_ADJUST_CODE = #{cpAdjustCode}
+		</if>
+	</sql>
+
+	<sql id="PM_ADJUST_CODE_LIST">
+		AND <foreach collection="pmAdjustCodeList" item="item" separator="OR" close=")" open="(">
+			MASTER.PM_ADJUST_CODE=#{item}
+		</foreach>
+	</sql>
+
+	<sql id="OPERATION_TYPE_CODE">
+		<if test="operationTypeCode != null">AND
+			MASTER.OPERATION_TYPE_CODE = #{operationTypeCode}
+		</if>
+	</sql>
+	<sql id="OPERATION_TYPE_CODE_LIKE">
+		<if test="operationTypeCode != null">AND
+			MASTER.OPERATION_TYPE_CODE like #{operationTypeCode}||'%'
+		</if>
+	</sql>
+
+	<sql id="PM_TYPE">
+		<if test="pmType != null">AND
+			MASTER.PM_TYPE = #{pmType}
+		</if>
+	</sql>
+
+	<sql id="SEASON">
+		
+			MASTER.SEASON = #{season}
+		
+	</sql>
+
+	<sql id="KMLB">
+		<if test="kmlb != null">AND
+			MASTER.kmlb = #{kmlb}
+		</if>
+	</sql>
+	<sql id="PRINT_ESTATE">
+	    <if test="printTimes != null">AND
+			    <if test="printTimes == 1">
+						PRINT_TIMES &gt; 0
+				</if>
+				<if test="printTimes == 0">
+						PRINT_TIMES = 0
+				</if>
+		</if>
+	</sql>
+   <sql id="PROJECT_TYPE_CODE">
+	    <if test="projectTypeCode != null">AND
+			MASTER.PROJECT_TYPE_CODE = #{projectTypeCode}
+		</if>
+   </sql>
+   <sql id="BI_LEVEL">
+	    <if test="biLevel != null">AND
+			MASTER.BI_LEVEL = #{biLevel}
+		</if>
+   </sql>
+   <sql id="BI_ADJUST_CODE">
+	    <if test="biAdjustCode != null">AND
+			MASTER.BI_ADJUST_CODE = #{biAdjustCode}
+		</if>
+   </sql>
+   <sql id="INPUT_GROUP_ID">
+	    <if test="inputGroupId != null">AND
+			MASTER.INPUT_GROUP_ID = #{inputGroupId}
+		</if>
+   </sql>
+   	<sql id="ClearDate">
+		<if test="clearDate != null">AND
+			CLEAR_DATE = #{clearDate}
+		</if>
+	</sql>
+	<sql id="AN_STATUS">
+		<if test="anStatus != null">AND
+			AN_STATUS = #{anStatus}
+		</if>
+	</sql>
+	<sql id="ZC_EB_PROJECT_CODE">
+		<if test="projectCode != null">AND
+			ZC_EB_PROJ.PROJ_CODE = #{projectCode}
+		</if>
+	</sql>
+	<sql id="ZC_EB_PROJECT_STATUS">
+		<if test="status != null">AND
+			ZC_EB_PROJ.STATUS = #{status}
+		</if>
+	</sql>
+	<sql id="ZC_EB_PROJECT_CONDTION_STRING">
+		<if test="dattr1 != null">AND
+			( #{dattr1} )
+		</if>
+	</sql>
+</mapper>

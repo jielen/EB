@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+
+	<bean id="ebaySiteDao" class="com.ufgov.gk.server.ebay.dao.EbSiteDAOImpl" scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="ebaySiteService" class="com.ufgov.gk.server.ebay.service.impl.EbEbaySiteService" scope="singleton">
+		<property name="ebaySiteDao" ref="ebaySiteDao" />
+	</bean>
+	
+	
+	<bean id="ebAppServerDao" class="com.ufgov.gk.server.ebay.dao.EbAppServerDAOImpl" scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="ebAppServerService" class="com.ufgov.gk.server.ebay.service.impl.EbAppServerService" scope="singleton">
+		<property name="ebAppServerDao" ref="ebAppServerDao" />
+	</bean>
+	
+	<bean id="ebAppAccountDao" class="com.ufgov.gk.server.ebay.dao.EbAppAccountDAOImpl" scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="ebAppAccountService" class="com.ufgov.gk.server.ebay.service.impl.EbAppAccountService" scope="singleton">
+		<property name="ebAppAccountDao" ref="ebAppAccountDao" />
+	</bean>
+	
+	<bean id="ebCategoryDao" class="com.ufgov.gk.server.ebay.dao.EbCategoryDAOImpl" scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="ebCategoryService" class="com.ufgov.gk.server.ebay.service.impl.EbCategoryService" scope="singleton">
+		<property name="ebCategoryDao" ref="ebCategoryDao" />
+	</bean>
+	
+	<bean id="ebSellerGroupDao" class="com.ufgov.gk.server.ebay.dao.EbSellerGroupDAOImpl" scope="prototype">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="ebSellerGroupService" class="com.ufgov.gk.server.ebay.service.impl.EbSellerGroupService" scope="singleton">
+		<property name="ebSellerGroupDao" ref="ebSellerGroupDao" />
+		<property name="ebSellerDao" ref="ebSellerDao" />
+	</bean>
+	
+	<bean id="ebCurrencyDao" class="com.ufgov.gk.server.ebay.dao.EbCurrencyDAOImpl" scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="ebCurrencyService" class="com.ufgov.gk.server.ebay.service.impl.EbCurrencyService" scope="singleton">
+		<property name="ebCurrencyDao" ref="ebCurrencyDao" />
+	</bean>
+	
+	<bean id="ebSellerDao" class="com.ufgov.gk.server.ebay.dao.EbSellerDAOImpl" scope="prototype">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="ebSellerService" class="com.ufgov.gk.server.ebay.service.impl.EbSellerService" scope="prototype">
+		<property name="ebSellerDao" ref="ebSellerDao" />
+	</bean>
+	
+	<bean id="ebItemDao" class="com.ufgov.gk.server.ebay.dao.EbItemDAOImpl" scope="prototype">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="ebItemService" class="com.ufgov.gk.server.ebay.service.impl.EbItemService" scope="prototype">
+		<property name="ebItemDao" ref="ebItemDao" />
+	</bean>
+	
+	<bean id="ebRetrievalTaskDao" class="com.ufgov.gk.server.ebay.dao.EbRetrievalTaskDAOImpl" scope="prototype">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="ebRetrievalTaskService" class="com.ufgov.gk.server.ebay.service.impl.EbRetrievalTaskService" scope="prototype">
+		<property name="ebRetrievalTaskDao" ref="ebRetrievalTaskDao" />
+		<property name="ebItemDao" ref="ebItemDao" />
+		<property name="ebSellerDao" ref="ebSellerDao" />
+		<property name="ebItemCheckedDao" ref="itemCheckedDao" />
+		<property name="ebCandidateItemDao" ref="ebCandidateItemDAO" />
+		<property name="ebCandidateItemRefDAO" ref="ebCandidateItemRefDAO" />
+	</bean>
+	
+	<bean id="ebCandidateItemDAO" class="com.ufgov.gk.server.ebay.dao.EbCandidateItemDAOImpl" scope="prototype">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="ebCandidateItemService" class="com.ufgov.gk.server.ebay.service.impl.EbCandidateItemService" scope="prototype">
+		<property name="ebCandidateItemDAO" ref="ebCandidateItemDAO" />
+		<property name="ebCandidateItemRefDAO" ref="ebCandidateItemRefDAO" />
+	</bean>	
+	
+	<bean id="ebCandidateItemRefDAO" class="com.ufgov.gk.server.ebay.dao.EbCandidateItemRefDAOImpl" scope="prototype">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="ebCandidateItemRefService" class="com.ufgov.gk.server.ebay.service.impl.EbCandidateItemRefService" scope="prototype">
+		<property name="ebCandidateItemRefDAO" ref="ebCandidateItemRefDAO" />
+	</bean>	
+	
+	<bean id="itemCheckedDao" class="com.ufgov.gk.server.ebay.dao.EbItemCheckedDAOImpl" scope="prototype">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="ebItemCheckedService" class="com.ufgov.gk.server.ebay.service.impl.EbItemCheckedService" scope="prototype">
+		<property name="itemCheckedDao" ref="itemCheckedDao" />
+	</bean>	
+	
+</beans>

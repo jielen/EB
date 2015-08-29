@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Converted at: Sat Nov 10 23:20:59 CST 2012-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Company">
+	<!--
+		Sorry, I can`t migrate	elementCondition
+		See console output for further details 
+	-->
+
+	<resultMap id="company" type="com.ufgov.gk.common.commonbiz.model.Company">
+		<result property="nd" column="nd"/>
+		<result property="code" column="co_code"/>
+		<result property="name" column="co_name"/>
+		<result property="parentCode" column="parent_co_code"/>
+		<result property="coTypeCode" column="co_type_code"/>
+	</resultMap>
+
+	<resultMap id="companyAll" type="com.ufgov.gk.common.commonbiz.model.Company">
+		<result property="nd" column="nd"/>
+		<result property="code" column="co_code"/>
+		<result property="name" column="co_name"/>
+		<result property="parentCode" column="parent_co_code"/>
+		<result property="coTypeCode" column="co_type_code"/>
+		<result property="forgCode" column="f_org_code"/>
+	</resultMap>
+
+	<sql id="selectCompany">
+		select distinct nd,co_code,co_name,parent_co_code,co_type_code
+		from ma_company
+	</sql>
+
+	<sql id="selectCompanyAll">
+		select distinct nd,co_code,co_name,parent_co_code,co_type_code,f_org_code
+		from ma_company
+	</sql>
+
+	<select id="getRootCompany" parameterType="int" resultMap="company">
+		<include refid="selectCompany"/>
+		where nd=#{nd} and (is_used='Y' or is_used='y') and
+		parent_co_code is null order by co_code
+	</select>
+
+	<select id="getChildrenCompany" parameterType="int" resultMap="company">
+		<include refid="selectCompany"/>
+		where nd=#{nd} and (is_used='Y' or is_used='y') and
+		parent_co_code is not null order by co_code
+	</select>
+
+	<select id="getCompany" parameterType="elementCondition" resultMap="companyAll">
+		<include refid="selectCompanyAll"/>
+		where nd=#{nd} and (is_used='Y' or is_used='y')
+		<include refid="BusiNumLim.BusiNumLimStr"/>
+		order by co_code
+	</select>
+
+	<select id="getCompanyNumLimTree" parameterType="map" resultMap="company">
+		<include refid="selectCompany"/>
+		start with nd=#{nd} and (is_used='Y' or is_used='y') 
+		
+		<if test="coCode != null">AND
+			 co_Code=#{coCode}
+		</if>
+	
+		<include refid="BusiNumLim.BusiNumLimStr"/>
+		connect by prior parent_co_code =co_code and nd=#{nd} order by
+		co_code
+	</select>
+
+	<select id="getCompanyByCoCode" parameterType="map" resultMap="companyAll">
+		<include refid="selectCompanyAll"/>
+		where nd=#{nd} and co_code=#{coCode}
+	</select>
+
+	<select id="getCompanyChildrenCode" parameterType="map" resultMap="company">
+		<include refid="selectCompany"/>
+		start with nd=#{nd} and (is_used = 'Y' or is_used = 'y') and
+		co_code=#{coCode} connect by prior co_code = parent_co_code and
+		nd=#{nd}
+	</select>
+
+	<select id="getDirectorCompany" parameterType="elementCondition" resultMap="company">
+		select * from ma_company t where t.nd=#{nd} and t.co_code in(
+		select director_code from ma_company mc where
+		mc.co_code=#{coCode} and mc.nd=#{nd} )
+	</select>
+
+	<select id="getCompanyByUserId" parameterType="map" resultMap="company">
+		select distinct nd,co_code,co_name,parent_co_code,co_type_code
+		FROM ma_company A WHERE co_code in( SELECT co_code FROM
+		as_emp_position B WHERE A.nd=B.Nd AND emp_code=(SELECT emp_code
+		FROM as_emp WHERE user_id=#{userId}) ) AND nd=#{nd} order by
+		co_code
+	</select>
+
+</mapper>

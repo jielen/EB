@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE abatorConfiguration PUBLIC "-//Apache Software Foundation//DTD Abator for iBATIS Configuration 1.0//EN" "http://ibatis.apache.org/dtd/abator-config_1_0.dtd" >
+<abatorConfiguration >
+  <abatorContext >
+    <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@127.0.0.1:1521:orcl" userId="ebay" password="1" >
+      <classPathEntry location="D:\\1workroom\\lib\jdbc\\oracle\\ojdbc6.jar" />
+    </jdbcConnection>
+    <javaModelGenerator targetPackage="com.ufgov.gk.common.ebay.model" targetProject="EB" />
+    <sqlMapGenerator targetPackage="sqlmap" targetProject="EB" />
+    <daoGenerator targetPackage="com.ufgov.gk.server.ebay.dao" targetProject="EB" type="SPRING" />
+    <table schema="" tableName="EB_ITEM_CHECKED" >
+    </table>
+  </abatorContext>
+</abatorConfiguration>

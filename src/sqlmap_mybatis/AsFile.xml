@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Converted at: Sat Nov 10 23:20:41 CST 2012-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AsFile">
+	<!--
+		Sorry, I can`t migrate	gkAsFile
+		See console output for further details 
+	-->
+
+	<resultMap id="asFileResult" type="gkAsFile">
+		<result property="fileId" column="FILE_ID"/>
+		<result property="fileName" column="FULL_NAME"/>
+		<result property="mimeType" column="SUFFIX_NAME"/>
+		<result property="filePath" column="FILE_PATH"/>
+		<result property="fileContent" column="FILE_CONTENT" typeHandler="org.springframework.orm.ibatis.support.BlobByteArrayTypeHandler"/>   
+	</resultMap>
+	
+	<resultMap id="largeAsFileResult" type="gkAsFile">
+		<result property="fileId" column="FILE_ID"/>
+		<result property="fileName" column="FULL_NAME"/>
+		<result property="mimeType" column="SUFFIX_NAME"/>
+		<result property="largeFileStream" column="FILE_CONTENT" typeHandler="com.ufgov.gk.server.system.util.StreamHandler"/>   
+	</resultMap>
+	
+    <resultMap id="AsFileDirectory" type="gkAsFile">
+		<result property="fileId" column="FILE_ID"/>
+		<result property="fileName" column="FULL_NAME"/>
+		<result property="mimeType" column="SUFFIX_NAME"/>
+		<result property="filePath" column="FILE_PATH"/>
+	</resultMap>
+
+	<insert id="insertAsFile" parameterType="gkAsFile">
+		insert into AS_FILE ( FILE_ID, FULL_NAME, SUFFIX_NAME,FILE_CONTENT,FILE_PATH) values (
+		#{fileId}, #{fileName}, #{mimeType},#{fileContent,handler=org.springframework.orm.ibatis.support.BlobByteArrayTypeHandler},#{filePath})
+	</insert>
+	
+	<insert id="insertAsFileDirectory" parameterType="gkAsFile">
+		insert into AS_FILE ( FILE_ID, FULL_NAME, SUFFIX_NAME, FILE_PATH) values (
+		#{fileId}, #{fileName}, #{mimeType}, #{filePath})
+	</insert>
+		
+	<insert id="insertLargeAsFile" parameterType="gkAsFile">
+		insert into AS_FILE ( FILE_ID, FULL_NAME, SUFFIX_NAME,FILE_CONTENT) values (
+		#{fileId}, #{fileName}, #{mimeType},#{largeFileContent,handler=com.ufgov.gk.server.system.util.StreamHandler})	
+	</insert>
+
+	<select id="getAsFileById" parameterType="string" resultMap="asFileResult">
+		select FILE_ID, FULL_NAME, SUFFIX_NAME,FILE_CONTENT,FILE_PATH from AS_FILE where
+		FILE_ID = #{value,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="getLargeAsFileById" parameterType="string" resultMap="largeAsFileResult">
+		select FILE_ID, FULL_NAME, SUFFIX_NAME,FILE_CONTENT from AS_FILE where
+		FILE_ID = #{value,jdbcType=VARCHAR}
+	</select>
+
+	<select id="getLargeAsFile" parameterType="java.util.HashMap" resultMap="largeAsFileResult">
+		select FILE_ID, FULL_NAME, SUFFIX_NAME,FILE_CONTENT from AS_FILE 
+        <!--
+		Sorry, I can`t migrate	where
+		See console output for further details 
+	-->
+	</select>
+
+	<delete id="deleteAsFileById" parameterType="string">
+		delete from AS_FILE where FILE_ID = #{value}
+	</delete>
+
+	<update id="updateAsFileById" parameterType="gkAsFile">
+		update 
+		       AS_FILE
+		   set
+		       FULL_NAME = #{fileName}, 
+		       SUFFIX_NAME = #{mimeType},
+		       FILE_CONTENT = #{fileContent,handler=org.springframework.orm.ibatis.support.BlobByteArrayTypeHandler}
+		 where
+		       FILE_ID = #{fileId}
+	</update>
+
+</mapper>

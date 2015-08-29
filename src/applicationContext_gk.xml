@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+	<bean id="wfEngineAdapter" class="com.ufgov.gk.server.system.workflow.WFEngineAdapter"
+		scope="singleton">
+		<property name="wfEngine" ref="WFEngine" />
+		<property name="asOptionDao" ref="asOptionDao" />
+		<property name="workflowDao" ref="workflowDao" />
+	</bean>
+	<bean id="billElementDao" class="com.ufgov.gk.server.commonbiz.dao.ibatis.BillElementDao"
+		scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="billElementService"
+		class="com.ufgov.gk.server.commonbiz.service.impl.BillElementService"
+		scope="singleton">
+		<property name="billElementDao" ref="billElementDao" />
+	</bean>
+	<bean id="langTransDao" class="com.ufgov.gk.server.system.dao.ibatis.LangTransDao"
+		scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="langTransService"
+		class="com.ufgov.gk.server.system.service.impl.LangTransService"
+		scope="singleton">
+		<property name="langTransDao" ref="langTransDao" />
+	</bean>
+	<bean id="orgDao" class="com.ufgov.gk.server.commonbiz.dao.ibatis.OrgDao"
+		scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="orgService" class="com.ufgov.gk.server.commonbiz.service.impl.OrgService"
+		scope="singleton">
+		<property name="orgDao" ref="orgDao" />
+	</bean>
+	<bean id="wfTaskGranterDao"
+		class="com.ufgov.gk.server.commonbiz.dao.ibatis.WfTaskGranterDao"
+		scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="wfTaskGranterService"
+		class="com.ufgov.gk.server.commonbiz.service.impl.WfTaskGranterService"
+		scope="singleton">
+		<property name="wfTaskGranterDao" ref="wfTaskGranterDao" />
+		<property name="wfEngine" ref="wfEngineAdapter"></property>
+		<property name="asOptionDao" ref="asOptionDao" />
+	</bean>
+	<bean id="companyDao" class="com.ufgov.gk.server.commonbiz.dao.ibatis.CompanyDao"
+		scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="companyService"
+		class="com.ufgov.gk.server.commonbiz.service.impl.CompanyService"
+		scope="singleton">
+		<property name="companyDao" ref="companyDao" />
+	</bean>
+	<bean id="asValDao" class="com.ufgov.gk.server.system.dao.ibatis.AsValDao"
+		scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="asValsetDao" class="com.ufgov.gk.server.system.dao.ibatis.AsValsetDAOImpl"
+		scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="asValService" class="com.ufgov.gk.server.system.service.impl.AsValService"
+		scope="singleton">
+		<property name="asValDao" ref="asValDao" />
+		<property name="asValsetDao" ref="asValsetDao" />
+	</bean>
+	<bean id="asOptionDao" class="com.ufgov.gk.server.system.dao.ibatis.AsOptionDao"
+		scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="asOptionService" class="com.ufgov.gk.server.system.service.impl.AsOptionService"
+		scope="singleton">
+		<property name="asOptionDao" ref="asOptionDao" />
+	</bean>
+	<bean id="asOrgDao" class="com.ufgov.gk.server.console.dao.ibatis.AsOrgDao"
+		scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="asOrgService" class="com.ufgov.gk.server.console.service.impl.AsOrgService"
+		scope="singleton">
+		<property name="asOrgDao" ref="asOrgDao" />
+	</bean>
+	<bean id="asRoleDao" class="com.ufgov.gk.server.console.dao.ibatis.AsRoleDao"
+		scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="asRoleService" class="com.ufgov.gk.server.console.service.impl.AsRoleService"
+		scope="singleton">
+		<property name="asRoleDao" ref="asRoleDao" />
+	</bean>
+	<bean id="numLimCompoDao" class="com.ufgov.gk.server.commonbiz.dao.ibatis.NumLimCompoDao"
+		scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="numLimCompoService"
+		class="com.ufgov.gk.server.commonbiz.service.impl.NumLimCompoService"
+		scope="singleton">
+		<property name="numLimCompoDao" ref="numLimCompoDao" />
+	</bean>
+	<bean id="searchConditionDao"
+		class="com.ufgov.gk.server.commonbiz.dao.ibatis.SearchConditionDao"
+		scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="searchConditionService"
+		class="com.ufgov.gk.server.commonbiz.service.impl.SearchConditionService"
+		scope="singleton">
+		<property name="searchConditionDao" ref="searchConditionDao" />
+	</bean>
+	<bean id="userPreferencesDao"
+		class="com.ufgov.gk.server.system.dao.ibatis.UserPreferencesDao"
+		scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="userPreferencesService"
+		class="com.ufgov.gk.server.system.service.impl.UserPreferencesService"
+		scope="singleton">
+		<property name="userPreferencesDao" ref="userPreferencesDao" />
+	</bean>
+	<bean id="asUserNumLimDao" class="com.ufgov.gk.server.console.dao.ibatis.AsUserNumLimDao"
+		scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="asUserNumLimService"
+		class="com.ufgov.gk.server.console.service.impl.AsUserNumLimService"
+		scope="singleton">
+		<property name="asUserNumLimDao" ref="asUserNumLimDao" />
+	</bean>
+	<bean id="asRoleNumLimDao" class="com.ufgov.gk.server.console.dao.ibatis.AsRoleNumLimDao"
+		scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="asRoleNumLimService"
+		class="com.ufgov.gk.server.console.service.impl.AsRoleNumLimService"
+		scope="singleton">
+		<property name="asRoleNumLimDao" ref="asRoleNumLimDao" />
+	</bean>
+	<bean id="sqlCheckDao" class="com.ufgov.gk.server.console.dao.ibatis.SqlCheckDao"
+		scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="sqlCheckService"
+		class="com.ufgov.gk.server.console.service.impl.SqlCheckService"
+		scope="singleton">
+		<property name="sqlCheckDao" ref="sqlCheckDao" />
+	</bean>
+	<bean id="operationTypeDao"
+		class="com.ufgov.gk.server.commonbiz.dao.ibatis.OperationTypeDao"
+		scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="operationTypeService"
+		class="com.ufgov.gk.server.commonbiz.service.impl.OperationTypeService"
+		scope="singleton">
+		<property name="operationTypeDao" ref="operationTypeDao" />
+	</bean>
+	<bean id="maUserNumLimDao" class="com.ufgov.gk.server.console.dao.ibatis.MaUserNumLimDao"
+		scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="maUserNumLimService"
+		class="com.ufgov.gk.server.console.service.impl.MaUserNumLimService"
+		scope="singleton">
+		<property name="maUserNumLimDao" ref="maUserNumLimDao" />
+	</bean>
+	<bean id="maRoleNumLimDao" class="com.ufgov.gk.server.console.dao.ibatis.MaRoleNumLimDao"
+		scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="maRoleNumLimService"
+		class="com.ufgov.gk.server.console.service.impl.MaRoleNumLimService"
+		scope="singleton">
+		<property name="maRoleNumLimDao" ref="maRoleNumLimDao" />
+	</bean>
+	<bean id="workflowDao" class="com.ufgov.gk.server.system.dao.ibatis.WorkflowDao"
+		scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="menuService" class="com.ufgov.gk.server.console.service.impl.MenuService"
+		scope="singleton">
+		<property name="menuDao" ref="menuDao" />
+		<property name="asMenusDao" ref="asMenusDao" />
+		<property name="asMenuCompoDao" ref="asMenuCompoDao" />
+	</bean>
+	<bean id="menuDao" class="com.ufgov.gk.server.console.dao.ibatis.MenuDao"
+		scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="asMenusDao" class="com.ufgov.gk.server.system.dao.ibatis.AsMenuDAOImpl"
+		scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="asMenuCompoDao" class="com.ufgov.gk.server.system.dao.ibatis.AsMenuCompoDAOImpl"
+		scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="componentService"
+		class="com.ufgov.gk.server.console.service.impl.ComponentService"
+		scope="singleton">
+		<property name="componentDao" ref="componentDao" />
+	</bean>
+	<bean id="componentDao" class="com.ufgov.gk.server.console.dao.ibatis.ComponentDao"
+		scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="numDao" class="com.ufgov.gk.server.commonbiz.dao.ibatis.NumDao"
+		scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="userDao" class="com.ufgov.gk.server.system.dao.ibatis.UserDao"
+		scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="userService" class="com.ufgov.gk.server.system.service.impl.UserService"
+		scope="singleton">
+		<property name="userDao" ref="userDao" />
+	</bean>
+	<bean id="userFuncDao" class="com.ufgov.gk.server.system.dao.ibatis.UserFuncDao"
+		scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="userFuncService" class="com.ufgov.gk.server.system.service.impl.UserFuncService"
+		scope="singleton">
+		<property name="userFuncDao" ref="userFuncDao" />
+	</bean>
+	<bean id="businessLogDao" class="com.ufgov.gk.server.commonbiz.dao.ibatis.BusinessLogDao"
+		scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="businessLogService"
+		class="com.ufgov.gk.server.commonbiz.service.impl.BusinessLogService"
+		scope="singleton">
+		<property name="businessLogDao" ref="businessLogDao" />
+	</bean>
+	<bean id="workflowTraceService"
+		class="com.ufgov.gk.server.system.service.impl.WorkflowTraceService"
+		scope="singleton">
+		<property name="wfEngineAdapter" ref="wfEngineAdapter"></property>
+	</bean>
+	<bean id="asCompoFuncDao" class="com.ufgov.gk.server.system.dao.ibatis.AsCompoFuncDao"
+		scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="asCompoFuncService"
+		class="com.ufgov.gk.server.system.service.impl.AsCompoFuncService"
+		scope="singleton">
+		<property name="asCompoFuncDao" ref="asCompoFuncDao" />
+	</bean>
+	<bean id="gkGetdataRuleDao"
+		class="com.ufgov.gk.server.commonbiz.dao.ibatis.GkGetdataRuleDao"
+		scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="gkGetdataRuleService"
+		class="com.ufgov.gk.server.console.service.impl.GkGetdataRuleService"
+		scope="singleton">
+		<property name="gkGetdataRuleDao" ref="gkGetdataRuleDao" />
+	</bean>
+	<bean id="asCompoDao" class="com.ufgov.gk.server.system.dao.ibatis.AsCompoDao"
+		scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="asFileDao" class="com.ufgov.gk.server.system.dao.ibatis.AsFileDao"
+		scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="asFileService" class="com.ufgov.gk.server.system.service.impl.AsFileService"
+		scope="singleton">
+		<property name="asFileDao" ref="asFileDao" />
+	</bean>
+	<bean id="gkWorkflowService"
+		class="com.ufgov.gk.server.commonbiz.service.impl.GkWorkflowService"
+		scope="singleton">
+		<property name="workflowDao" ref="workflowDao" />
+	</bean>
+	<bean id="asCompoService" class="com.ufgov.gk.server.system.service.impl.AsCompoService"
+		scope="singleton">
+		<property name="asCompoDao" ref="asCompoDao" />
+	</bean>
+	<bean id="numService" class="com.ufgov.gk.server.system.service.impl.NumService"
+		scope="singleton">
+	</bean>
+	<bean id="asEmpDao" class="com.ufgov.gk.server.console.dao.ibatis.AsEmpDao"
+		scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="asEmpService" class="com.ufgov.gk.server.console.service.impl.AsEmpService"
+		scope="singleton">
+		<property name="asEmpDao" ref="asEmpDao" />
+	</bean>
+
+	<bean id="asRoleGrantedDao" class="com.ufgov.gk.server.console.dao.ibatis.AsRoleGrantedDao"
+		scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="asRoleGrantedService" class="com.ufgov.gk.server.console.service.impl.AsRoleGrantedService"
+		scope="singleton">
+		<property name="asRoleGrantedDao" ref="asRoleGrantedDao" />
+		<property name="wfRuntimeService" ref="WFRuntimeService" />
+	</bean>
+
+	<bean id="gkBusinessLogDao" class="com.ufgov.gk.server.system.dao.ibatis.GkBusinessLogDao" scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="gkBusinessLogService" class="com.ufgov.gk.server.system.service.impl.GkBusinessLogService" scope="singleton">
+		<property name="gkBusinessLogDao" ref="gkBusinessLogDao" />
+	</bean>
+	<bean id="foreignEntityDao" class="com.ufgov.gk.server.system.dao.ibatis.ForeignEntityDao" scope="singleton">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="foreignEntityService" class="com.ufgov.gk.server.system.service.impl.ForeignEntityServic" scope="singleton">
+		<property name="foreignEntityDao" ref="foreignEntityDao" />
+	</bean>
+</beans>

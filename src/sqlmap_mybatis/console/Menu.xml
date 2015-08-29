@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Converted at: Sat Nov 10 23:25:47 CST 2012-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Menu">
+
+	<resultMap id="menu" type="com.ufgov.gk.common.console.model.Menu">
+		<result property="menuCode" column="menu_id"/>
+		<result property="menuName" column="menu_name"/>
+		<result property="parentCode" column="parent_id"/>
+	</resultMap>
+
+	<select id="selectMenuList" parameterType="Map" resultMap="menu">
+		select menu_id,menu_name,parent_id   from as_menu main where 1=1
+		<if test="parentCode != null">AND
+			PARENT_ID = #{parentCode}
+		</if>
+		<if test="roleCode != null">AND
+			
+		</if>		 
+	</select>
+
+
+</mapper>

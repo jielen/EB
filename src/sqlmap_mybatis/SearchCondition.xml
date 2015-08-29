@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Converted at: Sat Nov 10 23:21:09 CST 2012-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SearchCodition">
+	<!--
+		Sorry, I can`t migrate	searchCondition
+		See console output for further details 
+	-->
+	<!--
+		Sorry, I can`t migrate	userSearchCondition
+		See console output for further details 
+	-->
+
+	<resultMap id="searchCondition" type="searchCondition">
+		<result property="conditionId" column="CONDITION_ID"/>
+		<result property="conditionFieldCode" column="CONDITION_FIELD_CODE"/>
+		<result property="conditionFieldName" column="CONDITION_FIELD_NAME"/>
+	</resultMap>
+
+	<resultMap id="userSearchCondition" type="userSearchCondition">
+		<result property="userId" column="USER_ID"/>
+		<result property="conditionId" column="CONDITION_ID"/>
+		<result property="conditionFieldCode" column="CONDITION_FIELD_CODE"/>
+		<result property="conditionFieldOrder" column="CONDITION_FIELD_ORDER"/>
+	</resultMap>
+
+	<resultMap id="compoSearchCondition" type="searchCondition">
+		<result property="conditionId" column="CONDITION_ID"/>
+		<result property="conditionName" column="CONDITION_NAME"/>
+		<result property="conditionNameOrder" column="CONDITION_NAME_ORDER"/>
+	</resultMap>
+
+	<resultMap id="conditionSearchCondition" type="searchCondition">
+		<result property="conditionId" column="CONDITION_ID"/>
+		<result property="conditionFieldCode" column="CONDITION_FIELD_CODE"/>
+		<result property="conditionFieldName" column="CONDITION_FIELD_NAME"/>
+		<result property="conditionFieldOrder" column="CONDITION_FIELD_ORDER"/>
+	</resultMap>
+
+	<resultMap id="seaerchConditionConsole" type="searchCondition">
+		<result property="compoId" column="COMPO_ID"/>
+		<result property="compoName" column="COMPO_NAME"/>
+		<result property="conditionId" column="CONDITION_ID"/>
+		<result property="conditionFieldCode" column="CONDITION_FIELD_CODE"/>
+		<result property="conditionFieldName" column="CONDITION_FIELD_NAME"/>
+		<result property="conditionFieldOrder" column="CONDITION_FIELD_ORDER"/>
+	</resultMap>
+
+	<select id="getSearchCondition" parameterType="map" resultMap="searchCondition">
+		select
+		CONDITION_ID,CONDITION_FIELD_CODE,CONDITION_FIELD_NAME
+		from
+		MA_SEARCH_CONDITION
+		<!--
+		Sorry, I can`t migrate	where
+		See console output for further details 
+	-->
+		order by
+		CONDITION_FIELD_ORDER
+	</select>
+
+	<select id="getUserSearchCondition" parameterType="java.util.Map" resultMap="searchCondition">
+		select
+		b.CONDITION_ID,b.CONDITION_FIELD_CODE,a.CONDITION_FIELD_ORDER,b.CONDITION_FIELD_NAME
+		from
+		MA_USER_SEARCH_CONDITION a ,MA_SEARCH_CONDITION b
+		where
+		a.CONDITION_ID=b.CONDITION_ID
+		and
+		a.CONDITION_FIELD_CODE=b.CONDITION_FIELD_CODE
+		and a.CONDITION_ID =
+		#{conditionId,jdbcType=VARCHAR}
+		and a.USER_ID = #{userId,jdbcType=VARCHAR}
+		order by
+		a.CONDITION_FIELD_ORDER
+	</select>
+	<select id="getRoleSearchCondition" parameterType="java.util.Map" resultMap="searchCondition">
+		select
+		b.CONDITION_ID,b.CONDITION_FIELD_CODE,b.CONDITION_FIELD_ORDER,b.CONDITION_FIELD_NAME
+		from
+		MA_ROLE_SEARCH_CONDITION a ,MA_SEARCH_CONDITION b
+		where
+		b.CONDITION_ID=a.CONDITION_ID
+		and
+		b.CONDITION_FIELD_CODE=a.CONDITION_FIELD_CODE
+		and b.CONDITION_ID =
+		#{conditionId,jdbcType=VARCHAR}
+		and a.ROlE_ID in
+		(SELECT AR.ROLE_ID
+		FROM
+		AS_POSI_ROLE AR
+		WHERE AR.POSI_CODE =(
+		SELECT
+		AP.POSI_CODE
+		FROM
+		AS_EMP_POSITION AP
+		WHERE AP.EMP_CODE =
+		(SELECT
+		AE.EMP_CODE FROM AS_EMP AE
+		WHERE AE.USER_ID = #{userId,jdbcType=VARCHAR})
+		AND
+		AP.ND = #{nd})
+		)
+		order by
+		b.CONDITION_FIELD_ORDER
+	</select>
+
+	<select id="getUserSearchConditionJoinRole" parameterType="java.util.Map" resultMap="searchCondition">
+		select
+		b.CONDITION_ID,b.CONDITION_FIELD_CODE,a.CONDITION_FIELD_ORDER,b.CONDITION_FIELD_NAME
+		from
+		MA_USER_SEARCH_CONDITION a ,MA_ROLE_SEARCH_CONDITION
+		c,MA_SEARCH_CONDITION b
+		where
+		a.CONDITION_ID=b.CONDITION_ID
+		and
+		a.CONDITION_ID=c.CONDITION_ID
+		and
+		a.CONDITION_FIELD_CODE=b.CONDITION_FIELD_CODE
+		and
+		a.CONDITION_FIELD_CODE=c.CONDITION_FIELD_CODE
+		and a.CONDITION_ID
+		=#{conditionId,jdbcType=VARCHAR}
+		and a.USER_ID = #{userId,jdbcType=VARCHAR}
+		and c.ROLE_ID in(
+		SELECT AR.ROLE_ID
+		FROM AS_POSI_ROLE AR
+		WHERE AR.POSI_CODE =(
+		SELECT
+		AP.POSI_CODE
+		FROM AS_EMP_POSITION AP
+		WHERE AP.EMP_CODE =
+		(SELECT
+		AE.EMP_CODE FROM AS_EMP AE WHERE AE.USER_ID = #{userId,jdbcType=VARCHAR})
+		AND
+		AP.ND = #{nd})
+		)order by a.CONDITION_FIELD_ORDER
+	</select>
+
+
+	<select id="getUserDefaultValue" parameterType="java.util.Map" resultType="java.util.ArrayList">
+		select b.CONDITION_FIELD_NAME,CONDITION_FIELD_DEFAULTVALUE
+		from MA_USER_SEARCH_CONDITION a ,MA_SEARCH_CONDITION b
+		where
+		a.CONDITION_ID=b.CONDITION_ID
+		and
+		a.CONDITION_FIELD_CODE=b.CONDITION_FIELD_CODE
+		and a.CONDITION_ID =
+		#{conditionId}
+		and a.USER_ID = #{userId}
+		order by a.CONDITION_FIELD_ORDER
+	</select>
+	<delete id="deleteUserSearchCondition" parameterType="map">
+		delete
+		from MA_USER_SEARCH_CONDITION where CONDITION_ID=#{conditionId,jdbcType=VARCHAR}
+		and USER_ID=#{userId,jdbcType=VARCHAR}
+	</delete>
+
+	<insert id="insertUserSearchCondition" parameterType="userSearchCondition">
+		insert
+		into
+		MA_USER_SEARCH_CONDITION(USER_ID,CONDITION_ID,CONDITION_FIELD_CODE,
+		CONDITION_FIELD_ORDER,CONDITION_FIELD_DEFAULTVALUE)
+		values(
+		#{userId,jdbcType=VARCHAR},#{conditionId,jdbcType=VARCHAR},#{conditionFieldCode,jdbcType=VARCHAR},
+		#conditionFieldOrder:INTEGER#,#{conditionDefaultValue,jdbcType=VARCHAR})
+	</insert>
+
+	<update id="updateSearchCondition" parameterType="com.ufgov.gk.common.commonbiz.model.SearchCondition">
+		update
+		ma_search_condition
+		set CONDITION_FIELD_NAME =
+		#{conditionFieldName,jdbcType=VARCHAR}
+		where CONDITION_ID = #{conditionId,jdbcType=VARCHAR}
+		and CONDITION_FIELD_CODE=#{conditionFieldCode,jdbcType=VARCHAR}
+	</update>
+	<select id="getCompoSearchCondition" parameterType="map" resultMap="compoSearchCondition">
+		SELECT DISTINCT condition_id,
+		condition_name,condition_name_order
+		FROM ma_search_condition
+		WHERE
+		condition_type = #{conditionType,jdbcType=VARCHAR}
+		order by condition_name_order
+	</select>
+
+</mapper>

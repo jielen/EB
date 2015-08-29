@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+
+  <!-- soap server, for production, use: https://api.ebay.com/wsapi -->
+  <ServerUrl>https://api.sandbox.ebay.com/wsapi</ServerUrl>
+  <!-- eps server, for production, use: https://api.ebay.com/ws/api.dll -->
+  <EpsServerUrl>https://api.sandbox.ebay.com/ws/api.dll</EpsServerUrl>
+  <SignInUrl>https://signin.sandbox.ebay.com/ws/eBayISAPI.dll?SignIn</SignInUrl>
+
+  <!--LogFilePath>SanityTest.log</LogFilePath-->
+
+  <ApiCredential>
+    <Developer>c245cb26-cd8f-46d0-bc80-c840c489baef</Developer>
+    <Application>jielentr-988e-4a0e-83aa-9019671e15fc</Application>
+    <Certificate>0ee27cd5-cfd0-4c29-8778-fb56b67a2087</Certificate>
+  </ApiCredential>
+
+  <eBayCredential>
+    <!-- Token is used for both API server and EPS server -->
+    <Token>AgAAAA**AQAAAA**aAAAAA**J0XGTg**nY+sHZ2PrBmdj6wVnY+sEZ2PrA2dj6wFk4GhCJKCoQqdj6x9nY+seQ**TK0BAA**AAMAAA**Mwf56eRzqXoBw7yUEyXBrvoXT2stG6Tcd7zrHEwnZeAJ/gSMgQ5pAh3dbIJ3n0xOsoID9VUdkxmNX1wW6UZLwYYYYqg4sP0M+fdUxrCrQRmgtquSkmmogfMGCf+A+coN+wBriqJZlB0Hmd6n2Z7SDnrt2XIAPEBY8kFBQvZjJYTYQMJPpG0WMjKZPca3cnLkbai0RaTWqbtRzLMk++86CKxSQYHvp8yaXXITVjvawS/OTVH8Yp4W/Uxu2ltWkwaj1VOgn9rCyOqh6kjD7QwRfvSECeaMG2FbYpTtWaMgZj9N5zsyBRFVL+Y4IQVrzIJ9OmzFMN4ZhtZdqzRjWbKwfieFfSdXMGozM710+NYrfX3Q3B1jKw03aB55QGnjXQVXR6HQljc40wZcZRp77BoCXrrzryb1dSJhsLq8x7knTyu7LaEzp7dH13guri8EqnvPrq1S5C5cRtjYjy/J++YyCAXWlOcFxPGh+zR6xuwMU+6yWXz5ZyD7AfJFqasIo0zIuFzjC+Bpg7GtyhXbKb1dhj4Ma1+8vJ/7YJHOzMYUbyK2J7vGyBmGCJaWmpg0DPePyRLBxl37cpxsCvUh4VJbDOaNOrfj6Xhmo745mT9rcHE8UaG6ZNUHHgnGB1GDW+KXj/tbJNedjlCnD9y2g5vrgC9ThU7Vpa4ygt3Yui52YkuWCxHaVggAx3l/noCWId7Iy5RkIyxbrLZ1LVdn5/30Vs3Jtdp0Brf/2hk+vVEwD0c0nbcAunykNDki4OG+U87W</Token>
+  </eBayCredential>
+  <RuName></RuName>
+  
+  <!-- set this if you access eBay API server behind a proxy -->
+  <Proxy>
+   <Host></Host>
+   <Port></Port>
+   <!-- set username/password if necessary -->
+   <Username></Username>
+   <Password></Password>
+  </Proxy>
+
+</Configuration>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Converted at: Sat Nov 10 23:20:52 CST 2012-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AsNoRule">
+	
+	<resultMap id="AsNoRuleResult" type="com.ufgov.gk.common.system.model.AsNoRule">
+		<result property="compoId" column="COMPO_ID" jdbcType="VARCHAR"/>
+		<result property="ruleCode" column="RULE_CODE" jdbcType="VARCHAR"/>
+		<result property="ruleName" column="RULE_NAME" jdbcType="VARCHAR"/>
+		<result property="noPrefix" column="NO_PREFIX" jdbcType="VARCHAR"/>
+		<result property="noAftfix" column="NO_AFTFIX" jdbcType="VARCHAR"/>
+		<result property="isFillZero" column="IS_FILL_ZERO" jdbcType="VARCHAR"/>
+		<result property="noIndexLen" column="NO_INDEX_LEN" jdbcType="DECIMAL"/>
+		<result property="isCont" column="IS_CONT" jdbcType="CHAR"/>
+		<result property="numToolId" column="NUM_TOOL_ID" jdbcType="VARCHAR"/>
+		<result property="noField" column="NO_FIELD" jdbcType="VARCHAR"/>
+		<result property="isInclAtoz" column="IS_INCL_ATOZ" jdbcType="CHAR"/>
+	</resultMap>
+
+  <select id="getAsNoRule" parameterType="map" resultMap="AsNoRuleResult">
+    select COMPO_ID, RULE_CODE, RULE_NAME, NO_PREFIX, NO_AFTFIX, IS_FILL_ZERO, NO_INDEX_LEN, 
+	  IS_CONT, NUM_TOOL_ID, NO_FIELD, IS_INCL_ATOZ
+    from AS_NO_RULE
+    where COMPO_ID = #{compoId,jdbcType=VARCHAR}
+      and NO_FIELD = #{noField,jdbcType=VARCHAR}
+  </select>
+    <select id="getAsNoRuleByCompoId" parameterType="string" resultMap="AsNoRuleResult">
+    select COMPO_ID, RULE_CODE, RULE_NAME, NO_PREFIX, NO_AFTFIX, IS_FILL_ZERO, NO_INDEX_LEN, 
+	  IS_CONT, NUM_TOOL_ID, NO_FIELD, IS_INCL_ATOZ
+    from AS_NO_RULE
+    where COMPO_ID = #{compoId,jdbcType=VARCHAR}
+      and NUM_TOOL_ID is null
+  </select>
+<insert id="insert" parameterType="com.ufgov.gk.common.system.model.AsNoRule">
+    insert into AS_NO_RULE (COMPO_ID, RULE_CODE, RULE_NAME, NO_PREFIX, NO_INDEX_LEN, IS_CONT,
+      NUM_TOOL_ID, NO_FIELD, IS_INCL_ATOZ, IS_FILL_ZERO, NO_AFTFIX)
+    values (#{compoId,jdbcType=VARCHAR}, #{ruleCode,jdbcType=VARCHAR}, #{ruleName,jdbcType=VARCHAR}, #{noPrefix,jdbcType=VARCHAR},
+      #noIndexLen:DECIMAL#, #isCont:CHAR#, #{numToolId,jdbcType=VARCHAR}, #{noField,jdbcType=VARCHAR},
+      #isInclAtoz:CHAR#, #isFillZero:CHAR#, #{noAftfix,jdbcType=VARCHAR})
+  </insert>
+</mapper>

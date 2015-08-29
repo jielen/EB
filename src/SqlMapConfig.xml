@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMapConfig
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig>
+	<settings cacheModelsEnabled="false" enhancementEnabled="true"
+		lazyLoadingEnabled="false" errorTracingEnabled="true"
+		useStatementNamespaces="true" />
+
+
+	<sqlMap resource="config/wf_resultmap.xml" />
+	<sqlMap resource="config/wf_meta.xml" />
+	<sqlMap resource="config/wf_runtime.xml" />
+	<sqlMap resource="sqlmap/ElementCondition.xml" />
+	<sqlMap resource="sqlmap/BusiNumLim.xml" />
+	<sqlMap resource="sqlmap/BillElement.xml" />
+	<sqlMap resource="sqlmap/LangTrans.xml" />
+	<sqlMap resource="sqlmap/WfCommonEdit.xml" />
+	<sqlMap resource="sqlmap/WfCommonAudited.xml" />
+	<sqlMap resource="sqlmap/SearchCondition.xml" />
+	<sqlMap resource="sqlmap/UserPreferences.xml" />
+	<sqlMap resource="sqlmap/AsCompo.xml" />
+	<sqlMap resource="sqlmap/AsFile.xml" />
+	<sqlMap resource="sqlmap/Company.xml" />
+	<sqlMap resource="sqlmap/User.xml" />
+	<sqlMap resource="sqlmap/AsVal.xml" />
+	<sqlMap resource="sqlmap/AS_VALSET_SqlMap.xml" />
+	<sqlMap resource="sqlmap/AsOption.xml" />
+	<sqlMap resource="sqlmap/NumLimCompo.xml" />
+	<sqlMap resource="sqlmap/AsNoRule.xml" />
+	<sqlMap resource="sqlmap/AsNoRuleSeg.xml" />
+	<sqlMap resource="sqlmap/AsNumTool.xml" />
+	<sqlMap resource="sqlmap/AsNumToolNo.xml" />
+	<sqlMap resource="sqlmap/UserFunc.xml" />
+	<sqlMap resource="sqlmap/AsLog.xml" />
+	<sqlMap resource="sqlmap/AsCompoFunc.xml" />
+	<sqlMap resource="sqlmap/AS_MENU_SqlMap.xml" />
+	<sqlMap resource="sqlmap/AS_MENU_COMPO_SqlMap.xml" />
+	<sqlMap resource="sqlmap/WfTaskGranter.xml" />
+	<sqlMap resource="sqlmap/WfCommonDraft.xml" />
+	<sqlMap resource="sqlmap/GkBusinessLog.xml" />
+	<sqlMap resource="sqlmap/GkGetDataRuleCondi.xml"/> 
+	<sqlMap resource="sqlmap/ebay/EB_ACCOUNT_SqlMap.xml" />
+	<sqlMap resource="sqlmap/ebay/EB_APP_ACCOUNT_SqlMap.xml" />
+	<sqlMap resource="sqlmap/ebay/EB_APP_SERVER_SqlMap.xml" />
+	<sqlMap resource="sqlmap/ebay/EB_CANDIDATE_ITEM_SqlMap.xml" />
+	<sqlMap resource="sqlmap/ebay/EB_CANDIDATE_ITEM_REF_SqlMap.xml" />
+	<sqlMap resource="sqlmap/ebay/EB_CATEGORY_SqlMap.xml" />
+	<sqlMap resource="sqlmap/ebay/EB_CURRENCY_SqlMap.xml" />
+	<sqlMap resource="sqlmap/ebay/EB_ITEM_SqlMap.xml" />
+	<sqlMap resource="sqlmap/ebay/EB_RETRIEVAL_TASK_SITE_SqlMap.xml" />
+	<sqlMap resource="sqlmap/ebay/EB_RETRIEVAL_TASK_SqlMap.xml" />
+	<sqlMap resource="sqlmap/ebay/EB_SELLER_CATEGORY_SqlMap.xml" />
+	<sqlMap resource="sqlmap/ebay/EB_SELLER_GROUP_SqlMap.xml" />
+	<sqlMap resource="sqlmap/ebay/EB_SELLER_SITE_STORE_SqlMap.xml" />
+	<sqlMap resource="sqlmap/ebay/EB_SELLER_SqlMap.xml" />
+	<sqlMap resource="sqlmap/ebay/EB_SITE_SqlMap.xml" />
+	<sqlMap resource="sqlmap/ebay/EB_ITEM_CHECKED_SqlMap.xml" />
+</sqlMapConfig>

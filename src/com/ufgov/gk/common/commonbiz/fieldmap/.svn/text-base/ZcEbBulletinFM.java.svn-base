@@ -1,0 +1,24 @@
+package com.ufgov.gk.common.commonbiz.fieldmap;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class ZcEbBulletinFM {
+
+  public static Map fieldMap = new HashMap();
+  static {
+    fieldMap.putAll(ZcBaseBillFM.fieldMap);
+    fieldMap.put("BULLETIN_ID", "bulletinID");  
+    fieldMap.put("ZC_MAKE_CODE", "zcMakeCode"); 
+    fieldMap.put("ZC_MAKE_NAME", "zcMakeName"); 
+    fieldMap.put("BULLETIN_TYPE","bulletinType"); 
+    fieldMap.put("BULLETIN_STATUS", "bulletinStatus");  
+    fieldMap.put("INPUT_DATE",  "inputDate");
+    fieldMap.put("INPUTOR_NAME",  "inputorName");    
+    fieldMap.put("EFFECTIVE_DATE","effectiveDate");       
+    fieldMap.put("REMARK", "remark");
+    fieldMap.put("CO_CODE", "coCode");   
+    fieldMap.put("MOLD_NAME","moldName");
+    fieldMap.put("FILE_ID", "fileID");    
+  }
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Converted at: Sat Nov 10 23:21:05 CST 2012-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="NumLimCompo">
+	
+	<!--
+		Sorry, I can`t migrate	com.ufgov.gk.common.commonbiz.model.NumLimCompo
+		See console output for further details 
+	-->
+	
+	<resultMap id="numLimCompoResult" type="numLimCompo">
+		<result property="compoId" column="compo_id"/>
+		<result property="compoName" column="compo_name"/>
+		<result property="parentCompoId" column="parent_compo_id"/>
+		<result property="tableId" column="table_id"/>
+		<result property="billTypeCode" column="bill_type_code"/>
+		<result property="remark" column="remark"/>
+	</resultMap>
+	
+	<select id="getNumLimCompo" resultMap="numLimCompoResult">
+		<!--select * from ma_gk_num_lim_compo order by parent_compo_id||compo_id-->
+		SELECT * FROM ma_gk_num_lim_compo start WITH PARENT_COMPO_ID IS NULL connect by prior COMPO_ID = PARENT_COMPO_ID 
+	</select>
+
+	<select id="getNumLimCompoByCompoId" parameterType="String" resultMap="numLimCompoResult">
+		select * from ma_gk_num_lim_compo where compo_id=#{compo_id}
+	</select>
+
+	<select id="getNumLimCompoByParentCompoId" parameterType="String" resultMap="numLimCompoResult">
+		select * from ma_gk_num_lim_compo where parent_compo_id=#{parent_compo_id} order by compo_id
+	</select>
+	
+</mapper>

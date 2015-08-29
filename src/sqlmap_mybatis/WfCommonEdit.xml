@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Converted at: Sat Nov 10 23:21:15 CST 2012-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="WfCommonEdit">
+	<sql id="WFCommonEditProcDate">
+		<if test="startDate != null">AND
+			<if test="endDate != null">
+				
+					MASTER.PROC_DATE BETWEEN #startDate:DATE# AND
+					#endDate:DATE#
+				
+			</if>
+		</if>
+	</sql>
+	<sql id="wfCommonEdit">
+		<if test="status != null">AND
+			<if test="status == &quot;unSended&quot;">
+				a_status_code in ('4','0') and  master.process_inst_id in
+				(
+				   ( select wf_draft_id from	as_wf_draft where user_id=#{executor,jdbcType=VARCHAR} )
+				   union all 
+				 (select instance_id from
+				  v_wf_current_task_gk53 where executor =	#{executor,jdbcType=VARCHAR} )
+				 
+				)
+			</if>
+			<if test="status == &quot;sended&quot;">
+				master.process_inst_id in (select instance_id from
+				v_wf_action_history_gk53 where executor =
+				#{executor,jdbcType=VARCHAR} ) and a_status_code!='3' and
+				a_status_code!='5'
+			</if>
+			<if test="status == &quot;audited&quot;">
+				(a_status_code ='3' or a_status_code='5')
+			</if>
+			<if test="status == &quot;invalid&quot;">
+				is_valid = '0'
+			</if>
+			<if test="status == &quot;all&quot;">
+				is_valid != '9'
+			</if>
+		</if>
+	</sql>
+
+	<sql id="wfCommonEditStartAndEndDate">
+		
+			
+				MASTER.MONTH
+				&gt;=
+				#{startMonth}
+			
+			
+				MASTER.MONTH
+				&lt;=
+				#{endMonth}
+			
+		
+	</sql>
+	<sql id="wfCommonEditMonth">
+		
+			
+				MASTER.MONTH = #{month}
+			
+		
+	</sql>
+
+</mapper>

@@ -1,0 +1,2 @@
+java -Djava.ext.dirs=D:\1workroom\lib\ebay;D:\1workroom\lib\ebay\externalLib;. example.apicallsdemo.ApiCallsDemo
+

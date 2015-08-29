@@ -1,0 +1,43 @@
+/**   
+* @(#) project: ZFCG
+* @(#) file: ZcEbGuiDangBillFM.java
+* 
+* Copyright 2011 UFGOV, Inc. All rights reserved.
+* UFGOV PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+* 
+*/
+package com.ufgov.gk.common.commonbiz.fieldmap;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+* @ClassName: ZcEbGuiDangBillFM
+* @Description: TODO(这里用一句话描述这个类的作用)
+* @date: 2011-5-12 下午08:00:49
+* @version: V1.0 
+* @since: 1.0
+* @author: fanpl
+* @modify: 
+*/
+public class ZcEbGuiDangBillFM {
+  public static Map fieldMap = new HashMap();
+  static {
+    fieldMap.putAll(ZcBaseBillFM.fieldMap);
+    fieldMap.put("PROJ_CODE", "projCode");
+    fieldMap.put("PROJ_NAME", "projName");
+    fieldMap.put("GUIDANG_ID", "guiDangId");
+    fieldMap.put("ZC_CO_NAME", "zcCoName");
+    fieldMap.put("ZC_CO_CODE", "zcCoCode");
+    fieldMap.put("SHEET_ID", "sheetId");
+    fieldMap.put("ZC_MONEY_BI_SUM", "zcMoneyBiSum");
+    fieldMap.put("ZC_PIFU_CGFS", "zcPifuCgfs");
+    fieldMap.put("GUI_DANG_TIME", "guiDangTime");
+    fieldMap.put("JINGBAN_ID", "jingBanId");
+    fieldMap.put("JINGBAN_ORG_CODE", "jingBanOrgCode");
+    fieldMap.put("JINGBAN_NAME", "jingBanName");
+    fieldMap.put("ND", "nd");
+    fieldMap.put("STATUS", "status");
+    fieldMap.put("IS_GOON_AUDIT", "isGoonAudit");
+  }
+}

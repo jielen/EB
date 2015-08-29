@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Converted at: Sat Nov 10 23:25:44 CST 2012-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="GkGetdataRule">
+	<resultMap id="gkGetdataRuleResult" type="com.ufgov.gk.common.console.model.GkGetdataRule">
+		<result property="ruleId" column="RULE_ID" jdbcType="VARCHAR"/>
+  		<result property="ruleName" column="RULE_NAME" jdbcType="VARCHAR"/>
+  		<result property="ruleResc" column="RULE_DESC" jdbcType="VARCHAR"/>
+  		<result property="ruleSqlOracle" column="RULE_SQL_ORACLE" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	<select id="getGkGetdataRule" resultMap="gkGetdataRuleResult">
+		select * from GK_GETDATA_RULE
+	</select>
+	<update id="updateGkGetdataRule" parameterType="com.ufgov.gk.common.console.model.GkGetdataRule">
+		update GK_GETDATA_RULE
+		set RULE_SQL_ORACLE=#{ruleSqlOracle,jdbcType=VARCHAR}
+		where RULE_ID=#{ruleId,jdbcType=VARCHAR}
+	</update>
+	
+	<select id="getGkGetDataRuleById" parameterType="String" resultMap="gkGetdataRuleResult">
+		select * from GK_GETDATA_RULE where RULE_ID=#{ruleId,jdbcType=VARCHAR}
+	</select>	
+</mapper>

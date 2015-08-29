@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Converted at: Sat Nov 10 23:25:44 CST 2012-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="GkCompoNewToOld">
+	<resultMap id="gkCompoNewToOldResult" type="com.ufgov.gk.common.console.model.GkCompoNewToOld">
+		<result property="newCompoId" column="NEW_COMPO_ID" jdbcType="VARCHAR"/>
+  		<result property="newCompoName" column="NEW_COMPO_NAME" jdbcType="VARCHAR"/>
+  		<result property="oldCompoId" column="OLD_COMPO_ID" jdbcType="VARCHAR"/>
+  		<result property="oldCompoName" column="OLD_COMPO_NAME" jdbcType="VARCHAR"/>
+  		<result property="toType" column="TO_TYPE" jdbcType="VARCHAR"/>
+	</resultMap>
+	<select id="getGkCompoNewToOld" resultMap="gkCompoNewToOldResult">
+		select * from GK_COMPO_NEW_TO_OLD
+	</select>
+	
+</mapper>

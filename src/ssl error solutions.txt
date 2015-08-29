@@ -1,0 +1,3 @@
+把sunjce_provider.jar 放到JDKclasspath路径下
+
+http://blog.csdn.net/huang9012/article/details/6629775

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="ebAppAccount" >
+
+	<typeAlias alias="ebAppAccount" type="com.ufgov.gk.common.eb.model.EbAppAccount" />
+	
+	<resultMap id="ebayAccountResult" class="com.ufgov.gk.common.eb.model.EbAppAccount" >
+		<result column="EBAY_ACCOUNT" property="ebayAccount" jdbcType="VARCHAR"/>
+		<result column="APP_ACCOUNT" property="appAccount" jdbcType="VARCHAR"/>
+		<result column="APP_PASSWORD" property="appPassword" jdbcType="VARCHAR"/>
+		<result column="PRODUCTION_DEVID" property="productionDevId" jdbcType="VARCHAR"/>
+		<result column="PRODUCTION_APPID" property="productionAppId" jdbcType="VARCHAR"/>
+		<result column="PRODUCTION_CERTID" property="productionCertId" jdbcType="VARCHAR"/>
+		<result column="PRODUCTION_TOKEN" property="productionToken" jdbcType="VARCHAR"/>
+		<result column="SANDBOX_DEVID" property="sandboxDevId" jdbcType="VARCHAR"/>
+		<result column="SANDBOX_APPID" property="sandboxAppId" jdbcType="VARCHAR"/>
+		<result column="SANDBOX_CERTID" property="sandboxCertId" jdbcType="VARCHAR"/>
+		<result column="SANDBOX_TOKEN" property="sandboxToken" jdbcType="VARCHAR"/>
+		<result column="CALL_LIMITATION" property="callLimitation" jdbcType="integer"/>
+		<result column="TOKEN_EXPIRE_TIME" property="tokenExpireTime" jdbcType="DATE"/>
+	</resultMap>
+	
+	<select id="getEbAppAccount" resultMap="ebayAccountResult">
+		select * from EB_APP_ACCOUNT 
+	</select>
+	<select id="getEbAppAccountById" resultMap="string">
+		select * from EB_APP_ACCOUNT 
+		where APP_ACCOUNT= #appAccount:VARCHAR#
+	</select>
+</sqlMap>

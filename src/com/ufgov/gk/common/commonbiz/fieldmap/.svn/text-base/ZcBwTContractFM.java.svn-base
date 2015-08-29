@@ -1,0 +1,18 @@
+package com.ufgov.gk.common.commonbiz.fieldmap;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class ZcBwTContractFM {
+
+  public static Map fieldMap = new HashMap();
+  static {
+    fieldMap.putAll(ZcBaseBillFM.fieldMap);
+    fieldMap.put("PC_NUM", "pcNum");  
+    fieldMap.put("C_NAME", "pcName"); 
+    fieldMap.put("C_MODE_SK", "modeSk"); 
+    fieldMap.put("C_MODE_OG","modeOg");     
+    fieldMap.put("D_DATE_INK","dateInk");
+    fieldMap.put("CO_CODE","coCode");
+  }
+}

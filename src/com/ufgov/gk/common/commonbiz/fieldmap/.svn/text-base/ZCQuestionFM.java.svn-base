@@ -1,0 +1,33 @@
+package com.ufgov.gk.common.commonbiz.fieldmap;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import com.ufgov.gk.common.zc.model.ZCQuestion;
+
+public class ZCQuestionFM {
+	public static Map fieldMap = new HashMap();
+	static {
+		ZCQuestion z = new ZCQuestion();
+		fieldMap.putAll(ZcBaseBillFM.fieldMap);
+		fieldMap.put("STATE", "state");
+		fieldMap.put("ID", "sn");
+		fieldMap.put("QUES_ID", "quesId");
+		fieldMap.put("PERSONORG", "personOrg");
+		fieldMap.put("PERSON", "personName");
+		fieldMap.put("PERSON_TEL", "personTel");
+		fieldMap.put("CREATEDATE", "createDate");
+		fieldMap.put("CLIENT_SUBMIT_ZYDATE", "clientSubmitZYDate");
+		fieldMap.put("CLIENT_REASON", "clientReason");
+		fieldMap.put("CLIENT_FILENAME", "clientFileName");
+		fieldMap.put("JB_PERSON", "jbPerson");
+		fieldMap.put("JB_REASON", "jbReason");
+		fieldMap.put("JB_FILENAME", "jbFileName");
+		fieldMap.put("JB_DODATE", "jbDoDate");
+		fieldMap.put("STATE", "state");
+		fieldMap.put("TEMP", "temp");
+		fieldMap.put("TEMP1", "temp");
+		fieldMap.put("TEMP2", "temp");
+		fieldMap.put("TEMP3", "temp");
+	}
+}

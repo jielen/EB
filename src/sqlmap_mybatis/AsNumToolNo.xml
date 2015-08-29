@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Converted at: Sat Nov 10 23:20:55 CST 2012-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AsNumToolNo">
+	
+	<resultMap id="AsNumToolNoResult" type="com.ufgov.gk.common.system.model.AsNumToolNo">
+		<result property="altPrefix" column="ALT_PREFIX" jdbcType="VARCHAR"/>
+		<result property="fixPrefix" column="FIX_PREFIX" jdbcType="VARCHAR"/>
+		<result property="numToolId" column="NUM_TOOL_ID" jdbcType="VARCHAR"/>
+		<result property="numNo" column="NUM_NO" jdbcType="DECIMAL"/>
+	</resultMap>
+	
+	<select id="getAsNumToolNo" parameterType="map" resultMap="AsNumToolNoResult">
+		select ALT_PREFIX, FIX_PREFIX, NUM_TOOL_ID, NUM_NO from AS_NUM_TOOL_NO 
+		where NUM_TOOL_ID = #{numToolId,jdbcType=VARCHAR}
+		<if test="altPrefix != null">AND 
+			ALT_PREFIX = #{altPrefix,jdbcType=VARCHAR} 
+		</if>
+		<if test="fixPrefix != null">AND 
+			FIX_PREFIX = #{fixPrefix,jdbcType=VARCHAR} 
+		</if> 
+	</select>
+	
+	<insert id="insertAsNumToolNo" parameterType="com.ufgov.gk.common.system.model.AsNumToolNo"> 
+		insert into AS_NUM_TOOL_NO
+		(ALT_PREFIX, FIX_PREFIX, NUM_TOOL_ID, NUM_NO) values 
+		(#{altPrefix,jdbcType=VARCHAR}, #{fixPrefix,jdbcType=VARCHAR}, #{numToolId,jdbcType=VARCHAR}, #numNo:DECIMAL#) 
+	</insert>
+	
+	<update id="incNumNo" parameterType="map"> 
+		update AS_NUM_TOOL_NO set NUM_NO = NUM_NO + 1 where NUM_TOOL_ID = #{numToolId,jdbcType=VARCHAR}
+		<if test="altPrefix != null">AND 
+			ALT_PREFIX = #{altPrefix,jdbcType=VARCHAR} 
+		</if>
+		<if test="fixPrefix != null">AND 
+			FIX_PREFIX = #{fixPrefix,jdbcType=VARCHAR} 
+		</if> 
+	</update>
+	
+	<update id="updateNumNo" parameterType="map"> 
+		update AS_NUM_TOOL_NO set NUM_NO = #numNo:DECIMAL# where NUM_TOOL_ID = #{numToolId,jdbcType=VARCHAR}
+		<if test="altPrefix != null">AND 
+			ALT_PREFIX = #{altPrefix,jdbcType=VARCHAR} 
+		</if>
+		<if test="fixPrefix != null">AND 
+			FIX_PREFIX = #{fixPrefix,jdbcType=VARCHAR} 
+		</if> 
+	</update>
+	
+	<update id="updateAsNo" parameterType="map"> 
+		update as_no set cur_index = cur_index + 1 where compo_id =#{compoId,jdbcType=VARCHAR}  and fix_segs = #{fixSegs,jdbcType=VARCHAR} 
+	</update>
+	<insert id="insertAsNo" parameterType="map"> 
+	 	insert into as_no(compo_id,fix_segs,cur_index) values(#{compoId,jdbcType=VARCHAR} , #{fixSegs,jdbcType=VARCHAR}, 1)
+	</insert>
+	
+	<select id="getAsNoCurIndex" parameterType="map" resultType="long">
+       	select CUR_INDEX from AS_NO where COMPO_ID = #{compoId,jdbcType=VARCHAR} and FIX_SEGS = #{fixSegs,jdbcType=VARCHAR}
+	</select>
+	
+</mapper>

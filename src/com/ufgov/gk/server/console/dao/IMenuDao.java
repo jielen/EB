@@ -1,0 +1,18 @@
+/**
+ *
+ * Copyright (C) 2009 UFGOV
+ * 
+ * 修订历史记录：
+ * 
+ * Revision	1.0	 2009-4-8  hpj_inter  创建。
+ * 
+ */
+
+package com.ufgov.gk.server.console.dao;
+
+import java.util.List;
+
+public interface IMenuDao {
+
+	List getMenuList(String systemCode, String roleCode);
+}

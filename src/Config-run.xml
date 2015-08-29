@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ebay_dev>
+	<UsingAccount>jielench</UsingAccount>
+	<Configurations>
+		<jielench>
+		  <!-- soap server, for production, use: https://api.ebay.com/wsapi -->
+		  <ServerUrl>https://api.ebay.com/wsapi</ServerUrl>
+		  <!-- eps server, for production, use: https://api.ebay.com/ws/api.dll -->
+		  <EpsServerUrl>https://api.ebay.com/ws/api.dll</EpsServerUrl>
+		  <SignInUrl>https://signin.ebay.com/ws/eBayISAPI.dll?SignIn</SignInUrl>
+		
+		  <!--LogFilePath>SanityTest.log</LogFilePath-->
+		
+		  <ApiCredential>
+		    <Developer>07224908-0089-4133-a885-6178bc105ca3</Developer>
+		    <Application>jielench-6926-49cc-b5c2-86070081ec61</Application>
+		    <Certificate>4dde779d-3762-4f5c-9a9d-b49d49210be2</Certificate>
+		  </ApiCredential>
+		
+		  <eBayCredential>
+		    <!-- Token is used for both API server and EPS server -->
+		    <Token>AgAAAA**AQAAAA**aAAAAA**Zh/cTw**nY+sHZ2PrBmdj6wVnY+sEZ2PrA2dj6wNmYugAJiEow+dj6x9nY+seQ**V9MAAA**AAMAAA**0EEqLDNVSPi5wFH+EG8XB3TuI89TVd1vhqQ6/0ALKBI28Ag3QheOEO6ol2Fld03fRZC7Ts8KQ/ytup9jZVphUluVpH0tEiFTmKraCzT2lB9Odu1Xv9AT+eQbfUP+TWS2u6GNhjuz07bwzLD/hdd3a7WJ4Dsl7rfdApdwe5Ae2zhDM8ia9fLorTcRnZanwAweWkxf4C1YdPrcRvXvXw07LzOJAsb/6VlLR04JkQNpevQPE0pe4NFYdFPOC/u5ui3rQAf4qJ0t2T44m1hzdHQkRFxU251csm7wWMCuwTLyqajlAWQ0opgdvZbRmdP1ClPwqU6z2WaZRxM16lRmM4H9Cjzhl8sDru/vid97xLxmjG2UA8HYVCUuEWe7CVWjKkLfSV2hElykRb8t9/AwTpr9+FTtmw01EqDDtl7ojuDSZQvzUHPfdD6jZYJRV83oNIzSq9mBwiDzldvA0DH5yCUuhFb3A2IuEL3jgSGH13Sw6gJ9WDmX7/xIWeHXyHWhayrqzrmu+b33ZYbUf05F69E6P8Ssa0HrXiM0xoD5ct0QL61D3L45x4HU+6alk/8095/9SvZg8fDK5GJhPlVGHeqCFrh+ZUapA23APZYpJbNndu9ARSHhxd+bALJYB1CCLbUn8bSVt0yZOgDWsciFyewbAW8u3BONfIHi2DnH52qQAdWYNwykKHpSErgEDQ7PAMp7rI3WqqqS6XtafowwsbqqRPLEAGJULoMv0Pku2Kxqd/0R3AgmlqBJCxtmItGazrWl</Token>
+		  </eBayCredential>
+		  <RuName></RuName>
+		  
+		  <!-- set this if you access eBay API server behind a proxy -->
+		  <Proxy>
+		   <Host></Host>
+		   <Port></Port>
+		   <!-- set username/password if necessary -->
+		   <Username></Username>
+		   <Password></Password>
+		  </Proxy>
+		</jielench>
+	</Configurations>
+</ebay_dev>

@@ -1,0 +1,44 @@
+package com.ufgov.gk.server.console.service.impl;
+
+import java.util.List;
+
+import com.ufgov.gk.server.console.dao.IMaRoleNumLimDao;
+import com.ufgov.gk.server.console.service.IMaRoleNumLimService;
+import com.ufgov.gk.common.console.model.MaRoleNumLim;
+
+public class MaRoleNumLimService implements IMaRoleNumLimService {
+	
+	IMaRoleNumLimDao maRoleNumLimDao;
+	
+	public IMaRoleNumLimDao getMaRoleNumLimDao() {
+		return maRoleNumLimDao;
+	}
+
+	public void setMaRoleNumLimDao(
+			IMaRoleNumLimDao maRoleNumLimDao) {
+		this.maRoleNumLimDao = maRoleNumLimDao;
+	}
+
+	public int deleteMaRoleNumLim(String roleId, String compoId, String funcId, String ctrlField) {
+		return maRoleNumLimDao.deleteMaRoleNumLim(roleId, compoId, funcId, ctrlField);
+	}
+
+	public List getMaRoleNumLim(String roleId, String compoId, String funcId, String ctrlField) {
+		return maRoleNumLimDao.getMaRoleNumLim(roleId, compoId, funcId, ctrlField);
+	}
+
+	public MaRoleNumLim insertMaRoleNumLim(MaRoleNumLim maRoleNumLim) {
+		return maRoleNumLimDao.insertMaRoleNumLim(maRoleNumLim);
+	}
+
+	public void insertMaRoleNumLimList(List maRoleNumLimList) {
+		maRoleNumLimDao.insertMaRoleNumLimList(maRoleNumLimList);
+	}
+
+	public void updateMaRoleNumLimList(String roleId, String compoId, String funcId, 
+			String ctrlField, List maRoleNumLimList) {
+		maRoleNumLimDao.deleteMaRoleNumLim(roleId, compoId, funcId, ctrlField);
+		maRoleNumLimDao.insertMaRoleNumLimList(maRoleNumLimList);
+	}
+
+}

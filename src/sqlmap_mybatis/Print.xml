@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Converted at: Sat Nov 10 23:21:08 CST 2012-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Print">
+	<!--
+		Sorry, I can`t migrate	PrintTemplate
+		See console output for further details 
+	-->
+	<!--
+		Sorry, I can`t migrate	PrintSetting
+		See console output for further details 
+	-->
+
+	<!--
+		Sorry, I can`t migrate	RareWord
+		See console output for further details 
+	-->
+
+	<resultMap id="printTemplateResult" type="PrintTemplate">
+		<result property="compoId" column="prn_compo_id"/>
+		<result property="templateCode" column="prn_tpl_jpcode"/>
+		<result property="templateName" column="prn_tpl_name"/>
+		<result property="coCode" column="co_code"/>
+		<result property="templateType" column="prn_tpl_reporttype"/>
+		<result property="fixRowCount" column="prn_tpl_fixrowcount"/>
+	</resultMap>
+
+	<resultMap id="printSettingResult" type="PrintSetting">
+		<result property="userId" column="user_id"/>
+		<result property="compoId" column="compo_id"/>
+		<result property="pageType" column="page_type"/>
+		<result property="templateCode" column="tpl_code"/>
+		<result property="exportType" column="export_type"/>
+		<result property="preview" column="is_preview"/>
+		<result property="showPrintDialog" column="show_print_dialog"/>
+	</resultMap>
+	
+	<resultMap id="rareWordResult" type="RareWord">
+		<result property="id" column="id"/>
+		<result property="word" column="word"/>
+	</resultMap>
+	
+	<select id="getRareWord" parameterType="map" resultMap="rareWordResult">
+		select * from gk_print_rare_word
+	</select>
+
+	<select id="getPrintTemplate" parameterType="map" resultMap="printTemplateResult">
+		select * from as_print_jaspertemp where prn_compo_id =
+		#{compoId,jdbcType=VARCHAR} and co_code=#{coCode,jdbcType=VARCHAR} and
+		(is_report_view is null or is_report_view='n' or is_report_view
+		='N')
+	</select>
+
+	<select id="getPrintTemplateByCode" parameterType="map" resultMap="printTemplateResult">
+		select * from as_print_jaspertemp where prn_compo_id =
+		#{compoId,jdbcType=VARCHAR} and co_code=#{coCode,jdbcType=VARCHAR} and
+		prn_tpl_jpcode=#{templateCode,jdbcType=VARCHAR}
+	</select>
+
+	<select id="getPrintSetting" parameterType="map" resultMap="printSettingResult">
+		select * from as_print_jasperprintset where compo_id =
+		#{compoId,jdbcType=VARCHAR} and user_id=#{userId,jdbcType=VARCHAR} and
+		page_type=#{pageType,jdbcType=VARCHAR}
+	</select>
+
+	<insert id="insertPrintSetting" parameterType="PrintSetting">
+		insert into as_print_jasperprintset(user_id, compo_id,page_type,
+		tpl_code, export_type, is_preview,show_print_dialog) values
+		(#{userId,jdbcType=VARCHAR},#{compoId,jdbcType=VARCHAR}, #{pageType,jdbcType=VARCHAR},
+		#{templateCode,jdbcType=VARCHAR}, #{exportType,jdbcType=VARCHAR}, #{preview,jdbcType=VARCHAR},#{showPrintDialog,jdbcType=VARCHAR})
+	</insert>
+
+	<delete id="deletePrintSetting" parameterType="map">
+		delete from as_print_jasperprintset where
+		user_id=#{userId,jdbcType=VARCHAR} and compo_id=#{compoId,jdbcType=VARCHAR} and
+		page_type=#{pageType,jdbcType=VARCHAR}
+	</delete>
+
+</mapper>

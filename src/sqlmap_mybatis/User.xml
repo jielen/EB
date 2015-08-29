@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Converted at: Sat Nov 10 23:21:10 CST 2012-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="User">
+	<!--
+		Sorry, I can`t migrate	asEmp
+		See console output for further details 
+	-->
+	<!--
+		Sorry, I can`t migrate	asUserGroup
+		See console output for further details 
+	-->
+	<!--
+		Sorry, I can`t migrate	asEmpPosition
+		See console output for further details 
+	-->
+	
+	<resultMap id="userResult" type="com.ufgov.gk.common.system.model.User">
+		<result property="userId" column="user_id"/>
+		<result property="userName" column="user_name"/>
+		<result property="password" column="passwd"/>
+	</resultMap>
+		
+	<resultMap id="asEmpResult" type="asEmp">
+		<result property="empCode" column="EMP_CODE"/>
+		<result property="empName" column="EMP_NAME"/>
+		<result property="userId" column="USER_ID"/>
+        <result property="caSerial" column="CA_SERIAL"/>
+		<result property="isLogin" column="IS_LOGIN"/>
+	</resultMap>
+	
+	<resultMap id="asEmpPositionResult" type="asEmpPosition">
+		<result property="empCode" column="EMP_CODE"/>
+		<result property="posiCode" column="POSI_CODE"/>
+		<result property="orgCode" column="ORG_CODE"/>
+		<result property="coCode" column="CO_CODE"/>
+		<result property="empPosiId" column="EMP_POSI_ID"/>
+		<result property="nd" column="ND"/>
+	</resultMap>
+ 
+	
+	<resultMap id="asUserGroupResult" type="com.ufgov.gk.common.console.model.AsUserGroup">
+		<result property="userId" column="user_id"/>
+		<result property="groupId" column="group_id"/>
+	</resultMap>
+
+
+	<select id="getUserById" parameterType="string" resultMap="userResult">
+		Select user_id,user_name,passwd From as_user t Where
+		user_id=#{userId,jdbcType=VARCHAR}
+	</select>
+	<select id="getUserByIdByMap" parameterType="map" resultMap="userResult">
+		Select user_id,user_name,passwd From as_user t Where
+		user_id=#{userId,jdbcType=VARCHAR}
+	</select>
+	<insert id="insertUser" parameterType="com.ufgov.gk.common.system.model.User">
+		INSERT INTO AS_USER
+		  (user_id,user_name,passwd)
+		VALUES
+		  (#{userId,jdbcType=VARCHAR},#{userName,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR})
+	</insert>
+ 
+ 
+ 	<delete id="deleteUserById" parameterType="string">
+		delete From as_user t Where user_id=#{userId,jdbcType=VARCHAR}
+	</delete>
+	<select id="getAsEmpByUserId" parameterType="string" resultMap="asEmpResult">
+		Select t.* From as_emp t Where
+		user_id=#{userId,jdbcType=VARCHAR}
+	</select>
+	<insert id="insertAsEmp" parameterType="asEmp">
+		INSERT INTO AS_EMP
+		  (EMP_CODE,EMP_NAME,USER_ID,IS_LOGIN,CA_SERIAL)
+		VALUES
+		  (#{empCode,jdbcType=VARCHAR},#{empName,jdbcType=VARCHAR},#{userId,jdbcType=VARCHAR},'N',#{caSerial,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertAsEmpForDataExchange" parameterType="asEmp">
+		INSERT INTO AS_EMP
+		  (EMP_CODE,EMP_NAME,USER_ID,IS_LOGIN,CA_SERIAL)
+		VALUES
+		  (#{empCode,jdbcType=VARCHAR},#{empName,jdbcType=VARCHAR},#{userId,jdbcType=VARCHAR},#{isLogin},#{caSerial,jdbcType=VARCHAR})
+	</insert>
+
+	<insert id="insertAsEmpLogin" parameterType="asEmp">
+		INSERT INTO AS_EMP
+		  (EMP_CODE,EMP_NAME,USER_ID,IS_LOGIN,CA_SERIAL)
+		VALUES
+		  (#{empCode,jdbcType=VARCHAR},#{empName,jdbcType=VARCHAR},#{userId,jdbcType=VARCHAR},#{isLogin,jdbcType=VARCHAR},#{caSerial,jdbcType=VARCHAR})
+	</insert>
+
+	<update id="updateAsEmpLogin" parameterType="asEmp">
+		UPDATE AS_EMP
+		  SET IS_LOGIN=#{isLogin,jdbcType=VARCHAR}
+		WHERE EMP_CODE=#{empCode,jdbcType=VARCHAR}
+ 	
+	</update>	
+	<delete id="deleteAsEmpByUserId" parameterType="string">
+		delete From as_emp t Where user_id=#{userId,jdbcType=VARCHAR}
+	</delete>
+
+	<select id="getAsEmpPosiByEmpCode" parameterType="map" resultMap="asEmpPositionResult">
+ 
+		select EMP_CODE, POSI_CODE, ORG_CODE, CO_CODE, EMP_POSI_ID, ND
+  	from AS_EMP_POSITION 
+	where 1=1
+	<if test="EMP_CODE != null">AND
+	EMP_CODE = #{EMP_CODE,jdbcType=VARCHAR} 
+	</if>
+	<if test="POSI_CODE != null">AND
+	POSI_CODE = #{POSI_CODE,jdbcType=VARCHAR} 
+	</if>
+	<if test="CO_CODE != null">AND
+	CO_CODE = #{CO_CODE,jdbcType=VARCHAR} 
+	</if>
+	<if test="ND != null">
+		
+		 ND = #{ND,jdbcType=VARCHAR}
+		
+	</if>
+	</select>
+	<insert id="insertAsEmpPosition" parameterType="asEmpPosition">
+		INSERT INTO AS_EMP_POSITION
+		  (EMP_CODE,POSI_CODE,ORG_CODE,CO_CODE,EMP_POSI_ID,ND)
+		VALUES
+		  (#{empCode,jdbcType=VARCHAR},#{posiCode,jdbcType=VARCHAR},#{orgCode,jdbcType=VARCHAR},#{coCode,jdbcType=VARCHAR},#{empPosiId,jdbcType=VARCHAR},#{nd,jdbcType=VARCHAR})
+	</insert>
+ 
+ 
+	<delete id="deleteAsEmpPosiByEmpCode" parameterType="map">
+  
+		delete from AS_EMP_POSITION where EMP_CODE = #{EMP_CODE,jdbcType=VARCHAR} and ND = #{ND,jdbcType=VARCHAR}
+	</delete>
+
+	
+	<select id="getAsUserGroupByUserId" parameterType="string" resultMap="asUserGroupResult">
+		Select USER_ID, GROUP_ID From as_user_group t Where
+		user_id=#{userId,jdbcType=VARCHAR}
+	</select>
+	<insert id="insertAsUserGroup" parameterType="asUserGroup">
+		INSERT INTO AS_USER_GROUP
+		  (GROUP_ID,USER_ID)
+		VALUES
+		  (#{groupId,jdbcType=VARCHAR},#{userId,jdbcType=VARCHAR})
+	</insert>
+ 
+	<delete id="deleteAsUserGroupByUserId" parameterType="string">
+		delete From as_user_group t Where
+ user_id=#{userId,jdbcType=VARCHAR}
+	</delete>
+
+
+
+    <select id="getEmpByCaSerial" parameterType="asEmp" resultMap="asEmpResult">
+        select * from as_emp e where e.ca_serial=#{caSerial,jdbcType=VARCHAR} 
+    </select>
+    
+    <update id="updateEmpCaSerial" parameterType="asEmp">
+        update as_emp set ca_serial=#{caSerial,jdbcType=VARCHAR} where emp_code=#{empCode,jdbcType=VARCHAR}
+    </update>
+</mapper>

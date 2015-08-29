@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Converted at: Sat Nov 10 23:25:06 CST 2012-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AsOrg">
+
+	<!--
+		Sorry, I can`t migrate	asOrg
+		See console output for further details 
+	-->
+
+	<resultMap id="asOrgResult" type="asOrg">
+		<result property="nd" column="nd"/>
+		<result property="code" column="code"/>
+		<result property="name" column="name"/>
+		<result property="parentCode" column="p_code"/>
+		<result property="coCode" column="co_code"/>
+		<result property="orgCode" column="org_code"/>
+		<result property="posiCode" column="posi_code"/>
+		<result property="empCode" column="emp_code"/>
+		<result property="userId" column="user_id"/>
+		<result property="normImg" column="norm_img"/>
+	</resultMap>
+	
+	<resultMap id="asOrgResultSim" type="asOrg">
+		<result property="nd" column="nd"/>
+		<result property="coCode" column="co_code"/>
+		<result property="orgCode" column="org_code"/>
+		<result property="name" column="org_name"/>
+	</resultMap>
+
+	<select id="getAsOrg" parameterType="int" resultMap="asOrgResult">
+		select v.* from v_as_organization_new_tree v, ma_company c
+		where v.nd=#{nd} and c.nd=#{nd} and c.co_type_code! = '02' and v.co_code=c.co_code
+		order by nvl(v.co_code, -1), nvl(org_code, -1), nvl(posi_code, -1), nvl(emp_code, -1)
+	</select>
+    <select id="getChildAsOrg" parameterType="Map" resultMap="asOrgResult">
+		select * from v_as_organization_new_tree
+		where nd=#{nd}
+		<if test="coCode != null">AND
+          co_code = #{coCode}
+		</if>
+	</select>
+	
+	<select id="getAsOrgByCocode" parameterType="map" resultMap="asOrgResultSim">
+		select t.nd, t.co_code, t.org_code, t.org_name
+		  from as_org t
+		 where t.nd = #{nd}
+		   and t.co_code = #{cocode}
+	</select>
+
+</mapper>
